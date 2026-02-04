@@ -30,4 +30,3 @@ Following are the task advancements for week 1 assigned tasks.
 ![Bashrc Aliases](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/bash-ss.png)
 
 ---
-
