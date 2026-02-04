@@ -1,0 +1,17 @@
+[
+  {
+    "file": "a.txt",
+    "executionTimeMs": 25.59,
+    "memoryMB": 4.42
+  },
+  {
+    "file": "b.txt",
+    "executionTimeMs": 3.98,
+    "memoryMB": 4.39
+  },
+  {
+    "file": "c.txt",
+    "executionTimeMs": 4.05,
+    "memoryMB": 4.39
+  }
+]
