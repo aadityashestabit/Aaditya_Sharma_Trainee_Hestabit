@@ -1,0 +1,2 @@
+Node js is fast 
+Concurrency is great
