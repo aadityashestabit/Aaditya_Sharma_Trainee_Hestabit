@@ -33,8 +33,7 @@ function getDiskSpace(){
 
 function getOpenPorts(){
   try{
-    const ports = execSync("ss -tuln | awk 'NR>1 {print $5}' | cut -d: -f2 | sort | uniq | head -6")
-    .toString().trim();
+    const ports = execSync("ss -tuln | awk 'NR>1 {print $5}' | cut -d: -f2 | sort | uniq | head -6").toString().trim();
     if(ports){
       return ports;
     }
