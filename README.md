@@ -7,7 +7,7 @@ Following are the task advancements for week 1 assigned tasks.
 
 ---
 
-## Day 1: System Reverse Engineering & Node.js Basics
+## Day 1 : System Reverse Engineering & Node.js Basics
 
 ---
 
