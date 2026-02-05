@@ -6,3 +6,4 @@ console.log('Commit 5 : Introduce bug'
 console.log('Commit 6');
 console.log('Commit 7');
 console.log('Commit 8');
+console.log('Commit 9');
