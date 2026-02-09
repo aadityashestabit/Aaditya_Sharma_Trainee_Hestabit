@@ -1,0 +1,28 @@
+echo "Running pre-commit checks"
+
+# Block .env
+if git ls-files --error-unmatch .env >/dev/null 2>&1; then
+  echo "FAIL: .env file is tracked by Git. Remove it!"
+  exit 1
+fi
+
+echo "Checking code format..."
+
+FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.js$')
+
+if [ -n "$FILES" ]; then
+  npx prettier --check $FILES || {
+    echo "ERROR: JS is not formatted."
+    exit 1
+  }
+else
+  echo "No JS files to format."
+fi
+
+#  Block logs
+if git ls-files --error-unmatch logs/*.log >/dev/null 2>&1; then
+  echo "ERROR: Log files are being tracked. Add 'logs/' to .gitignore."
+  exit 1
+fi
+
+echo "All checks passed. Committing code..."
