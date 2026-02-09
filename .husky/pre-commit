@@ -8,7 +8,7 @@ fi
 
 echo "Checking code format..."
 
-FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.js$')
+FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.js$' || true)
 
 if [ -n "$FILES" ]; then
   npx prettier --check $FILES || {
