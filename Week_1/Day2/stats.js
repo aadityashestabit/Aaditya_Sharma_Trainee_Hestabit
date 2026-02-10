@@ -1,7 +1,7 @@
 const fs = require("fs/promises");
 const path = require("path");
 
-// Metrics 
+// Metrics
 function getExecutionTime(start) {
   const end = process.hrtime.bigint();
   return Number(end - start) / 1_000_000; // ms
@@ -36,16 +36,13 @@ async function processFile(flag, filePath, unique) {
   if (flag === "--chars") result = countChars(data);
 
   console.log(
-    `${path.basename(filePath)} → ${flag.replace("--", "")}: ${result}`
+    `${path.basename(filePath)} → ${flag.replace("--", "")}: ${result}`,
   );
 
-// Remove duplicate lines
+  // Remove duplicate lines
   if (unique) {
     const uniqueLines = [...new Set(data.split("\n"))];
-    const outPath = path.join(
-      "output",
-      `unique-${path.basename(filePath)}`
-    );
+    const outPath = path.join("output", `unique-${path.basename(filePath)}`);
     await fs.writeFile(outPath, uniqueLines.join("\n"));
   }
 
@@ -67,14 +64,17 @@ async function main() {
     const flag = args[i];
     const file = args[i + 1];
 
-    if ((flag === "--lines" || flag === "--words" || flag === "--chars") &&file) {
+    if (
+      (flag === "--lines" || flag === "--words" || flag === "--chars") &&
+      file
+    ) {
       tasks.push(processFile(flag, file, unique));
       i++;
     }
   }
 
-  // Concurrent processing 
-  const results = await Promise.all(tasks);
+  // Concurrent processing
+  const results = await Promise.allSettled(tasks);
 
   // Write performance log
   const logFile = `logs/performance-${Date.now()}.json`;
@@ -84,5 +84,3 @@ async function main() {
 }
 
 main().catch(console.error);
-
-
