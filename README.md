@@ -8,6 +8,7 @@ Following are the task advancements for week 1 assigned tasks.
 ---
 
 ## Day 1 : System Reverse Engineering & Node.js Basics
+
 ### Tasks Performed
 
 1. **System Health Script (`sysinfo.js`)**
@@ -19,23 +20,25 @@ Following are the task advancements for week 1 assigned tasks.
 ### Deliverables
 
 #### logs/day1-sysmetrics.json
+
 ![JSON Logs](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/logs.png)
 
 ---
 
 #### `.bashrc` Alias Configuration
+
 ![Bashrc Aliases](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/bash-ss.png)
 
 ## Day 2 : Node CLI and Concurrency
 
-### Tasks Performed
+## Tasks Performed
 
 Built a CLI tool that :-\
     1. Count total number of **Lines**, **Characters**, **Words**.\
     2. Remove duplicate lines upon adding --unique flag.\
     3. Logs `cpuUsage` and `memoryUsageinMB` to `/logs`
 
---- 
+---
 
 ### Deliverables
 
@@ -47,7 +50,7 @@ Built a CLI tool that :-\
 
 ## Day 3 : Git Mastery (RESET, REVERT, CHERRYPICK, STASH)
 
-### Tasks Performed
+## Tasks Performed
 
 1. Setup repository with 10 commits, explicitly introduced syntax error in commit 5.
 2. Used git bisect to detect breaking commit using `git bisect bad` and `git bisect good`.
@@ -55,6 +58,79 @@ Built a CLI tool that :-\
 4. Used **cherrypick** to bring important changes from `main` branch to `release/v0.1`.
 5. Used **stash** to pick selected commits and switched branches from `main` to `release/v0.1` and commited in `main` branch.
 
-#### Documentation
+### Documentation
 
-1. Bisect Command Logs 
+1. **Bisect Command Logs**\
+![Bisect logs](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/bisect_logs.png)
+2. **Cherry-pick Result**
+Cherry pick result is documented in `cherry-pich-report.md`.
+3. Stash Scenario
+    * Created stash on `main` branch and switched branches, did some commit in `release/v0.1` then switched branch to `main` and ran `git stash pop` to apply and drop stash.
+---
+### Deliverables
+
+1. bisect-log.txt
+2. cherry-pick-report.md
+3. stash-proof.txt
+
+---
+
+## Day 4 - HTTP / API Forensics (cURL + POSTMAN)
+
+## Tasks Performed
+1. Used cURL to fetch Github API by - 
+`curl -v https://api.github.com/users/octocat`
+2. Extracted and logged (in curl-header.txt)
+    * Rate Limit Remaining
+    * ETag
+    * Server Header
+3. Pagination Fetch - fetched `https://api.github.com/users/octocat/repos?page=1&per_page=5` from cURL and documented analysis in `pagination-analysis.md`.
+4. Created **POSTMAN** collection testing
+    * GET - Github User
+    * GET - repos with 3 pages.
+5. Built HTTP Server with -
+    * /ping request 
+    * /headers - return request headers
+    * /count - maintain server hit counter in memory 
+---
+### Deliverables
+
+1. curl-headers.txt
+2. pagination-analysis.md
+3. POSTMAN exported collection.json
+4. server.js
+
+---
+
+## Day 5 - Automation and MINI-CI Pipeline
+
+### Tasks Performed
+
+1. Built script `healthcheck.sh` to ping the server every **10 seconds** and log failures to `/logs/health.log`.
+2. Pre-Commit validation using husky, ensured :- 
+    * .env does not exist in git 
+    * Ensure JS is formatted
+    * Ensure log files are ignored
+3. Made `checksum.sha1` to hash `healthcheck.sh` and store its 40 character long hash.
+4. Bundled :-
+    * src/
+    * logs/
+    * docs/
+    * checksum.sha1 in `bundle-20260206-191233.zip`
+5. Built a cron job to run `healthcheck.sh` every 5 mins using `*/5 * * * * /Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_1/Day5/scripts/healthcheck.sh`
+
+---
+
+### Deliverables
+1. healthcheck.sh file
+2. Husky pre-commit hook screenshot
+3. bundle-20260206-191233.zip
+4. checksums.sha1
+5. Screenshot of scheduled cron job 
+---
+
+### Attachments 
+![Husky pre-commit screenshot](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/husky-precommit.png)
+
+![Cron Job](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/cron-job.png)
+---
