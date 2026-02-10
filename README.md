@@ -130,7 +130,7 @@ Cherry pick result is documented in `cherry-pich-report.md`.
 ---
 
 ### Attachments 
-![Husky pre-commit screenshot](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/husky-precommit.png)
+![Husky pre-commit screenshot](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/husky-pre-commit.png)
 
 ![Cron Job](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/cron-job.png)
 ---
