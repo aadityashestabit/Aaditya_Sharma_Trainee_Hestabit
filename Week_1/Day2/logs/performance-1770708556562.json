@@ -1,0 +1,26 @@
+[
+  {
+    "status": "fulfilled",
+    "value": {
+      "file": "a.txt",
+      "executionTimeMs": 4.63,
+      "memoryMB": 4.42
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "file": "b.txt",
+      "executionTimeMs": 4.3,
+      "memoryMB": 4.78
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "file": "c.txt",
+      "executionTimeMs": 4.21,
+      "memoryMB": 4.4
+    }
+  }
+]
