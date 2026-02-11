@@ -1,1 +1,3 @@
-da39a3ee5e6b4b0d3255bfef95601890afd80709  scripts/healthcheck.sh
+dbaf1a7d392beb77de4f781843333b0a4f77bff7  healthcheck.sh
+f5630e6a30fb8b5916bd50c4c96eba8a3bd76b0d  server.js
+da39a3ee5e6b4b0d3255bfef95601890afd80709  .env
