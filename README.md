@@ -66,6 +66,7 @@ Built a CLI tool that :-\
 Cherry pick result is documented in `cherry-pich-report.md`.
 3. Stash Scenario
     * Created stash on `main` branch and switched branches, did some commit in `release/v0.1` then switched branch to `main` and ran `git stash pop` to apply and drop stash.
+
 ---
 ### Deliverables
 
@@ -78,7 +79,8 @@ Cherry pick result is documented in `cherry-pich-report.md`.
 ## Day 4 - HTTP / API Forensics (cURL + POSTMAN)
 
 ## Tasks Performed
-1. Used cURL to fetch Github API by - 
+
+1. Used cURL to fetch Github API by -
 `curl -v https://api.github.com/users/octocat`
 2. Extracted and logged (in curl-header.txt)
     * Rate Limit Remaining
@@ -89,9 +91,10 @@ Cherry pick result is documented in `cherry-pich-report.md`.
     * GET - Github User
     * GET - repos with 3 pages.
 5. Built HTTP Server with -
-    * /ping request 
+    * /ping request
     * /headers - return request headers
-    * /count - maintain server hit counter in memory 
+    * /count - maintain server hit counter in memory
+
 ---
 ### Deliverables
 
@@ -107,8 +110,8 @@ Cherry pick result is documented in `cherry-pich-report.md`.
 ### Tasks Performed
 
 1. Built script `healthcheck.sh` to ping the server every **10 seconds** and log failures to `/logs/health.log`.
-2. Pre-Commit validation using husky, ensured :- 
-    * .env does not exist in git 
+2. Pre-Commit validation using husky, ensured :-
+    * .env does not exist in git
     * Ensure JS is formatted
     * Ensure log files are ignored
 3. Made `checksum.sha1` to hash `healthcheck.sh` and store its 40 character long hash.
@@ -121,16 +124,22 @@ Cherry pick result is documented in `cherry-pich-report.md`.
 
 ---
 
-### Deliverables
+### Deliverables\
+
 1. healthcheck.sh file
 2. Husky pre-commit hook screenshot
 3. bundle-20260206-191233.zip
 4. checksums.sha1
-5. Screenshot of scheduled cron job 
+5. Screenshot of scheduled cron job
+
 ---
 
-### Attachments 
+### Attachments
+
 ![Husky pre-commit screenshot](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/husky-pre-commit.png)
 
 ![Cron Job](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/cron-job.png)
----
+
+#### Husky Failed
+
+![Husky Fail](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/husky-precommit.png)
