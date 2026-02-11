@@ -1,28 +1,4 @@
-const fs = require("fs/promises");
-const path = require("path");
-
-// Metrics
-function getExecutionTime(start) {
-  const end = process.hrtime.bigint();
-  return Number(end - start) / 1_000_000; // ms
-}
-
-function getMemoryMB() {
-  return process.memoryUsage().heapUsed / 1024 / 1024;
-}
-
-// Count functions
-function countLines(data) {
-  return data.split("\n").length;
-}
-
-function countWords(data) {
-  return data.trim().split(/\s+/).length;
-}
-
-function countChars(data) {
-  return data.length;
-} // stats.js
+// stats.js
 const { Worker } = require("worker_threads");
 const fs = require("fs/promises");
 const path = require("path");
@@ -46,7 +22,7 @@ async function main() {
     }
   }
 
-  // Spawn worker threads
+  // Spawn workers (TRUE PARALLELISM)
   const workerPromises = tasks.map(
     (task) =>
       new Promise((resolve, reject) => {
@@ -66,8 +42,9 @@ async function main() {
       }),
   );
 
-  const results = await Promise.allSettled(workerPromises);
+  const results = await Promise.all(workerPromises);
 
+  // Create logs folder if not exists
   await fs.mkdir("logs", { recursive: true });
   await fs.mkdir("output", { recursive: true });
 
