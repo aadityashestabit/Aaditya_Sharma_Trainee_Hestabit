@@ -2,7 +2,6 @@ const questionButtons = document.querySelectorAll(".faq-question");
 
 questionButtons.forEach((button) => {
   button.addEventListener("click", () => {
-
     const currentCard = button.closest(".faq-card");
 
     // Close other open cards
@@ -18,6 +17,5 @@ questionButtons.forEach((button) => {
 
     const symbol = button.querySelector(".toggle-symbol");
     symbol.textContent = currentCard.classList.contains("open") ? "-" : "+";
-
   });
 });
