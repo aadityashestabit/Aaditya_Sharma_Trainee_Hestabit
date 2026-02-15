@@ -145,9 +145,9 @@ Cherry pick result is documented in `cherry-pich-report.md`.
 ![Husky Fail](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/husky-precommit.png)
 ---
 
-## Week 2
+## Week 2 - Frontend Fundamentals
 
-## Day 1
+## Day 1 (HTML5 + Semantics)
 
 ### Tasks Performed
 1. Built a blog page webite using only semantic HTML tags and no use of css and javascript
@@ -165,7 +165,7 @@ Cherry pick result is documented in `cherry-pich-report.md`.
 ![HTML Page](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/HTML_Blog_Page.png)
 ---
 
-## Day 2
+## Day 2 (CSS Layout Mastery)
 
 ### Tasks Performed
 
@@ -179,7 +179,7 @@ Cherry pick result is documented in `cherry-pich-report.md`.
 
 ---
 
-## Day 3
+## Day 3 (Javascript ES6 + DOM Manipulation)
 
 ### Tasks Performed
 
@@ -193,7 +193,7 @@ Cherry pick result is documented in `cherry-pich-report.md`.
 
 ---
 
-## Day 4
+## Day 4 (JS Utilities + LocalStorage MINI-PROJECT)
 
 ### Tasks Performed
 
@@ -214,7 +214,7 @@ Cherry pick result is documented in `cherry-pich-report.md`.
 
 ---
 
-## Day 5
+## Day 5 (Capstone UI + JS Project)
 
 ### Tasks Performed
 
