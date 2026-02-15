@@ -143,3 +143,20 @@ Cherry pick result is documented in `cherry-pich-report.md`.
 #### Husky Failed
 
 ![Husky Fail](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/husky-precommit.png)
+---
+
+## Week 2
+
+## Day 1
+
+### Tasks Performed
+1. Built a blog page webite using only semantic HTML tags and no use of css and javascript
+2. Used the following HTML tags
+    * `<header>`
+    * `<footer>`
+    * `<nav>`
+    * `<main>`
+    * `<section>`
+    * `<article>`
+
+![HTML Page]()
