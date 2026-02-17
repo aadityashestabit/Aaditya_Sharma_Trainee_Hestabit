@@ -54,20 +54,20 @@ It shows project routing structure along with a search bar, signin, settings and
 
 #### Components made
 
-1. Stat Card
+**Stat Card**
 ![Stat Card](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Statcard.png)
 
-2. Promo Banner
+**Promo Banner**
 ![Promo Banner](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Promobanner.png)
 
-3. Rocket Component
+**Rocket Component**
 ![Rocket Component](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Rocket.png)
 
-4. Active Users Cards
+**Active Users Cards**
 ![Active Users](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Activeuserscard.png)
 
-5. Sales Overview Card
+**Sales Overview Card**
 ![Sales Overview](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Salesoverview.png)
 
-6. Projects Card
+**Projects Card**
 ![Projects Card](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Projects.png)
