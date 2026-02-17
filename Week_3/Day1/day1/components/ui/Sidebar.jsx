@@ -21,7 +21,7 @@ export default function Sidebar() {
           height={22}
           className="object-contain"
         />
-        <h1 className="text-sm font-bold leading-none">PURITY AI DASHBOARD</h1>
+        <h1 className="text-sm font-bold leading-none">PURITY UI DASHBOARD</h1>
       </div>
 
       <div className="space-y-4 mb-16">
