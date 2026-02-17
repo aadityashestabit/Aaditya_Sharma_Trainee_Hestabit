@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Week 3 - NEXTJS and TAILWINDCSS 
 
-## Getting Started
+## Day1 (Create next app)
 
-First, run the development server:
+1. Installed next js in my local system using `npm create-next-app@latest`.
+2. Initialized next js in javascript with tailwind and ESlint.
+3. Understood folder structure of next js.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### New learnings
+* Next js routing is done through folders - folder name become route name example `/Dashboard/page.js` become `https://xyz.com/dashboard`.
+* For nested routing, nested directories are used `/Product/Reviews` becomes `https://xyz.com/products/reviews`.
+* Got introduced with client components and server components.
+* Image and Text optimization with `Image`, `Link` tags.
+* Server side rendering(SSR).
+* Static Site Generation(SSG).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tasks Performed
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Made Side bar of the given reference figma design :- `https://www.figma.com/proto/JdoKvxwRE44a4h3bnpu3ZX/Purity-UI-Dashboard---Chakra-UI-Dashboard--Community-?node-id=29-2&t=bm1QziJKazGeZkad-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Components made
 
-## Learn More
+1. **Side bar item**
 
-To learn more about Next.js, take a look at the following resources:
+![Side Bar Item](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/SidebarItem.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This component is used by the side bar component with the following parameters - `label`, `href`, `active`, `icon`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Side bar help**
 
-## Deploy on Vercel
+![Side bar help](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/SidebarHelp.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This component is used by Sidebar component for displaying documentation.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. **Side Bar**
+
+![Side Bar](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Sidebar.png)
+
+This is the main sidebar for the project which is modular and can be reused in the layout.js for repeated use in the webpages.
+
