@@ -38,3 +38,11 @@ This component is used by Sidebar component for displaying documentation.
 
 This is the main sidebar for the project which is modular and can be reused in the layout.js for repeated use in the webpages.
 
+4. **Navbar**
+
+![Navbar](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Navbar.png)
+
+This is the nav bar component. This component is singular and not made with multiple components because of the project ui design.
+
+It shows project routing structure along with a search bar, signin, settings and notification icon.
+
