@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="w-full px-6 py-4">
+    <footer className="w-full px-6 py-4 ">
       <div className="flex justify-between items-center">
         <span className="text-sm font-medium">&copy; Made with ❤️ by <span className="text-green-500">Aaditya</span></span>
 

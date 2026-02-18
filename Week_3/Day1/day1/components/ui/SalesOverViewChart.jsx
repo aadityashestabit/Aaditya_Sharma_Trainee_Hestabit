@@ -26,7 +26,7 @@ const data = [
 
 export default function SalesOverviewChart() {
   return (
-    <div className="bg-[#FFFFFF] rounded-2xl p-6 shadow-sm flex-1 h-111.25">
+    <div className="bg-[#FFFFFF] rounded-2xl flex-1 p-6 shadow-sm  h-111.25">
       {/* Header */}
       <div className="mb-6">
         <h2 className="text-lg font-semibold text-gray-800">Sales overview</h2>

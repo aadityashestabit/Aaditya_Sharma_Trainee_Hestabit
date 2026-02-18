@@ -10,7 +10,7 @@ export default function StatCard({icon,label,amount,percentage}) {
 
         <div className="flex items-center gap-2 mt-1">
           <h2 className="text-lg font-bold text-gray-800">
-            {amount}
+            ${amount}
           </h2>
 
           <span className="text-green-500 font-bold text-sm">

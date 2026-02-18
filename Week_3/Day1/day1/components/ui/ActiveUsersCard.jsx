@@ -9,7 +9,7 @@ export default function ActiveUsersCard() {
   ];
 
   return (
-    <div className="bg-[#FFFFFF] rounded-2xl  flex-1 h-111.25 max-w-5xl p-6 shadow-sm">
+    <div className="bg-[#FFFFFF] rounded-2xl flex-1 h-111.25 max-w-5xl p-6 shadow-sm">
       
       {/* Import chart component */}
       <ActiveUsersChart />

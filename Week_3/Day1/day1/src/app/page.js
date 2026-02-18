@@ -1,59 +1,23 @@
-import Navbar from "../../components/ui/Navbar";
-import StatCard from "../../components/ui/Statcard";
-import { IoWallet } from "react-icons/io5";
-import { LuGlobe } from "react-icons/lu";
-import { FaFile } from "react-icons/fa6";
-import Promobanner from "../../components/ui/Promobanner";
-import RocketCard from "../../components/ui/RocketCard";
-import ActiveUsersCard from "../../components/ui/ActiveUsersCard";
-import SalesOverviewChart from "../../components/ui/SalesOverViewChart";
-import ProjectsTable from "../../components/ui/ProjectsTable";
-import Footer from "../../components/ui/Footer";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <>
-      {/* <Navbar /> */}
-      <div className="flex gap-2 p-4">
-        <StatCard 
-        icon={<IoWallet size={20} color="white"/>}
-        label="Today's Money" 
-        amount="53,000"
-        percentage="+55"
-        />
-
-        <StatCard 
-        icon={<LuGlobe size={20} color="white"/>}
-        label="Today's Users" 
-        amount="2,300"
-        percentage="+5"
-        />
-
-        <StatCard 
-        icon={<FaFile size={20} color="white"/>}
-        label="New Clients" 
-        amount="+3,051"
-        percentage="-14"
-        />
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      
+      <div className="text-center space-y-6">
         
+        <h1 className="text-3xl font-semibold text-gray-800">
+          Welcome to Dashboard App
+        </h1>
+
+        <Link href="/dashboard">
+          <button className="px-6 py-3 bg-teal-500 text-white rounded-xl font-medium hover:bg-teal-600 transition">
+            Go to Dashboard
+          </button>
+        </Link>
+
       </div>
 
-      <div className="p-4 flex gap-2">
-      <Promobanner />
-      <RocketCard/>
-
     </div>
-
-    <div className="p-4 flex gap-7">
-      <ActiveUsersCard/>
-      <SalesOverviewChart/>
-    </div>
-
-    <div className="p-4">
-      <ProjectsTable/>
-    </div>
-
-    <Footer/>
-    </>
   );
 }

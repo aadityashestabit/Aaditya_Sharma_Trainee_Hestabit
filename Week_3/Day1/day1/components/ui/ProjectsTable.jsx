@@ -42,7 +42,7 @@ const projects = [
 
 export default function ProjectsTable() {
   return (
-    <div className="bg-[#FFFFFF] rounded-2xl p-6 shadow-sm flex-1 h-129.75">
+    <div className="bg-[#FFFFFF] rounded-2xl p-6 shadow-sm text-gray-300 flex-1 h-129.75">
       {/* Header */}
       <div className="flex justify-between items-start mb-6">
         <div>

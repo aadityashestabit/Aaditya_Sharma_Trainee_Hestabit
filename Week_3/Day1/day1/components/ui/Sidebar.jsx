@@ -28,7 +28,7 @@ export default function Sidebar() {
         {/* Home  */}
         <SidebarItem
           label="Dashboard"
-          href="#"
+          href="/dashboard"
           active={true}
           icon={<MdHome size={15} color="#4FD1C5" />}
         />
@@ -37,7 +37,7 @@ export default function Sidebar() {
 
         <SidebarItem
           label="Tables"
-          href="#"
+          href="/tables"
           icon={<IoStatsChartSharp size={15} color="#4FD1C5" />}
         />
 
@@ -63,7 +63,7 @@ export default function Sidebar() {
 
         <SidebarItem
           label="Profile"
-          href="#"
+          href="/profile"
           icon={<CgProfile size={15} color="#4FD1C5" />}
         />
 
@@ -71,7 +71,7 @@ export default function Sidebar() {
 
         <SidebarItem
           label="Sign In"
-          href="#"
+          href="/sign-in"
           icon={<FaFile size={15} color="#4FD1C5" />}
         />
 
@@ -79,7 +79,7 @@ export default function Sidebar() {
 
         <SidebarItem
           label="Sign Up"
-          href="#"
+          href="/sign-up"
           icon={<IoIosRocket size={15} color="#4FD1C5" />}
         />
       </div>
