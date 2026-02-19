@@ -1,4 +1,4 @@
-import Navbar from "../../../components/ui/Navbar"
+import Navbar from "../../../components/ui/Navbar";
 import StatCard from "../../../components/ui/dashboard/Statcard";
 import { IoWallet } from "react-icons/io5";
 import { LuGlobe } from "react-icons/lu";
@@ -15,52 +15,50 @@ export default function Home() {
   return (
     <>
       <div className="flex gap-2 p-4">
-        <StatCard 
-        icon={<IoWallet size={20} color="white"/>}
-        label="Today's Money" 
-        amount="53,000"
-        percentage="+55"
+        <StatCard
+          icon={<IoWallet size={20} color="white" />}
+          label="Today's Money"
+          amount="53,000"
+          percentage="+55"
         />
 
-        <StatCard 
-        icon={<LuGlobe size={20} color="white"/>}
-        label="Today's Users" 
-        amount="2,300"
-        percentage="+5"
+        <StatCard
+          icon={<LuGlobe size={20} color="white" />}
+          label="Today's Users"
+          amount="2,300"
+          percentage="+5"
         />
 
-        <StatCard 
-        icon={<FaFile size={20} color="white"/>}
-        label="New Clients" 
-        amount="+3,051"
-        percentage="-14"
+        <StatCard
+          icon={<FaFile size={20} color="white" />}
+          label="New Clients"
+          amount="+3,051"
+          percentage="-14"
         />
 
-        <StatCard 
-        icon={<FaShoppingCart size={20} color="white"/>}
-        label="Total Sales" 
-        amount="173,000"
-        percentage="+8"
+        <StatCard
+          icon={<FaShoppingCart size={20} color="white" />}
+          label="Total Sales"
+          amount="173,000"
+          percentage="+8"
         />
-        
       </div>
 
       <div className="p-4 flex gap-2">
-      <Promobanner />
-      <RocketCard/>
+        <Promobanner />
+        <RocketCard />
+      </div>
 
-    </div>
+      <div className="p-4 flex gap-7">
+        <ActiveUsersCard />
+        <SalesOverviewChart />
+      </div>
 
-    <div className="p-4 flex gap-7">
-      <ActiveUsersCard/>
-      <SalesOverviewChart/>
-    </div>
+      <div className="p-4">
+        <ProjectsTable />
+      </div>
 
-    <div className="p-4">
-      <ProjectsTable/>
-    </div>
-
-    <Footer/>
+      <Footer />
     </>
   );
 }

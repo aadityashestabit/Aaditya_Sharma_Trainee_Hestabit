@@ -23,12 +23,12 @@ export default function PromoBanner() {
 
       {/* Right Section */}
       <div className="w-105 h-55 bg-[#4FD1C5] rounded-2xl flex items-center justify-center relative overflow-hidden">
-        {/* Decorative shapes */}
+        {/* Circles inside Chakra icon */}
         <div className="absolute w-40 h-40 bg-white/10 rounded-full -top-10 -right-10"></div>
         <div className="absolute w-32 h-32 bg-white/10 rounded-full bottom-0 left-10"></div>
 
         <div className="flex gap-2 items-center">
-          <AiFillThunderbolt size={30} color="white"/>
+          <AiFillThunderbolt size={30} color="white" />
 
           <h3 className="text-white text-3xl font-semibold">chakra</h3>
         </div>

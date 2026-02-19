@@ -13,10 +13,8 @@ export default function DashBoardLayout({ children }) {
       <Sidebar />
 
       <div className="flex flex-col flex-1">
-        <Navbar pageName="Tables"/>
-        <main className="flex-1">
-          {children}
-        </main>
+        <Navbar pageName="Tables" />
+        <main className="flex-1">{children}</main>
       </div>
     </div>
   );

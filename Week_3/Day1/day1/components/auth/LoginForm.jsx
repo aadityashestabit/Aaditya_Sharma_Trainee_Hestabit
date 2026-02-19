@@ -1,7 +1,6 @@
 export default function LoginForm() {
   return (
     <div className="w-full flex flex-col justify-center items-center px-24">
-      
       <h2 className="text-3xl font-semibold text-teal-500 mb-2">
         Welcome Back
       </h2>
@@ -40,9 +39,7 @@ export default function LoginForm() {
 
         <p className="text-xs text-gray-400 text-center mt-4">
           Don't have an account?
-          <span className="text-teal-500 ml-1 cursor-pointer">
-            Sign up
-          </span>
+          <span className="text-teal-500 ml-1 cursor-pointer">Sign up</span>
         </p>
       </div>
     </div>

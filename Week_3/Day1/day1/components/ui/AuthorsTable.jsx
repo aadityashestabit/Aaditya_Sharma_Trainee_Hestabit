@@ -60,7 +60,6 @@ const authors = [
 export default function AuthorsTable() {
   return (
     <div className="bg-[#F8F9FA] rounded-2xl p-4  shadow-sm  w-full">
-      
       <h2 className="text-lg font-semibold text-gray-800 mb-3">
         Authors Table
       </h2>
@@ -80,7 +79,6 @@ export default function AuthorsTable() {
           <AuthorRow key={index} author={author} />
         ))}
       </div>
-
     </div>
   );
 }

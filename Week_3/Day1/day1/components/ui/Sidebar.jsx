@@ -9,8 +9,11 @@ import { FaFile } from "react-icons/fa";
 import { IoIosRocket } from "react-icons/io";
 import { FiTool } from "react-icons/fi";
 import Sidebarhelp from "./Sidebarhelp";
+import { usePathname } from "next/navigation";
 
 export default function Sidebar() {
+  const pathname = usePathname();
+
   return (
     <aside className="w-61.5 min-h-screen bg-gray-100  p-6">
       <div className="flex items-center gap-3 mb-8">
@@ -25,61 +28,54 @@ export default function Sidebar() {
       </div>
 
       <div className="space-y-4 mb-16">
-        {/* Home  */}
         <SidebarItem
           label="Dashboard"
           href="/dashboard"
-          active={true}
+          active={pathname === "/dashboard"}
           icon={<MdHome size={15} color="#4FD1C5" />}
         />
-
-        {/* Tables */}
 
         <SidebarItem
           label="Tables"
           href="/tables"
+          active={pathname === "/tables"}
           icon={<IoStatsChartSharp size={15} color="#4FD1C5" />}
         />
-
-        {/* Billing */}
 
         <SidebarItem
           label="Billing"
           href="#"
+          active={pathname === "/billing"}
           icon={<FaCreditCard size={15} color="#4FD1C5" />}
         />
-
-        {/* RTL */}
 
         <SidebarItem
           label="RTL"
           href="#"
+          active={pathname === "/rtl"}
           icon={<FiTool size={15} color="#4FD1C5" />}
         />
 
         <h2 className="text-sm font-bold">Account Pages</h2>
 
-        {/* Profile */}
-
         <SidebarItem
           label="Profile"
           href="/profile"
+          active={pathname === "/profile"}
           icon={<CgProfile size={15} color="#4FD1C5" />}
         />
-
-        {/* SignIn */}
 
         <SidebarItem
           label="Sign In"
           href="/sign-in"
+          active={pathname === "/sign-in"}
           icon={<FaFile size={15} color="#4FD1C5" />}
         />
-
-        {/* SignUp */}
 
         <SidebarItem
           label="Sign Up"
           href="/sign-up"
+          active={pathname === "/sign-up"}
           icon={<IoIosRocket size={15} color="#4FD1C5" />}
         />
       </div>

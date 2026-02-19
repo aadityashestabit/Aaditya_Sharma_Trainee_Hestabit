@@ -11,10 +11,10 @@ export default function Table() {
       </div>
 
       <div className="p-4">
-        <ProjectsTable/>
+        <ProjectsTable />
       </div>
 
-      <Footer/>
+      <Footer />
     </>
   );
 }

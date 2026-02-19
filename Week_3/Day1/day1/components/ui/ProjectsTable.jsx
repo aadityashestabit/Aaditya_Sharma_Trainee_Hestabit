@@ -67,7 +67,6 @@ export default function ProjectsTable() {
       <div className="divide-y">
         {projects.map((project, index) => (
           <div key={index} className="grid grid-cols-4 items-center py-4">
-            {/* Company */}
             <div className="flex items-center gap-3">
               <Image
                 src={project.logo}
@@ -82,7 +81,7 @@ export default function ProjectsTable() {
               </span>
             </div>
 
-{/* Avatars */}
+            {/* Div storing avatar */}
             <div className="flex -space-x-2">
               {[1, 2, 3].map((i) => (
                 <div
@@ -92,12 +91,10 @@ export default function ProjectsTable() {
               ))}
             </div>
 
-            
             <p className="text-sm text-gray-700 font-medium">
               {project.budget}
             </p>
 
-            
             <div>
               <p className="text-sm text-gray-700 font-medium mb-1">
                 {project.completion}%

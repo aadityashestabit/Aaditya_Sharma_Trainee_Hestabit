@@ -11,7 +11,9 @@ export default function SidebarItem({ label, href, active, icon }) {
             : "text-gray-600 hover:bg-gray-200 hover:text-gray-700"
         }`}
     >
-      <div className="rounded-full bg-[#FFFFFF] p-2 h-7.5 w-7.5 text-center" >{icon}</div>
+      <div className="rounded-full bg-[#FFFFFF] p-2 h-7.5 w-7.5 text-center">
+        {icon}
+      </div>
       <span className="text-xs">{label}</span>
     </Link>
   );

@@ -5,7 +5,7 @@ import { MdPerson } from "react-icons/md";
 import { IoSettingsOutline } from "react-icons/io5";
 import { IoNotificationsOutline } from "react-icons/io5";
 
-export default function Navbar({pageName}) {
+export default function Navbar({ pageName }) {
   return (
     <nav className="w-full bg-gray-100 px-8 py-4 flex justify-between items-center">
       {/* Left Section */}
