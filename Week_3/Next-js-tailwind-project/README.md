@@ -1,6 +1,6 @@
 # Week 3 - NEXTJS and TAILWINDCSS
 
-## Day 1 (Create Next App)
+## Create Next App
 
 ### Tasks Performed
 
@@ -39,7 +39,7 @@ Recreated the Sidebar from the reference Figma design.
 
 ---
 
-## 1️⃣ Side Bar Item
+## Side Bar Item
 
 |**Side Bar Item**|
 | ----------- |
@@ -55,7 +55,7 @@ It accepts the following props:
 
 ---
 
-## 2️⃣ Side Bar Help
+## Side Bar Help
 
 |**Side Bar Help**|
 | ----------- |
@@ -65,7 +65,7 @@ This component is used inside the Sidebar component for displaying documentation
 
 ---
 
-## 3️⃣ Side Bar
+## Side Bar
 
 |**Side Bar**|
 | ----------- |
@@ -79,7 +79,7 @@ This is the main Sidebar component of the project.
 
 ---
 
-## 4️⃣ Navbar
+## Navbar
 
 |**Navbar**|
 | ----------- |
@@ -99,13 +99,13 @@ This component was designed as a single structured component based on the UI req
 
 ---
 
-# Day 2 (Component Modularity)
+## Component Modularity
 
 Focused on creating reusable UI cards and dashboard elements.
 
 ---
 
-## 1️⃣ Stat Card
+## Stat Card
 
 |**Stat Card**|
 | ----------- |
@@ -121,7 +121,7 @@ It is reusable and accepts dynamic values such as:
 
 ---
 
-## 2️⃣ Promo Banner
+## Promo Banner
 
 |**Promo Banner**|
 | ----------- |
@@ -131,7 +131,7 @@ This component is used to display promotional or highlighted information on the 
 
 ---
 
-## 3️⃣ Rocket Component
+## Rocket Component
 
 |**Rocket Component**|
 | ----------- |
@@ -141,7 +141,7 @@ This component visually represents performance growth or progress.
 
 ---
 
-## 4️⃣ Active Users Card
+## Active Users Card
 
 |**Active Users Card**|
 | ----------- |
@@ -151,7 +151,7 @@ Displays user activity metrics in a structured dashboard card format.
 
 ---
 
-## 5️⃣ Sales Overview Card
+## Sales Overview Card
 
 |**Sales Overview Card**|
 | ----------- |
@@ -161,7 +161,7 @@ This component displays graphical sales performance and insights.
 
 ---
 
-## 6️⃣ Projects Card
+## Projects Card
 
 |**Projects Card**|
 | ----------- |
@@ -170,6 +170,87 @@ This component displays graphical sales performance and insights.
 This component shows project tracking information in a clean card layout.
 
 ---
+
+
+## Next Js Routing and Layout System
+
+Learned App based routing in next js and layout system along with nested layouts.
+
+---
+|**Profile Header**|
+|------------------|
+|![Profile Header](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Profile_header.png)|
+
+This profile header is used in the profile page to show userprofile details
+
+---
+
+---
+
+|**Profile Information**|
+|-----------------------|
+|![Profile Information](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Profile_information.png)|
+
+---
+
+---
+|**Profile Settings**|
+|--------------------|
+|![Profile Settings](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Profile_settings.png)|
+---
+
+---
+|**Conversations**|
+|-----------------|
+|![ Conversations](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Conversations.png)|
+---
+
+## Final Pages
+
+These are the final pages made during Week3 with nextjs and tailwindcss
+
+---
+|**Dashboard (page 1)**|
+|-----------------|
+|![Dashboard page 1](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Dashboard_page_1.png)|
+---
+
+---
+|**Dashboard (page 2)**|
+|-----------------|
+|![Dashboard page 2](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Dashboard_page_2.png)|
+---
+
+---
+|**Tables (page 1)**|
+|-----------------|
+|![Tables page 1](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Tables_page_1.png)|
+---
+
+---
+|**Tables (page 2)**|
+|-----------------|
+|![Tables Page 2](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Tables_page_2.png)|
+---
+
+---
+|**Profile Page**|
+|-----------------|
+|![Profile Page](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Profile_page.png)|
+---
+
+---
+|**SignIn Page**|
+|-----------------|
+|![SignIn Page](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Sign_in_page.png)|
+---
+
+---
+|**SignUp Page**|
+|-----------------|
+|![SignUp Page](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Sign_up_page.png)|
+---
+
 
 # Summary
 
