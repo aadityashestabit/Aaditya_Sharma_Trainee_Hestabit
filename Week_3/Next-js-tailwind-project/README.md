@@ -22,11 +22,11 @@ Made Side bar of the given reference figma design :- `https://www.figma.com/prot
 
 1. **Side bar item**
 
-<img 
-  src="https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/SidebarItem.png"   
+<img
+  src="https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/SidebarItem.png"
   alt="component image"
   width="700"
-  style="border:1px solid #d1d5db; border-radius:10px;" 
+  style="border:1px solid #d1d5db; border-radius:10px;"
 />
 
 This component is used by the side bar component with the following parameters - `label`, `href`, `active`, `icon`.
@@ -61,6 +61,12 @@ It shows project routing structure along with a search bar, signin, settings and
 
 **Stat Card**
 ![Stat Card](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Statcard.png)
+
+|**Stat Card**|
+| ----------- |
+| ![stat card](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Statcard.png)|
+
+This component denotes the stat card 
 
 **Promo Banner**
 ![Promo Banner](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Promobanner.png)
