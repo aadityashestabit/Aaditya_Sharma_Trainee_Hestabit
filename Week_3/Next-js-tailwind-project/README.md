@@ -22,22 +22,27 @@ Made Side bar of the given reference figma design :- `https://www.figma.com/prot
 
 1. **Side bar item**
 
-![Side Bar Item](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/SidebarItem.png)
+<img 
+  src="https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/SidebarItem.png"   
+  alt="component image"
+  width="700"
+  style="border:1px solid #d1d5db; border-radius:10px;" 
+/>
 
 This component is used by the side bar component with the following parameters - `label`, `href`, `active`, `icon`.
-
+---
 2. **Side bar help**
 
 ![Side bar help](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/SidebarHelp.png)
 
 This component is used by Sidebar component for displaying documentation.
-
+---
 3. **Side Bar**
 
 ![Side Bar](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Sidebar.png)
 
 This is the main sidebar for the project which is modular and can be reused in the layout.js for repeated use in the webpages.
-
+---
 4. **Navbar**
 
 ![Navbar](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Navbar.png)
