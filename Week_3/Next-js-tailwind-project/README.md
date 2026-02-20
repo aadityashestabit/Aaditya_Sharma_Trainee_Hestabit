@@ -1,84 +1,184 @@
-# Week 3 - NEXTJS and TAILWINDCSS 
+# Week 3 - NEXTJS and TAILWINDCSS
 
-## Day1 (Create next app)
-
-1. Installed next js in my local system using `npm create-next-app@latest`.
-2. Initialized next js in javascript with tailwind and ESlint.
-3. Understood folder structure of next js.
-
-### New learnings
-* Next js routing is done through folders - folder name become route name example `/Dashboard/page.js` become `https://xyz.com/dashboard`.
-* For nested routing, nested directories are used `/Product/Reviews` becomes `https://xyz.com/products/reviews`.
-* Got introduced with client components and server components.
-* Image and Text optimization with `Image`, `Link` tags.
-* Server side rendering(SSR).
-* Static Site Generation(SSG).
-
-## Tasks Performed
-
-Made Side bar of the given reference figma design :- `https://www.figma.com/proto/JdoKvxwRE44a4h3bnpu3ZX/Purity-UI-Dashboard---Chakra-UI-Dashboard--Community-?node-id=29-2&t=bm1QziJKazGeZkad-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1`
-
-### Components made
-
-1. **Side bar item**
-
-<img
-  src="https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/SidebarItem.png"
-  alt="component image"
-  width="700"
-  style="border:1px solid #d1d5db; border-radius:10px;"
-/>
-
-This component is used by the side bar component with the following parameters - `label`, `href`, `active`, `icon`.
----
-2. **Side bar help**
-
-![Side bar help](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/SidebarHelp.png)
-
-This component is used by Sidebar component for displaying documentation.
----
-3. **Side Bar**
-
-![Side Bar](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Sidebar.png)
-
-This is the main sidebar for the project which is modular and can be reused in the layout.js for repeated use in the webpages.
----
-4. **Navbar**
-
-![Navbar](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Navbar.png)
-
-This is the nav bar component. This component is singular and not made with multiple components because of the project ui design.
-
-It shows project routing structure along with a search bar, signin, settings and notification icon.
-
----
-
-## Day 2 (Component modularity)
+## Day 1 (Create Next App)
 
 ### Tasks Performed
 
-#### Components made
+1. Installed Next.js in my local system using `npm create-next-app@latest`.
+2. Initialized Next.js in JavaScript with Tailwind CSS and ESLint.
+3. Understood the folder structure of Next.js.
 
-**Stat Card**
-![Stat Card](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Statcard.png)
+---
+
+### New Learnings
+
+- Next.js routing is done through folders — folder name becomes route name.  
+  Example: `/Dashboard/page.js` becomes `https://xyz.com/dashboard`.
+
+- For nested routing, nested directories are used.  
+  Example: `/Product/Reviews` becomes `https://xyz.com/products/reviews`.
+
+- Got introduced to:
+  - Client Components
+  - Server Components
+
+- Learned about:
+  - Image and Text Optimization using `Image` and `Link` components.
+  - Server Side Rendering (SSR)
+  - Static Site Generation (SSG)
+
+---
+
+## UI Implementation
+
+Recreated the Sidebar from the reference Figma design.
+
+---
+
+# Components Made
+
+---
+
+## 1️⃣ Side Bar Item
+
+|**Side Bar Item**|
+| ----------- |
+| ![Side Bar Item](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/SidebarItem.png)|
+
+This component is used inside the Sidebar component.  
+It accepts the following props:
+
+- `label`
+- `href`
+- `active`
+- `icon`
+
+---
+
+## 2️⃣ Side Bar Help
+
+|**Side Bar Help**|
+| ----------- |
+| ![Side Bar Help](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/SidebarHelp.png)|
+
+This component is used inside the Sidebar component for displaying documentation/help information.
+
+---
+
+## 3️⃣ Side Bar
+
+|**Side Bar**|
+| ----------- |
+| ![Side Bar](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Sidebar.png)|
+
+This is the main Sidebar component of the project.
+
+- Modular
+- Reusable
+- Used inside `layout.js` to maintain consistent layout across pages
+
+---
+
+## 4️⃣ Navbar
+
+|**Navbar**|
+| ----------- |
+| ![Navbar](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Navbar.png)|
+
+This is the Navbar component.
+
+It includes:
+
+- Project routing structure display
+- Search bar
+- Sign-in button
+- Settings icon
+- Notification icon
+
+This component was designed as a single structured component based on the UI requirement.
+
+---
+
+# Day 2 (Component Modularity)
+
+Focused on creating reusable UI cards and dashboard elements.
+
+---
+
+## 1️⃣ Stat Card
 
 |**Stat Card**|
 | ----------- |
-| ![stat card](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Statcard.png)|
+| ![Stat Card](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Statcard.png)|
 
-This component denotes the stat card 
+This component represents a dashboard statistics card.
 
-**Promo Banner**
-![Promo Banner](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Promobanner.png)
+It is reusable and accepts dynamic values such as:
+- Title
+- Value
+- Percentage change
+- Icon
 
-**Rocket Component**
-![Rocket Component](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Rocket.png)
+---
 
-**Active Users Cards**
-![Active Users](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Activeuserscard.png)
+## 2️⃣ Promo Banner
 
-**Sales Overview Card**
-![Sales Overview](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Salesoverview.png)
+|**Promo Banner**|
+| ----------- |
+| ![Promo Banner](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Promobanner.png)|
 
-**Projects Card**
-![Projects Card](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Projects.png)
+This component is used to display promotional or highlighted information on the dashboard.
+
+---
+
+## 3️⃣ Rocket Component
+
+|**Rocket Component**|
+| ----------- |
+| ![Rocket Component](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Rocket.png)|
+
+This component visually represents performance growth or progress.
+
+---
+
+## 4️⃣ Active Users Card
+
+|**Active Users Card**|
+| ----------- |
+| ![Active Users Card](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Activeuserscard.png)|
+
+Displays user activity metrics in a structured dashboard card format.
+
+---
+
+## 5️⃣ Sales Overview Card
+
+|**Sales Overview Card**|
+| ----------- |
+| ![Sales Overview Card](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Salesoverview.png)|
+
+This component displays graphical sales performance and insights.
+
+---
+
+## 6️⃣ Projects Card
+
+|**Projects Card**|
+| ----------- |
+| ![Projects Card](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Projects.png)|
+
+This component shows project tracking information in a clean card layout.
+
+---
+
+# Summary
+
+During Week 3:
+
+- Learned core concepts of Next.js routing and rendering.
+- Understood SSR and SSG.
+- Built modular and reusable components using Tailwind CSS.
+- Followed structured UI design implementation.
+- Improved component reusability and layout architecture.
+
+---
