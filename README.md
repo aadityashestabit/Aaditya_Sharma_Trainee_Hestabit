@@ -401,7 +401,7 @@ This component displays graphical sales performance and insights.
 
 |**Projects Card**|
 | ----------- |
-| ![Projects Card](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Projects.png)|
+| ![Projects Card](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Dashboard_project.png)|
 
 This component shows project tracking information in a clean card layout.
 
