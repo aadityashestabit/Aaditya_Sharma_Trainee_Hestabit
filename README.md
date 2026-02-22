@@ -489,6 +489,7 @@ These are the final pages made during Week3 with nextjs and tailwindcss
 
 ## Final Project Project Structure
 
+```
 .
 └── Next-js-tailwindcss-project/
     ├── .next
@@ -548,8 +549,10 @@ These are the final pages made during Week3 with nextjs and tailwindcss
     ├── package.json
     ├── postcss.config.mjs
     └── README.md
+```
 
 ---
+
 ## Project Link
 
 https://aaditya-sharma-trainee-hestabit.vercel.app/
