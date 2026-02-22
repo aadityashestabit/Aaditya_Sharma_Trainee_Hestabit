@@ -1,6 +1,6 @@
 import Image from "next/image";
 import AuthNavbar from "../../../components/auth/AuthNavbar";
-import RegisterCard from "../../../components/ui/signup/RegisterCard";
+import RegisterCard from "../../../components/signup/RegisterCard";
 import Footer from "../../../components/ui/Footer";
 
 export default function SignUpPage() {

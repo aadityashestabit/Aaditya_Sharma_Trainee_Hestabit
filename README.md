@@ -487,6 +487,72 @@ These are the final pages made during Week3 with nextjs and tailwindcss
 |![SignUp Page](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Sign_up_page.png)|
 ---
 
+## Final Project Project Structure
+
+.
+└── Next-js-tailwindcss-project/
+    ├── .next
+    ├── components/
+    │   ├── auth/
+    │   │   ├── AuthFooter.jsx
+    │   │   ├── AuthNavbar.jsx
+    │   │   ├── AuthRightPanel.jsx
+    │   │   └── LoginForm.jsx
+    │   ├── dashboard/
+    │   │   ├── ActiveUsersCard.jsx
+    │   │   ├── ActiveUsersChart.jsx
+    │   │   ├── Promobanner.jsx
+    │   │   ├── RocketCard.jsx
+    │   │   ├── SalesOverviewChart.jsx
+    │   │   └── Statcard.jsx
+    │   ├── profile/
+    │   │   ├── Conversation.jsx
+    │   │   ├── ConversationTile.jsx
+    │   │   ├── PlatformSettings.jsx
+    │   │   ├── ProfileAvatar.jsx
+    │   │   ├── ProfileHeader.jsx
+    │   │   ├── ProfileInformation.jsx
+    │   │   ├── ProfileNavbar.jsx
+    │   │   ├── ProfileTabs.jsx
+    │   │   └── SettingSection.jsx
+    │   ├── signup/
+    │   │   └── RegisterCard.jsx
+    │   ├── ui/
+    │   │   ├── AuthorRow.jsx
+    │   │   ├── AuthorsTable.jsx
+    │   │   ├── Footer.jsx
+    │   │   ├── Navbar.jsx
+    │   │   ├── ProjectsTable.jsx
+    │   │   ├── Sidebar.jsx
+    │   │   ├── Sidebarhelp.jsx
+    │   │   ├── SidebarItem.jsx
+    │   │   └── ToggleSwitch.jsx
+    │   └── ui
+    ├── node_modules
+    ├── public
+    ├── src/
+    │   └── app/
+    │       ├── dashboard
+    │       ├── profile
+    │       ├── sign-in
+    │       ├── sign-up
+    │       ├── tables
+    │       ├── globals.css
+    │       ├── layout.js
+    │       └── page.js
+    ├── .gitignore
+    ├── eslint.config.mjs
+    ├── jsconfig.json
+    ├── next.config.mjs
+    ├── package-lock.json
+    ├── package.json
+    ├── postcss.config.mjs
+    └── README.md
+
+---
+## Project Link
+
+https://aaditya-sharma-trainee-hestabit.vercel.app/
 
 # Summary
 
