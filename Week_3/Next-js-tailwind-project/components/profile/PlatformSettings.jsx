@@ -1,6 +1,6 @@
 "use client";
 
-import ToggleSwitch from "../ToggleSwitch";
+import ToggleSwitch from "../../components/ui/ToggleSwitch";
 import SettingsSection from "./SettingsSection";
 
 export default function PlatformSettings() {

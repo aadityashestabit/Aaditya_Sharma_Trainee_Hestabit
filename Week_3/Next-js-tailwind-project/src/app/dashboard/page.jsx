@@ -1,11 +1,10 @@
-import Navbar from "../../../components/ui/Navbar";
 import StatCard from "../../../components/dashboard/Statcard";
 import { IoWallet } from "react-icons/io5";
 import { LuGlobe } from "react-icons/lu";
 import { FaFile } from "react-icons/fa6";
 import Promobanner from "../../../components/dashboard/Promobanner";
 import RocketCard from "../../../components/dashboard/RocketCard";
-import ActiveUsersCard from "../../../components/ui/ActiveUsersCard";
+import ActiveUsersCard from "../../../components/dashboard/ActiveUsersCard";
 import SalesOverviewChart from "../../../components/dashboard/SalesOverViewChart";
 import ProjectsTable from "../../../components/ui/ProjectsTable";
 import { FaShoppingCart } from "react-icons/fa";

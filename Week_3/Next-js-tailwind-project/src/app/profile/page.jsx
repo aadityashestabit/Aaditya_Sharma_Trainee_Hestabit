@@ -1,9 +1,9 @@
 import Image from "next/image";
-import ProfileHeader from "../../../components/ui/profile/ProfileHeader";
-import ProfileNavbar from "../../../components/ui/profile/ProfileNavbar";
-import PlatformSettings from "../../../components/ui/profile/PlatformSettings";
-import ProfileInformation from "../../../components/ui/profile/ProfileInformation";
-import Conversation from "../../../components/ui/profile/Conversation";
+import ProfileHeader from "../../../components/profile/ProfileHeader";
+import ProfileNavbar from "../../../components/profile/ProfileNavbar";
+import PlatformSettings from "../../../components/profile/PlatformSettings";
+import ProfileInformation from "../../../components/profile/ProfileInformation";
+import Conversation from "../../../components/profile/Conversation";
 import Footer from "../../../components/ui/Footer";
 
 export default function Profile() {

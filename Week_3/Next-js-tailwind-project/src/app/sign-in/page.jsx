@@ -1,7 +1,6 @@
 import AuthNavbar from "../../../components/auth/AuthNavbar";
 import LoginForm from "../../../components/auth/LoginForm";
 import AuthRightPanel from "../../../components/auth/AuthRightPanel";
-import AuthFooter from "../../../components/auth/AuthFooter";
 import Footer from "../../../components/ui/Footer";
 
 export default function SignInPage() {
