@@ -1,0 +1,14 @@
+  import mongoose from "mongoose"
+  import {config} from "../config/index.js"
+  import logger from "../utils/logger.js"
+
+  export default async function connectDB() {
+    try {
+      await mongoose.connect(config.dbUri);
+      logger.info("Database connected");
+    } catch (err) {
+      logger.error(err);
+      process.exit(1);
+    }
+  }
+

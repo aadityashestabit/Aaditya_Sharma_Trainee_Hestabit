@@ -74,8 +74,6 @@ productSchema.pre("validate", function (next) {
     const baseSlug = slugify(this.title, { lower: true, strict: true });
     this.slug = `${baseSlug}-${nanoid(6)}`
   }
-  
-  // next();
 });
 
 // For update
@@ -86,14 +84,15 @@ productSchema.pre("findOneAndUpdate", function (next) {
     const baseSlug = slugify(update.title, {lower: true, strict: true});
     update.slug = `${baseSlug}-${nanoid(6)}`;
   }
-
-  // next();
 });
 
+// Vittual for rating in percentage
 productSchema.virtual("ratingPercentage").get(function () {
   return (this.ratingsAverage / 5) * 100;
 });
 
+
+// Important for using virtuals in JSON format
 productSchema.set('toJSON', {
   virtuals: true 
 });

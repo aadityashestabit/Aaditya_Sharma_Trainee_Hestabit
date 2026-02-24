@@ -34,7 +34,7 @@ const { value, error } = envSchema.validate(process.env);
 if (error) {
   console.error("Environment Validation Error:");
   console.error(error.message);
-  process.exit(1); // Crash app 
+  process.exit(1); // --------app crashed----------
 }
 
 

@@ -11,7 +11,7 @@ if (!fs.existsSync(logDir)) {
   fs.mkdirSync(logDir, { recursive: true });
 }
 
-// Custom log format
+// Log format - 2026-02-24 16:40:25 [INFO]: Server started on port 3000
 const logFormat = printf(({ level, message, timestamp, stack, }) => {
   return `${timestamp} [${level.toUpperCase()}]: ${
     stack || message

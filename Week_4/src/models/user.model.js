@@ -41,7 +41,7 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-// Text search index
+
 userSchema.index({ name: "text", email: "text" });
 
 // Hash password
