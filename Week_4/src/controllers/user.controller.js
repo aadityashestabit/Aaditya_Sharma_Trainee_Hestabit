@@ -1,6 +1,17 @@
 import { UserService } from "../services/user.service.js";
 
 export class UserController {
+
+  static async start(req,res,next){
+    try {
+      res.status(201).json({
+        success:true,
+        data:"Server Running"
+      })
+    } catch (error) {
+      next(error)
+    }
+  }
   static async create(req, res, next) {
     try {
       const user = await UserService.createUser(req.body);

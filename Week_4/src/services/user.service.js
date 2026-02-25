@@ -3,6 +3,7 @@ import { config } from "../config/index.js";
 import { UserRepository } from "../repositories/user.repository.js";
 
 export class UserService {
+
   static async createUser(data) {
     return await UserRepository.create(data);
   }
@@ -27,7 +28,10 @@ export class UserService {
       { expiresIn: "7d" }
     );
 
-    return { user, token };
+     const userObj = user.toObject();
+    delete userObj.password;
+
+    return { user: userObj, token };
   }
 
   static async getAllUsers(query) {

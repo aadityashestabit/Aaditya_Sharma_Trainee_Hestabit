@@ -7,6 +7,7 @@ import productRoutes from "./src/routes/product.routes.js"
 
 const app = express();
 app.use(express.json())
+app.use("/",userRoutes)
 app.use("/api/users",userRoutes)
 app.use("/api/products",productRoutes)
 

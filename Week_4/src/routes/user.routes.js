@@ -5,8 +5,8 @@ import { authenticate } from "../middlewares/auth.middleware.js";
 const router = express.Router();
 
 // PUBLIC ROUTES
-
-router.post("/", UserController.create);       
+// router.get("/",UserController.start)
+router.post("/create", UserController.create);       
 router.post("/login", UserController.login);   
 
 // Admin Routes 
