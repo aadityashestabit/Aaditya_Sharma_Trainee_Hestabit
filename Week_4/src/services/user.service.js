@@ -1,3 +1,5 @@
+import jwt from "jsonwebtoken";
+import { config } from "../config/index.js";
 import { UserRepository } from "../repositories/user.repository.js";
 
 export class UserService {
@@ -18,7 +20,14 @@ export class UserService {
     const isMatch = await user.comparePassword(password);
     if (!isMatch) throw new Error("Invalid credentials");
 
-    return user;
+    // ✅ Generate JWT token
+    const token = jwt.sign(
+      { id: user._id, email: user.email },
+      config.jwtSecret,
+      { expiresIn: "7d" }
+    );
+
+    return { user, token };
   }
 
   static async getAllUsers(query) {

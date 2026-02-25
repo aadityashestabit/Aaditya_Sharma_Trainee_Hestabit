@@ -1,5 +1,6 @@
 import express from "express";
 import { UserController } from "../controllers/user.controller.js";
+import { authenticate } from "../middlewares/auth.middleware.js";
 
 const router = express.Router();
 
@@ -9,9 +10,9 @@ router.post("/", UserController.create);
 router.post("/login", UserController.login);   
 
 // Admin Routes 
-router.get("/", UserController.getAll);        
-router.get("/:id", UserController.getOne);    
-router.patch("/:id", UserController.update);   
-router.delete("/:id", UserController.delete);  
+router.get("/", authenticate, UserController.getAll);        
+router.get("/:id", authenticate, UserController.getOne);    
+router.patch("/:id", authenticate, UserController.update);   
+router.delete("/:id", authenticate, UserController.delete);  
 
 export default router;
