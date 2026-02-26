@@ -10,18 +10,24 @@ export class UserService {
 
   static async getUserById(id) {
     const user = await UserRepository.findById(id);
-    if (!user) throw new Error("User not found");
+    if (!user){
+      throw new AppError("User not found",404, "USER_NOT_FOUND");
+    }
     return user;
   }
 
   static async login(email, password) {
     const user = await UserRepository.findByEmail(email);
-    if (!user) throw new Error("Invalid credentials");
+    if (!user){
+      throw new AppError("Invalid credentials", 401, "INVALID_CREDENTIALS");
+    }
 
     const isMatch = await user.comparePassword(password);
-    if (!isMatch) throw new Error("Invalid credentials");
+    if (!isMatch){
+       throw new AppError("Invalid credentials", 401, "INVALID_CREDENTIALS");
+    }
 
-    // ✅ Generate JWT token
+    // Generate JWT token
     const token = jwt.sign(
       { id: user._id, email: user.email },
       config.jwtSecret,
@@ -53,7 +59,7 @@ export class UserService {
     if (role) filter.role = role;
     if (isActive !== undefined) filter.isActive = isActive === "true";
 
-    // Text search (indexed)
+    // Text indexed search
     if (search) {
       filter.$text = { $search: search };
     }
@@ -80,13 +86,17 @@ export class UserService {
 
   static async updateUser(id, data) {
     const updated = await UserRepository.updateById(id, data);
-    if (!updated) throw new Error("User not found");
+    if (!updated) {
+      throw new AppError("User not found",404, "USER_NOT_FOUND");
+    }
     return updated;
   }
 
   static async deleteUser(id) {
     const deleted = await UserRepository.deleteById(id);
-    if (!deleted) throw new Error("User not found");
+    if (!deleted){
+       throw new AppError("User not found",404, "USER_NOT_FOUND");
+    }
     return deleted;
   }
 }

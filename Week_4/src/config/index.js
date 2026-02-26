@@ -34,12 +34,8 @@ const { value, error } = envSchema.validate(process.env);
 if (error) {
   console.error("Environment Validation Error:");
   console.error(error.message);
-  process.exit(1); // --------app crashed----------
+  process.exit(1); // app crash-
 }
-
-
-console.log(`Loaded environment: ${ENV}`);
-console.log(`Using file: ${envFile}`);
 
 export const config = {
   port: process.env.PORT,

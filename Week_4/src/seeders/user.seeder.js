@@ -33,4 +33,4 @@ const seedUsers = async () => {
   }
 };
 
-seedUsers();
+seedUsers();  
