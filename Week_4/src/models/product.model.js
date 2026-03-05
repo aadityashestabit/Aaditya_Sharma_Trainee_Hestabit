@@ -57,11 +57,11 @@ const productSchema = new mongoose.Schema(
     },
     minPrice:{
       type:Number,
-      required:true
+      // required:true
     },
     maxPrice:{
       type:Number,
-      required:true
+      // required:true
     },
     isDeleted:{
       type:Boolean,
