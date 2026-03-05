@@ -3,7 +3,7 @@ import express from "express";
 const app = express();
 
 app.get("/", (req, res) => {
-  res.send("Hello from Docker Container 🚀");
+  res.send("Hello from Docker Container");
 });
 
 app.get("/api", (req, res) => {
