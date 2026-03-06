@@ -1,0 +1,20 @@
+services:
+
+  backend1:
+    build: ./backend
+    container_name: backend1
+
+  backend2:
+    build: ./backend
+    container_name: backend2
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - backend1
+      - backend2
