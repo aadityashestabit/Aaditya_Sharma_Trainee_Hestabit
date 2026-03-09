@@ -2,7 +2,7 @@ import winston from "winston";
 import fs from "fs";
 import path from "path";
 
-const { combine, timestamp, printf, errors } = winston.format;
+const { combine, timestamp, printf, errors} = winston.format;
 
 
 const logDir = path.join(process.cwd(), "src", "logs");
@@ -12,9 +12,9 @@ if (!fs.existsSync(logDir)) {
 }
 
 // Log format - 2026-02-24 16:40:25 [INFO]: Server started on port 3000
-const logFormat = printf(({ level, message, timestamp, stack, }) => {
+const logFormat = printf(({ level, message, timestamp, stack,requestId }) => {
   return `${timestamp} [${level.toUpperCase()}]: ${
-    stack || message
+    stack || message + " " + requestId
   }}`;
 });
 

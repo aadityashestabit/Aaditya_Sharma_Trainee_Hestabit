@@ -41,8 +41,17 @@ export default async function initApp() {
   await connectDB();
 
   const server = app.listen(config.port, () => {
-    logger.info(`Server started on port ${config.port}`);
-    logger.info(`Environment: ${config.nodeEnv}`);
+    logger.info({
+      message: `Server started on port ${config.port}`,
+      // requestId:req.requestId
+
+    });
+    
+    logger.info({
+      message: `Environment: ${config.nodeEnv}`,
+      // requestId:req.requestId
+
+    });
   });
 
   // Graceful shutdown

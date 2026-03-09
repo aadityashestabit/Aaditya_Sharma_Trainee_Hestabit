@@ -1,13 +1,13 @@
 import { Queue } from "bullmq";
 import connection from "../config/redis.js";
 
-export const emailQueue = new Queue("emailQueue", {
+export const emailQueue = new Queue("emailQueue", { // created queue named email queue 
   connection
 });
 
 export const addEmailJob = async (data) => {
 
-  await emailQueue.add(
+  await emailQueue.add( // adding jobs to queue 
     "sendEmail",
     data,
     {
@@ -16,8 +16,8 @@ export const addEmailJob = async (data) => {
         type: "exponential",
         delay: 2000
       },
-      removeOnComplete:true, // remove job if the job get seccesfully executed 
-      removeOnFail:false
+      removeOnComplete:1000, // remove job if the job get seccesfully executed 1000 times
+      removeOnFail:1000
     }
   );
 };
