@@ -624,10 +624,10 @@ During Week 3:
 │   │   ├── product.service.js
 │   │   └── user.service.js
 │   ├── utils
-│   │   └── AppError.js
-│   │       ├── cursor.js
-│   │       ├── logger.js
-│   │       └── tracing.js
+│   │   ├── AppError.js
+│   │   ├── cursor.js
+│   │   ├── logger.js
+│   │   └── tracing.js
 │   ├── validators
 │   │   ├── product.schema.js
 │   │   └── user.schema.js
