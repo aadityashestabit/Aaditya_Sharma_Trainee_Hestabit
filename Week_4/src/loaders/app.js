@@ -4,9 +4,11 @@ import { config } from "../config/index.js";
 import logger from "../utils/logger.js";
 import connectDB from "../loaders/db.js";
 import userRoutes from "../routes/user.routes.js";
+import emailRoutes from "../routes/email.routes.js";
 import productRoutes from "../routes/product.routes.js";
 import { errorHandler, notFound } from "../middlewares/error.middleware.js";
 import { SecurityMiddleware } from "../middlewares/security.js";
+import { tracingMiddleware } from "../utils/tracing.js";
 
 const env = config.nodeEnv || "local";
 
@@ -16,12 +18,18 @@ dotenv.config({
 
 export default async function initApp() {
   const app = express();
+  app.use(express.json());
 
   SecurityMiddleware(app);
+
+  app.use(tracingMiddleware)
+
+
 
   // Routes
   app.use("/api/users", userRoutes);
   app.use("/api/products", productRoutes);
+  app.use("/api", emailRoutes)
 
   // 404 Handler
   app.use(notFound);
