@@ -1,5 +1,12 @@
 *.pkl
 *.csv
+
+
+# Allow Titanic dataset
+!src/data/raw/train.csv
+!src/data/raw/test.csv
+!src/data/processed/train_clean.csv
+!src/data/processed/test_clean.csv
 __pycache__/
 .env
 *.pyc
