@@ -5,3 +5,5 @@ __pycache__/
 *.pyc
 logs/
 .DS_Store
+.venv/
+run_day1.sh
