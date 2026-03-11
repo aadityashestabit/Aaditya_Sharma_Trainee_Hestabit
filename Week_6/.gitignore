@@ -1,7 +1,5 @@
 *.pkl
 *.csv
-
-
 # Allow Titanic dataset
 !src/data/raw/train.csv
 !src/data/raw/test.csv

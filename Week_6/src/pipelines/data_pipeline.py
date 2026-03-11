@@ -59,20 +59,32 @@ def clean_data(df, is_train=True):
     df.drop_duplicates(inplace=True)
 
     # Removing outliers using IQR only from traning data
+    # Removing outliers using IQR only from training data
     if is_train:
 
-        Q1 = df["Fare"].quantile(0.25)
-        Q3 = df["Fare"].quantile(0.75)
-        IQR = Q3 - Q1
+        numeric_cols = df.select_dtypes(include=["int64", "float64"]).columns
+        numeric_cols = [col for col in numeric_cols if col not in ["PassengerId", "Survived"]]
 
-        df = df[
-            (df["Fare"] >= Q1 - 3 * IQR) &
-            (df["Fare"] <= Q3 + 3 * IQR)
-        ]
+        for col in numeric_cols:
 
-        print(f"Outliers removed from Fare:")
+            Q1 = df[col].quantile(0.25)
+            Q3 = df[col].quantile(0.75)
 
-        print(f"Cleaned {'Train' if is_train else 'Test'} Shape: {df.shape}")
+            IQR = Q3 - Q1
+
+            lower = Q1 - 1.5 * IQR
+            upper = Q3 + 1.5 * IQR
+
+            before = df.shape[0]
+
+            df = df[(df[col] >= lower) & (df[col] <= upper)]
+
+            after = df.shape[0]
+
+            print(f"{col}: removed {before - after} outliers")
+
+        
+            print(f"Cleaned Train Shape: {df.shape}")
 
     return df
 
@@ -91,61 +103,6 @@ def save_processed_data(train_df, test_df):
     print(PROCESSED_TEST_PATH)
 
 
-
-# 3. Charts formation using EDA
-
-
-def perform_eda(df):
-
-    print("Generating EDA charts...")
-
-    # Missing values heatmap
-    plt.figure(figsize=(8,4))
-    msno.heatmap(df)
-    plt.title("Missing Values Heatmap")
-    plt.show()
-    plt.savefig(f"{LOG_DIR}/missing_values_heatmap.png")
-    plt.close()
-
-    # Correlation matrix
-    
-    corr = df.corr(numeric_only=True)
-    plt.figure(figsize=(8,5))
-
-    if corr.shape[0] > 1:
-        sns.heatmap(corr, annot=True, cmap="coolwarm")
-    else:
-        print("Not enough numeric features for correlation heatmap")
-
-    plt.title("Correlation Matrix")
-    plt.show() #this show the chart flrmed
-    plt.savefig(f"{LOG_DIR}/correlation_matrix.png")
-    plt.close()
-
-    # Target distribution
-
-    plt.figure(figsize=(5,4))
-    df["Survived"].value_counts().plot(kind="bar")
-    plt.title("Target Distribution")
-    plt.show()
-    plt.xlabel("Survived")
-    plt.ylabel("Count")
-    plt.savefig(f"{LOG_DIR}/target_distribution.png")
-    plt.close()
-
-    # Feature distributions
-
-    numeric_cols = df.select_dtypes(include="number").columns
-    df[numeric_cols].hist(figsize=(10,8), bins=20)
-
-    plt.suptitle("Feature Distributions")
-    plt.show()
-    plt.savefig(f"{LOG_DIR}/feature_distributions.png")
-    plt.close()
-
-    print(f"EDA charts saved to {LOG_DIR}")
-
-
 # Printing dataset summary 
 
 def print_dataset_summary(df):
@@ -162,7 +119,7 @@ def print_dataset_summary(df):
 
 
 
-# 4. Executing Pipeline
+# Executing Pipeline
 
 
 def main():
@@ -174,7 +131,6 @@ def main():
 
     save_processed_data(train, test)
     print_dataset_summary(train)
-    perform_eda(train)
 
     print("Pipeline completed successfully")
 
