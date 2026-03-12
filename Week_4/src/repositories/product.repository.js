@@ -6,21 +6,28 @@ export class ProductRepository {
   }
 
   static async findById(id) {
-    return await Product.findById(id);
-  }
+  return await Product.findOne({
+    _id: id,
+    isDeleted: { $ne: true }
+  });
+}
 
   static async findAll(filter = {}) {
     return await Product.find(filter);
   }
 
   static async updateById(id, data) {
-    return await Product.findByIdAndUpdate(id, data, {
+  return await Product.findOneAndUpdate(
+    { _id: id, isDeleted: { $ne: true } },
+    data,
+    {
       new: true,
       runValidators: true,
-    });
-  }
+    }
+  );
+}
 
-  static async deleteById(id) {
+  static async softDelete(id) {
     const product = await Product.findById(id);
 
     if(!product){
@@ -38,6 +45,7 @@ export class ProductRepository {
 
 
   }
+  
 
 
   // advanced cursor with next and previous

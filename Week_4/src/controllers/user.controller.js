@@ -87,7 +87,7 @@ export class UserController {
     try {
       await UserService.deleteUser(req.params.id);
 
-      res.status(204).json({
+      res.status(200).json({
         success: true,
         data:"User Deleted",
       });

@@ -1,5 +1,6 @@
 import { ProductRepository } from "../repositories/product.repository.js";
 import { encodeCursor, decodeCursor } from "../utils/cursor.js";
+import {AppError} from "../utils/AppError.js"
 
 export class ProductService {
   static async createProduct(data, userId) {
@@ -23,13 +24,17 @@ export class ProductService {
     return updated;
   }
 
+
   static async deleteProduct(id) {
-    const deleted = await ProductRepository.deleteById(id);
-    if (!deleted) {
-      throw new AppError("Product not found", 404, "PRODUCT_NOT_FOUND");
-    }
-    return deleted;
+
+  const deleted = await ProductRepository.softDelete(id);
+
+  if (!deleted) {
+    throw new AppError("Product not found", 404, "PRODUCT_NOT_FOUND");
   }
+
+  return deleted;
+}
 
   static async getAllProducts(query) {
     
