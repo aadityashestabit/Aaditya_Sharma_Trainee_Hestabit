@@ -36,6 +36,14 @@ const userSchema = new mongoose.Schema(
       default: true,
       index: true
     },
+    isDeleted:{
+      type:Boolean,
+      default:false
+    },
+    deletedAt:{
+      type:Date,
+      default:null
+    }
   },
   { timestamps: true }
 );
@@ -48,6 +56,15 @@ userSchema.pre("save", async function () {
   if (!this.isModified("password")) return
 
   this.password = await bcrypt.hash(this.password, 12);
+});
+
+
+//hide deeted users
+
+userSchema.pre(/^find/, function (next) {
+
+  this.where({ isDeleted: false });
+
 });
 
 // Compare password

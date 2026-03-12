@@ -92,16 +92,6 @@ productSchema.pre("findOneAndUpdate", function (next) {
   }
 });
 
-// Vittual for rating in percentage
-productSchema.virtual("ratingPercentage").get(function () {
-  return (this.ratingsAverage / 5) * 100;
-});
-
-
-// Important for using virtuals in JSON format
-productSchema.set('toJSON', {
-  virtuals: true 
-});
 
 const Product = mongoose.model("Product", productSchema);
 

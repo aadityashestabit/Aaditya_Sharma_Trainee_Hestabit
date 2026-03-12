@@ -1,0 +1,54 @@
+2026-03-12 18:54:13 [ERROR]: TypeError: next is not a function
+    at model.Query.<anonymous> (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/models/user.model.js:68:3)
+    at Kareem.execPre (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/kareem/index.js:68:39)
+    at _executePreHooks (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/query.js:4745:33)
+    at model.Query.exec (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/query.js:4686:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async UserRepository.findByEmail (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/repositories/user.repository.js:9:12)
+    at async UserService.login (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/services/user.service.js:20:18)
+    at async login (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/controllers/user.controller.js:32:18)}
+2026-03-12 18:54:41 [ERROR]: CastError: Cast to string failed for value "{ email: 'john@gmail.com', isDeleted: false }" (type Object) at path "email" for model "User"
+    at SchemaString.cast (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/schema/string.js:609:11)
+    at model.Query.<anonymous> (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/schema/string.js:372:16)
+    at SchemaType._applySetters (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/schemaType.js:1250:20)
+    at SchemaType.applySetters (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/schemaType.js:1275:16)
+    at SchemaString.castForQuery (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/schema/string.js:703:17)
+    at cast (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/cast.js:315:34)
+    at Query.cast (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/query.js:5088:12)
+    at Query._castConditions (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/query.js:2376:10)
+    at model.Query._findOne (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/query.js:2716:8)
+    at model.Query.exec (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/query.js:4687:80)}
+2026-03-12 18:55:02 [ERROR]: CastError: Cast to string failed for value "{ email: 'john@gmail.com', isDeleted: false }" (type Object) at path "email" for model "User"
+    at SchemaString.cast (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/schema/string.js:609:11)
+    at model.Query.<anonymous> (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/schema/string.js:372:16)
+    at SchemaType._applySetters (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/schemaType.js:1250:20)
+    at SchemaType.applySetters (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/schemaType.js:1275:16)
+    at SchemaString.castForQuery (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/schema/string.js:703:17)
+    at cast (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/cast.js:315:34)
+    at Query.cast (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/query.js:5088:12)
+    at Query._castConditions (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/query.js:2376:10)
+    at model.Query._findOne (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/query.js:2716:8)
+    at model.Query.exec (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/query.js:4687:80)}
+2026-03-12 19:07:44 [ERROR]: ReferenceError: AppError is not defined
+    at UserService.deleteUser (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/services/user.service.js:98:9)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async delete (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/controllers/user.controller.js:88:7)}
+2026-03-12 19:08:57 [ERROR]: Error: User not found
+    at UserService.deleteUser (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/services/user.service.js:99:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async delete (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/controllers/user.controller.js:88:7)}
+2026-03-12 19:09:51 [ERROR]: MongoServerError: E11000 duplicate key error collection: dev-db.users index: email_1 dup key: { email: "john@gmail.com" }
+    at InsertOneOperation.handleOk (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongodb/lib/operations/insert.js:51:19)
+    at tryOperation (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongodb/lib/operations/execute_operation.js:216:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async executeOperation (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongodb/lib/operations/execute_operation.js:80:16)
+    at async Collection.insertOne (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongodb/lib/collection.js:154:16)
+    at async model.$__save (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/model.js:400:16)
+    at async model.save (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/model.js:614:5)
+    at async /home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/model.js:2750:9
+    at async Promise.all (index 0)
+    at async model.create (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/model.js:2735:11)}
+2026-03-12 19:12:19 [ERROR]: Error: Invalid credentials
+    at UserService.login (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/services/user.service.js:23:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async login (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/controllers/user.controller.js:32:18)}

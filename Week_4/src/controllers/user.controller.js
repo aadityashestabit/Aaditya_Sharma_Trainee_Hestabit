@@ -89,7 +89,7 @@ export class UserController {
 
       res.status(204).json({
         success: true,
-        message: "User deleted successfully",
+        data:"User Deleted",
       });
     } catch (err) {
       next(err);

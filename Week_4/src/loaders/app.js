@@ -35,14 +35,28 @@ export default async function initApp() {
     app.use("/api/products", productRoutes);
     app.use("/api", emailRoutes);
 
+    logger.info({
+      message:`Routes Mounted`
+    })
+
     // 404 Handler
     app.use(notFound);
+    logger.info({
+      message:`Not found error handler loaded`
+    })
 
     // Global Error Handle
     app.use(errorHandler);
+    logger.info({
+      message:`Global error handler loaded`
+    })
+
 
     // Connect DB
     await connectDB();
+    logger.info({
+      message:`Database connected`
+    })
 
     const server = app.listen(config.port, () => {
       logger.info({

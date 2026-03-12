@@ -1,36 +1,258 @@
-2026-03-09 14:28:00 [INFO]: Database connectedundefined}
-2026-03-09 14:28:00 [INFO]: Server started on port 3000undefined}
-2026-03-09 14:28:00 [INFO]: Environment: localundefined}
-2026-03-09 14:28:08 [INFO]: Incoming requesta56aecf3-51b9-43e9-b5b1-de8e6d58e9dd}
-2026-03-09 14:28:08 [INFO]: Processing email job 10undefined}
-2026-03-09 14:28:10 [INFO]: Job completed 10undefined}
-2026-03-09 14:28:23 [INFO]: Database connected undefined}
-2026-03-09 14:28:23 [INFO]: Server started on port 3000 undefined}
-2026-03-09 14:28:23 [INFO]: Environment: local undefined}
-2026-03-09 14:28:29 [INFO]: Database connected}
-2026-03-09 14:28:29 [INFO]: Server started on port 3000}
-2026-03-09 14:28:29 [INFO]: Environment: local}
-2026-03-09 14:28:47 [INFO]: Database connected}
-2026-03-09 14:28:47 [INFO]: Server started on port 3000}
-2026-03-09 14:28:47 [INFO]: Environment: local}
-2026-03-09 14:28:57 [INFO]: Database connected}
-2026-03-09 14:28:57 [INFO]: Server started on port 3000}
-2026-03-09 14:28:57 [INFO]: Environment: local}
-2026-03-09 14:29:01 [INFO]: NaN undefined}
-2026-03-09 14:29:01 [INFO]: NaN undefined}
-2026-03-09 14:29:01 [INFO]: NaN undefined}
-2026-03-09 14:29:04 [INFO]: Processing email job 11undefined}
-2026-03-09 14:29:04 [INFO]: 04d6f077e-9293-435b-b40e-0bbfd8f406ea undefined}
-2026-03-09 14:29:06 [INFO]: Job completed 11undefined}
-2026-03-09 14:29:37 [INFO]: Database connected}
-2026-03-09 14:29:37 [INFO]: Server started on port 3000}
-2026-03-09 14:29:37 [INFO]: Environment: local}
-2026-03-09 14:29:40 [INFO]: Processing email job 12undefined}
-2026-03-09 14:29:40 [INFO]: 098da072e-db4b-4841-9a71-79b2879042e9undefined}
-2026-03-09 14:29:42 [INFO]: Job completed 12undefined}
-2026-03-09 14:29:57 [INFO]: Database connected undefined}
-2026-03-09 14:29:57 [INFO]: Server started on port 3000 undefined}
-2026-03-09 14:29:57 [INFO]: Environment: local undefined}
-2026-03-09 14:29:59 [INFO]: Processing email job 13undefined}
-2026-03-09 14:29:59 [INFO]: Incoming request 382f58fc-067f-4d7f-9df6-ad350ce19777}
-2026-03-09 14:30:01 [INFO]: Job completed 13undefined}
+2026-03-12 16:08:43 [INFO]: Routes Mounted undefined}
+2026-03-12 16:08:43 [INFO]: Not found error handler loaded undefined}
+2026-03-12 16:08:43 [INFO]: Global error handler loaded undefined}
+2026-03-12 16:08:43 [INFO]: Database connected undefined}
+2026-03-12 16:08:43 [INFO]: Database connected undefined}
+2026-03-12 16:08:43 [INFO]: Server started on port 3000 undefined}
+2026-03-12 16:08:43 [INFO]: Environment: local undefined}
+2026-03-12 16:16:18 [INFO]: Incoming request bce161d3-6317-4a6c-a942-689866b6e012}
+2026-03-12 18:36:33 [INFO]: Routes Mounted undefined}
+2026-03-12 18:36:33 [INFO]: Not found error handler loaded undefined}
+2026-03-12 18:36:33 [INFO]: Global error handler loaded undefined}
+2026-03-12 18:36:33 [INFO]: Database connected undefined}
+2026-03-12 18:36:33 [INFO]: Database connected undefined}
+2026-03-12 18:36:33 [INFO]: Server started on port 3000 undefined}
+2026-03-12 18:36:33 [INFO]: Environment: local undefined}
+2026-03-12 18:36:48 [INFO]: Routes Mounted undefined}
+2026-03-12 18:36:48 [INFO]: Not found error handler loaded undefined}
+2026-03-12 18:36:48 [INFO]: Global error handler loaded undefined}
+2026-03-12 18:36:48 [INFO]: Database connected undefined}
+2026-03-12 18:36:48 [INFO]: Database connected undefined}
+2026-03-12 18:36:48 [INFO]: Server started on port 3000 undefined}
+2026-03-12 18:36:48 [INFO]: Environment: local undefined}
+2026-03-12 18:36:54 [INFO]: Routes Mounted undefined}
+2026-03-12 18:36:54 [INFO]: Not found error handler loaded undefined}
+2026-03-12 18:36:54 [INFO]: Global error handler loaded undefined}
+2026-03-12 18:36:54 [INFO]: Database connected undefined}
+2026-03-12 18:36:54 [INFO]: Database connected undefined}
+2026-03-12 18:36:54 [INFO]: Server started on port 3000 undefined}
+2026-03-12 18:36:54 [INFO]: Environment: local undefined}
+2026-03-12 18:36:58 [INFO]: Routes Mounted undefined}
+2026-03-12 18:36:58 [INFO]: Not found error handler loaded undefined}
+2026-03-12 18:36:58 [INFO]: Global error handler loaded undefined}
+2026-03-12 18:36:58 [INFO]: Database connected undefined}
+2026-03-12 18:36:58 [INFO]: Database connected undefined}
+2026-03-12 18:36:58 [INFO]: Server started on port 3000 undefined}
+2026-03-12 18:36:58 [INFO]: Environment: local undefined}
+2026-03-12 18:37:05 [INFO]: Routes Mounted undefined}
+2026-03-12 18:37:05 [INFO]: Not found error handler loaded undefined}
+2026-03-12 18:37:05 [INFO]: Global error handler loaded undefined}
+2026-03-12 18:37:05 [INFO]: Database connected undefined}
+2026-03-12 18:37:05 [INFO]: Database connected undefined}
+2026-03-12 18:37:05 [INFO]: Server started on port 3000 undefined}
+2026-03-12 18:37:05 [INFO]: Environment: local undefined}
+2026-03-12 18:53:28 [INFO]: Routes Mounted undefined}
+2026-03-12 18:53:28 [INFO]: Not found error handler loaded undefined}
+2026-03-12 18:53:28 [INFO]: Global error handler loaded undefined}
+2026-03-12 18:53:28 [INFO]: Database connected undefined}
+2026-03-12 18:53:28 [INFO]: Database connected undefined}
+2026-03-12 18:53:28 [INFO]: Server started on port 3000 undefined}
+2026-03-12 18:53:28 [INFO]: Environment: local undefined}
+2026-03-12 18:54:13 [ERROR]: TypeError: next is not a function
+    at model.Query.<anonymous> (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/models/user.model.js:68:3)
+    at Kareem.execPre (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/kareem/index.js:68:39)
+    at _executePreHooks (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/query.js:4745:33)
+    at model.Query.exec (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/query.js:4686:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async UserRepository.findByEmail (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/repositories/user.repository.js:9:12)
+    at async UserService.login (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/services/user.service.js:20:18)
+    at async login (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/controllers/user.controller.js:32:18)}
+2026-03-12 18:54:39 [INFO]: Routes Mounted undefined}
+2026-03-12 18:54:39 [INFO]: Not found error handler loaded undefined}
+2026-03-12 18:54:39 [INFO]: Global error handler loaded undefined}
+2026-03-12 18:54:39 [INFO]: Database connected undefined}
+2026-03-12 18:54:39 [INFO]: Database connected undefined}
+2026-03-12 18:54:39 [INFO]: Server started on port 3000 undefined}
+2026-03-12 18:54:39 [INFO]: Environment: local undefined}
+2026-03-12 18:54:41 [ERROR]: CastError: Cast to string failed for value "{ email: 'john@gmail.com', isDeleted: false }" (type Object) at path "email" for model "User"
+    at SchemaString.cast (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/schema/string.js:609:11)
+    at model.Query.<anonymous> (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/schema/string.js:372:16)
+    at SchemaType._applySetters (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/schemaType.js:1250:20)
+    at SchemaType.applySetters (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/schemaType.js:1275:16)
+    at SchemaString.castForQuery (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/schema/string.js:703:17)
+    at cast (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/cast.js:315:34)
+    at Query.cast (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/query.js:5088:12)
+    at Query._castConditions (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/query.js:2376:10)
+    at model.Query._findOne (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/query.js:2716:8)
+    at model.Query.exec (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/query.js:4687:80)}
+2026-03-12 18:55:02 [ERROR]: CastError: Cast to string failed for value "{ email: 'john@gmail.com', isDeleted: false }" (type Object) at path "email" for model "User"
+    at SchemaString.cast (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/schema/string.js:609:11)
+    at model.Query.<anonymous> (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/schema/string.js:372:16)
+    at SchemaType._applySetters (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/schemaType.js:1250:20)
+    at SchemaType.applySetters (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/schemaType.js:1275:16)
+    at SchemaString.castForQuery (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/schema/string.js:703:17)
+    at cast (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/cast.js:315:34)
+    at Query.cast (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/query.js:5088:12)
+    at Query._castConditions (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/query.js:2376:10)
+    at model.Query._findOne (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/query.js:2716:8)
+    at model.Query.exec (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/query.js:4687:80)}
+2026-03-12 18:57:22 [INFO]: Routes Mounted undefined}
+2026-03-12 18:57:22 [INFO]: Not found error handler loaded undefined}
+2026-03-12 18:57:22 [INFO]: Global error handler loaded undefined}
+2026-03-12 18:57:22 [INFO]: Database connected undefined}
+2026-03-12 18:57:22 [INFO]: Database connected undefined}
+2026-03-12 18:57:22 [INFO]: Server started on port 3000 undefined}
+2026-03-12 18:57:22 [INFO]: Environment: local undefined}
+2026-03-12 18:57:57 [INFO]: Routes Mounted undefined}
+2026-03-12 18:57:57 [INFO]: Not found error handler loaded undefined}
+2026-03-12 18:57:57 [INFO]: Global error handler loaded undefined}
+2026-03-12 18:57:57 [INFO]: Database connected undefined}
+2026-03-12 18:57:57 [INFO]: Database connected undefined}
+2026-03-12 18:57:57 [INFO]: Server started on port 3000 undefined}
+2026-03-12 18:57:57 [INFO]: Environment: local undefined}
+2026-03-12 18:57:59 [INFO]: Routes Mounted undefined}
+2026-03-12 18:57:59 [INFO]: Not found error handler loaded undefined}
+2026-03-12 18:57:59 [INFO]: Global error handler loaded undefined}
+2026-03-12 18:57:59 [INFO]: Database connected undefined}
+2026-03-12 18:57:59 [INFO]: Database connected undefined}
+2026-03-12 18:57:59 [INFO]: Server started on port 3000 undefined}
+2026-03-12 18:57:59 [INFO]: Environment: local undefined}
+2026-03-12 18:59:25 [INFO]: Routes Mounted undefined}
+2026-03-12 18:59:25 [INFO]: Not found error handler loaded undefined}
+2026-03-12 18:59:25 [INFO]: Global error handler loaded undefined}
+2026-03-12 18:59:25 [INFO]: Database connected undefined}
+2026-03-12 18:59:25 [INFO]: Database connected undefined}
+2026-03-12 18:59:25 [INFO]: Server started on port 3000 undefined}
+2026-03-12 18:59:25 [INFO]: Environment: local undefined}
+2026-03-12 18:59:30 [INFO]: Routes Mounted undefined}
+2026-03-12 18:59:30 [INFO]: Not found error handler loaded undefined}
+2026-03-12 18:59:30 [INFO]: Global error handler loaded undefined}
+2026-03-12 18:59:30 [INFO]: Database connected undefined}
+2026-03-12 18:59:30 [INFO]: Database connected undefined}
+2026-03-12 18:59:30 [INFO]: Server started on port 3000 undefined}
+2026-03-12 18:59:30 [INFO]: Environment: local undefined}
+2026-03-12 18:59:51 [INFO]: Routes Mounted undefined}
+2026-03-12 18:59:51 [INFO]: Not found error handler loaded undefined}
+2026-03-12 18:59:51 [INFO]: Global error handler loaded undefined}
+2026-03-12 18:59:51 [INFO]: Database connected undefined}
+2026-03-12 18:59:51 [INFO]: Database connected undefined}
+2026-03-12 18:59:51 [INFO]: Server started on port 3000 undefined}
+2026-03-12 18:59:51 [INFO]: Environment: local undefined}
+2026-03-12 19:00:22 [INFO]: Routes Mounted undefined}
+2026-03-12 19:00:22 [INFO]: Not found error handler loaded undefined}
+2026-03-12 19:00:22 [INFO]: Global error handler loaded undefined}
+2026-03-12 19:00:22 [INFO]: Database connected undefined}
+2026-03-12 19:00:22 [INFO]: Database connected undefined}
+2026-03-12 19:00:22 [INFO]: Server started on port 3000 undefined}
+2026-03-12 19:00:22 [INFO]: Environment: local undefined}
+2026-03-12 19:00:25 [INFO]: Routes Mounted undefined}
+2026-03-12 19:00:25 [INFO]: Not found error handler loaded undefined}
+2026-03-12 19:00:25 [INFO]: Global error handler loaded undefined}
+2026-03-12 19:00:25 [INFO]: Database connected undefined}
+2026-03-12 19:00:25 [INFO]: Database connected undefined}
+2026-03-12 19:00:25 [INFO]: Server started on port 3000 undefined}
+2026-03-12 19:00:25 [INFO]: Environment: local undefined}
+2026-03-12 19:00:49 [INFO]: Routes Mounted undefined}
+2026-03-12 19:00:49 [INFO]: Not found error handler loaded undefined}
+2026-03-12 19:00:49 [INFO]: Global error handler loaded undefined}
+2026-03-12 19:00:49 [INFO]: Database connected undefined}
+2026-03-12 19:00:49 [INFO]: Database connected undefined}
+2026-03-12 19:00:49 [INFO]: Server started on port 3000 undefined}
+2026-03-12 19:00:49 [INFO]: Environment: local undefined}
+2026-03-12 19:01:05 [INFO]: Routes Mounted undefined}
+2026-03-12 19:01:05 [INFO]: Not found error handler loaded undefined}
+2026-03-12 19:01:05 [INFO]: Global error handler loaded undefined}
+2026-03-12 19:01:05 [INFO]: Database connected undefined}
+2026-03-12 19:01:05 [INFO]: Database connected undefined}
+2026-03-12 19:01:05 [INFO]: Server started on port 3000 undefined}
+2026-03-12 19:01:05 [INFO]: Environment: local undefined}
+2026-03-12 19:04:34 [INFO]: Routes Mounted undefined}
+2026-03-12 19:04:34 [INFO]: Not found error handler loaded undefined}
+2026-03-12 19:04:34 [INFO]: Global error handler loaded undefined}
+2026-03-12 19:04:34 [INFO]: Database connected undefined}
+2026-03-12 19:04:34 [INFO]: Database connected undefined}
+2026-03-12 19:04:34 [INFO]: Server started on port 3000 undefined}
+2026-03-12 19:04:34 [INFO]: Environment: local undefined}
+2026-03-12 19:04:39 [INFO]: Routes Mounted undefined}
+2026-03-12 19:04:39 [INFO]: Not found error handler loaded undefined}
+2026-03-12 19:04:39 [INFO]: Global error handler loaded undefined}
+2026-03-12 19:04:39 [INFO]: Database connected undefined}
+2026-03-12 19:04:39 [INFO]: Database connected undefined}
+2026-03-12 19:04:39 [INFO]: Server started on port 3000 undefined}
+2026-03-12 19:04:39 [INFO]: Environment: local undefined}
+2026-03-12 19:04:42 [INFO]: Routes Mounted undefined}
+2026-03-12 19:04:42 [INFO]: Not found error handler loaded undefined}
+2026-03-12 19:04:42 [INFO]: Global error handler loaded undefined}
+2026-03-12 19:04:42 [INFO]: Database connected undefined}
+2026-03-12 19:04:42 [INFO]: Database connected undefined}
+2026-03-12 19:04:42 [INFO]: Server started on port 3000 undefined}
+2026-03-12 19:04:42 [INFO]: Environment: local undefined}
+2026-03-12 19:07:44 [ERROR]: ReferenceError: AppError is not defined
+    at UserService.deleteUser (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/services/user.service.js:98:9)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async delete (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/controllers/user.controller.js:88:7)}
+2026-03-12 19:08:55 [INFO]: Routes Mounted undefined}
+2026-03-12 19:08:55 [INFO]: Not found error handler loaded undefined}
+2026-03-12 19:08:55 [INFO]: Global error handler loaded undefined}
+2026-03-12 19:08:55 [INFO]: Database connected undefined}
+2026-03-12 19:08:55 [INFO]: Database connected undefined}
+2026-03-12 19:08:55 [INFO]: Server started on port 3000 undefined}
+2026-03-12 19:08:55 [INFO]: Environment: local undefined}
+2026-03-12 19:08:57 [ERROR]: Error: User not found
+    at UserService.deleteUser (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/services/user.service.js:99:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async delete (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/controllers/user.controller.js:88:7)}
+2026-03-12 19:09:51 [ERROR]: MongoServerError: E11000 duplicate key error collection: dev-db.users index: email_1 dup key: { email: "john@gmail.com" }
+    at InsertOneOperation.handleOk (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongodb/lib/operations/insert.js:51:19)
+    at tryOperation (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongodb/lib/operations/execute_operation.js:216:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async executeOperation (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongodb/lib/operations/execute_operation.js:80:16)
+    at async Collection.insertOne (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongodb/lib/collection.js:154:16)
+    at async model.$__save (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/model.js:400:16)
+    at async model.save (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/model.js:614:5)
+    at async /home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/model.js:2750:9
+    at async Promise.all (index 0)
+    at async model.create (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/mongoose/lib/model.js:2735:11)}
+2026-03-12 19:12:19 [ERROR]: Error: Invalid credentials
+    at UserService.login (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/services/user.service.js:23:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async login (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/controllers/user.controller.js:32:18)}
+2026-03-12 19:20:38 [INFO]: Routes Mounted undefined}
+2026-03-12 19:20:38 [INFO]: Not found error handler loaded undefined}
+2026-03-12 19:20:38 [INFO]: Global error handler loaded undefined}
+2026-03-12 19:20:38 [INFO]: Database connected undefined}
+2026-03-12 19:20:38 [INFO]: Database connected undefined}
+2026-03-12 19:20:38 [INFO]: Server started on port 3000 undefined}
+2026-03-12 19:20:38 [INFO]: Environment: local undefined}
+2026-03-12 19:21:07 [INFO]: Routes Mounted undefined}
+2026-03-12 19:21:07 [INFO]: Not found error handler loaded undefined}
+2026-03-12 19:21:07 [INFO]: Global error handler loaded undefined}
+2026-03-12 19:21:07 [INFO]: Database connected undefined}
+2026-03-12 19:21:07 [INFO]: Database connected undefined}
+2026-03-12 19:21:07 [INFO]: Server started on port 3000 undefined}
+2026-03-12 19:21:07 [INFO]: Environment: local undefined}
+2026-03-12 19:26:36 [INFO]: Routes Mounted undefined}
+2026-03-12 19:26:36 [INFO]: Not found error handler loaded undefined}
+2026-03-12 19:26:36 [INFO]: Global error handler loaded undefined}
+2026-03-12 19:26:36 [INFO]: Database connected undefined}
+2026-03-12 19:26:36 [INFO]: Database connected undefined}
+2026-03-12 19:26:36 [INFO]: Server started on port 3000 undefined}
+2026-03-12 19:26:36 [INFO]: Environment: local undefined}
+2026-03-12 19:26:39 [INFO]: Routes Mounted undefined}
+2026-03-12 19:26:39 [INFO]: Not found error handler loaded undefined}
+2026-03-12 19:26:39 [INFO]: Global error handler loaded undefined}
+2026-03-12 19:26:39 [INFO]: Database connected undefined}
+2026-03-12 19:26:39 [INFO]: Database connected undefined}
+2026-03-12 19:26:39 [INFO]: Server started on port 3000 undefined}
+2026-03-12 19:26:39 [INFO]: Environment: local undefined}
+2026-03-12 19:26:41 [INFO]: Routes Mounted undefined}
+2026-03-12 19:26:41 [INFO]: Not found error handler loaded undefined}
+2026-03-12 19:26:41 [INFO]: Global error handler loaded undefined}
+2026-03-12 19:26:41 [INFO]: Database connected undefined}
+2026-03-12 19:26:41 [INFO]: Database connected undefined}
+2026-03-12 19:26:41 [INFO]: Server started on port 3000 undefined}
+2026-03-12 19:26:41 [INFO]: Environment: local undefined}
+2026-03-12 22:54:12 [INFO]: Routes Mounted undefined}
+2026-03-12 22:54:12 [INFO]: Not found error handler loaded undefined}
+2026-03-12 22:54:12 [INFO]: Global error handler loaded undefined}
+2026-03-12 22:54:12 [INFO]: Database connected undefined}
+2026-03-12 22:54:12 [INFO]: Database connected undefined}
+2026-03-12 22:54:12 [INFO]: Server started on port 3000 undefined}
+2026-03-12 22:54:12 [INFO]: Environment: local undefined}
+2026-03-12 22:54:13 [INFO]: Routes Mounted undefined}
+2026-03-12 22:54:13 [INFO]: Not found error handler loaded undefined}
+2026-03-12 22:54:13 [INFO]: Global error handler loaded undefined}
+2026-03-12 22:54:13 [INFO]: Database connected undefined}
+2026-03-12 22:54:13 [INFO]: Database connected undefined}
+2026-03-12 22:54:13 [INFO]: Server started on port 3000 undefined}
+2026-03-12 22:54:13 [INFO]: Environment: local undefined}

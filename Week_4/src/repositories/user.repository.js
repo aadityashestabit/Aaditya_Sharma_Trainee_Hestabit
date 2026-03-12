@@ -6,12 +6,16 @@ export class UserRepository {
   }
 
   static async findByEmail(email) {
-    return await User.findOne({ email }).select("+password");
+    return await User.findOne({ email , isDeleted:false}).select("+password");
   }
 
+
   static async findById(id) {
-    return await User.findById(id);
-  }
+  return await User.findOne({
+    _id: id,
+    isDeleted: false
+  });
+}
 
   static async findWithQuery({ filter, options }) {
     const { sort, skip, limit } = options;
@@ -30,12 +34,21 @@ export class UserRepository {
 
   static async updateById(id, data) {
     return await User.findByIdAndUpdate(id, data, {
-      new: true,
+      returnDocument: "after",
       runValidators: true,
     });
   }
 
-  static async deleteById(id) {
-    return await User.findByIdAndDelete(id);
-  }
+  static async softDelete(id) {
+
+  return User.findByIdAndUpdate(
+   id,
+   {
+    isDeleted: true,
+    deletedAt: new Date()
+   },
+   { returnDocument: "after" }
+  );
+
+ }
 }
