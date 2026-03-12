@@ -460,11 +460,7 @@ Session
 
 TTL index automatically removes expired documents.
 
-Example:
 
-```javascript
-schema.index({ expiresAt: 1 }, { expireAfterSeconds: 0 })
-```
 
 ---
 
@@ -488,12 +484,6 @@ This optimizes queries like:
 find orders by status sorted by newest
 ```
 
-Example in Mongoose:
-
-```javascript
-schema.index({ status: 1, createdAt: -1 })
-```
-
 ---
 
 ### Sparse Index
@@ -501,12 +491,6 @@ schema.index({ status: 1, createdAt: -1 })
 Sparse indexes only include documents that contain the indexed field.
 
 Useful when some documents **do not contain optional fields**.
-
-Example:
-
-```javascript
-schema.index({ email: 1 }, { sparse: true })
-```
 
 ---
 
@@ -553,54 +537,6 @@ File:
 
 ```
 src/models/User.model.js
-```
-
-Example schema implementation:
-
-```javascript
- {
-    name: {
-      type: String,
-      required: true,
-      trim: true,
-      maxlength: 50,
-    },
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-      lowercase: true,
-      trim: true,
-      index: true
-    },
-    password: {
-      type: String,
-      required: true,
-      minlength: 6,
-      select: false,
-    },
-    about: {
-      type: String,
-    },
-    role: {
-      type: String,
-      enum: ["user", "admin"],
-      default: "user",
-    },
-    isActive: {
-      type: Boolean,
-      default: true,
-      index: true
-    },
-    isDeleted:{
-      type:Boolean,
-      default:false
-    },
-    deletedAt:{
-      type:Date,
-      default:null
-    }
-  }
 ```
 
 ---
