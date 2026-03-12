@@ -1,17 +1,21 @@
 export const authorize = (...roles) => {
   return (req, res, next) => {
-    if (!req.user) {
-      return res.status(401).json({
-        message: "Not authenticated",
-      });
-    }
+    try {
+      if (!req.user) {
+        return res.status(401).json({
+          message: "Not authenticated",
+        });
+      }
 
-    if (!roles.includes(req.user.role)) {
-      return res.status(403).json({
-        message: "Forbidden: Access denied",
-      });
-    }
+      if (!roles.includes(req.user.role)) {
+        return res.status(403).json({
+          message: "Forbidden: Access denied",
+        });
+      }
 
-    next();
+      next();
+    } catch (error) {
+      next(error);
+    }
   };
 };

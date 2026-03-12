@@ -12,53 +12,61 @@ import { tracingMiddleware } from "../utils/tracing.js";
 
 const env = config.nodeEnv || "local";
 
-dotenv.config({
-  path: `.env.${env}`,
-});
+try {
+  dotenv.config({
+    path: `.env.${env}`,
+  });
+} catch (error) {
+  console.error("Failed to load environment file:", error.message);
+  process.exit(1);
+}
 
 export default async function initApp() {
-  const app = express();
-  app.use(express.json());
+  try {
+    const app = express();
+    app.use(express.json());
 
-  SecurityMiddleware(app);
+    SecurityMiddleware(app);
 
-  app.use(tracingMiddleware)
+    app.use(tracingMiddleware);
 
+    // Routes
+    app.use("/api/users", userRoutes);
+    app.use("/api/products", productRoutes);
+    app.use("/api", emailRoutes);
 
+    // 404 Handler
+    app.use(notFound);
 
-  // Routes
-  app.use("/api/users", userRoutes);
-  app.use("/api/products", productRoutes);
-  app.use("/api", emailRoutes)
+    // Global Error Handle
+    app.use(errorHandler);
 
-  // 404 Handler
-  app.use(notFound);
+    // Connect DB
+    await connectDB();
 
-  // Global Error Handle
-  app.use(errorHandler);
+    const server = app.listen(config.port, () => {
+      logger.info({
+        message: `Server started on port ${config.port}`,
+      });
 
-  // Connect DB 
-  await connectDB();
-
-  const server = app.listen(config.port, () => {
-    logger.info({
-      message: `Server started on port ${config.port}`,
-      // requestId:req.requestId
-
+      logger.info({
+        message: `Environment: ${config.nodeEnv}`,
+      });
     });
-    
-    logger.info({
-      message: `Environment: ${config.nodeEnv}`,
-      // requestId:req.requestId
 
+    // Graceful shutdown
+    process.on("SIGTERM", () => {
+      logger.info("SIGTERM received. Shutting down...");
+      server.close(() => process.exit(0));
     });
-  });
 
-  // Graceful shutdown
-  process.on("SIGTERM", () => {
-    logger.info("SIGTERM received. Shutting down...");
-    server.close(() => process.exit(0));
-  });
+    return app;
 
-  return app;
+  } catch (error) {
+    logger.error({
+      message: "Application initialization failed",
+      error: error.message,
+    });
+    process.exit(1);
+  }
 }

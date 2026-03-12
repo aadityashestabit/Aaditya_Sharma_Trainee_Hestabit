@@ -1,7 +1,3 @@
-// We are creating our own custom Error type called AppError
-// "extends Error" means AppError is based on the built-in JavaScript Error
-// Think of it like: AppError is a Error, but with extra information added
-
 export class AppError extends Error {
 
   // constructor runs automatically when you do: new AppError(...)

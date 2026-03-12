@@ -6,21 +6,21 @@ export const errorHandler = (err, req, res, next) => {
   let message = err.message || "Internal Server Error";
   let code = err.code || "INTERNAL_ERROR";
 
-  // 🟢 Joi Validation Error
+  // Joi Validation Error
   if (err.isJoi) {
     statusCode = 400;
     message = err.details.map((d) => d.message).join(", ");
     code = "REQUEST_VALIDATION_ERROR";
   }
 
-  // 🟢 Mongoose CastError (invalid ObjectId)
+  // Mongoose CastError (invalid ObjectId)
   else if (err.name === "CastError") {
     statusCode = 400;
     message = `Invalid ${err.path}: ${err.value}`;
     code = "INVALID_ID";
   }
 
-  // 🟢 Duplicate Key
+  // Duplicate Key
   else if (err.code === 11000) {
     statusCode = 409;
     const field = Object.keys(err.keyValue)[0];
@@ -28,14 +28,14 @@ export const errorHandler = (err, req, res, next) => {
     code = "DUPLICATE_KEY";
   }
 
-  // 🟢 Mongoose Validation
+  // Mongoose Validation
   else if (err.name === "ValidationError") {
     statusCode = 422;
     message = Object.values(err.errors).map((e) => e.message).join(", ");
     code = "VALIDATION_ERROR";
   }
 
-  // 🟢 JWT Errors
+  // JWT Errors
   else if (err.name === "JsonWebTokenError") {
     statusCode = 401;
     message = "Invalid token";
