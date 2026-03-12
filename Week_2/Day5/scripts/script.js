@@ -6,7 +6,7 @@ let allProducts = [];
 let currentProducts = [];
 
 async function fetchProducts() {
-  const res = await fetch("https://dummyjson.com/products?limit=20");
+  const res = await fetch("https://dummyjson.com/products?limit=0");
   const data = await res.json();
 
   allProducts = data.products;
