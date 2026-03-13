@@ -1,69 +1,69 @@
-import jwt from "jsonwebtoken";
-import { config } from "../config/index.js";
-import { UserRepository } from "../repositories/user.repository.js";
-import { AppError } from "../utils/AppError.js";
+  import jwt from "jsonwebtoken";
+  import { config } from "../config/index.js";
+  import { UserRepository } from "../repositories/user.repository.js";
+  import { AppError } from "../utils/AppError.js";
 
-export class UserService {
-  static async createUser(data) {
-    return await UserRepository.create(data);
-  }
-
-  static async getUserById(id) {
-    const user = await UserRepository.findById(id);
-    if (!user) {
-      throw new AppError("User not found", 404, "USER_NOT_FOUND");
-    }
-    return user;
-  }
-
-  static async login(email, password) {
-    const user = await UserRepository.findByEmail(email);
-    if (!user) {
-      throw new AppError("Invalid credentials", 401, "INVALID_CREDENTIALS");
+  export class UserService {
+    static async createUser(data) {
+      return await UserRepository.create(data);
     }
 
-    const isMatch = await user.comparePassword(password);
-    if (!isMatch) {
-      throw new AppError("Invalid credentials", 401, "INVALID_CREDENTIALS");
+    static async getUserById(id) {
+      const user = await UserRepository.findById(id);
+      if (!user) {
+        throw new AppError("User not found", 404, "USER_NOT_FOUND");
+      }
+      return user;
     }
 
-    // Generate JWT token
-    const token = jwt.sign(
-      { id: user._id, email: user.email },
-      config.jwtSecret,
-      { expiresIn: "7d" },
-    );
+    static async login(email, password) {
+      const user = await UserRepository.findByEmail(email);
+      if (!user) {
+        throw new AppError("Invalid credentials", 401, "INVALID_CREDENTIALS");
+      }
 
-    const userObj = user.toObject();
-    delete userObj.password;
+      const isMatch = await user.comparePassword(password);
+      if (!isMatch) {
+        throw new AppError("Invalid credentials", 401, "INVALID_CREDENTIALS");
+      }
 
-    return { user: userObj, token };
-  }
+      // Generate JWT token
+      const token = jwt.sign(
+        { id: user._id, email: user.email },
+        config.jwtSecret,
+        { expiresIn: "7d" },
+      );
 
-  static async getAllUsers() {
-    const filter = {
-      isDeleted: false,
-      isActive: true,
-    };
+      const userObj = user.toObject();
+      delete userObj.password;
 
-    const users = await UserRepository.findAllActive(filter);
-
-    return users;
-  }
-
-  static async updateUser(id, data) {
-    const updated = await UserRepository.updateById(id, data);
-    if (!updated) {
-      throw new AppError("User not found", 404, "USER_NOT_FOUND");
+      return { user: userObj, token };
     }
-    return updated;
-  }
 
-  static async deleteUser(id) {
-    const deleted = await UserRepository.softDelete(id);
-    if (!deleted) {
-      throw new AppError("User not found", 404, "USER_NOT_FOUND");
+    static async getAllUsers() {
+      const filter = {
+        isDeleted: false,
+        isActive: true,
+      };
+
+      const users = await UserRepository.findAllActive(filter);
+
+      return users;
     }
-    return deleted;
+
+    static async updateUser(id, data) {
+      const updated = await UserRepository.updateById(id, data);
+      if (!updated) {
+        throw new AppError("User not found", 404, "USER_NOT_FOUND");
+      }
+      return updated;
+    }
+
+    static async deleteUser(id) {
+      const deleted = await UserRepository.softDelete(id);
+      if (!deleted) {
+        throw new AppError("User not found", 404, "USER_NOT_FOUND");
+      }
+      return deleted;
+    }
   }
-}

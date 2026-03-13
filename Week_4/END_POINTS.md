@@ -68,3 +68,10 @@ Error response
   "path": "/api/resource"
 }
 ```
+
+
+
+```
+
+GET /api/products?cursor=xyz456&direction=prev
+```
