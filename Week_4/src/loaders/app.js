@@ -9,6 +9,7 @@ import productRoutes from "../routes/product.routes.js";
 import { errorHandler, notFound } from "../middlewares/error.middleware.js";
 import { SecurityMiddleware } from "../middlewares/security.js";
 import { tracingMiddleware } from "../utils/tracing.js";
+import healthRoutes from "../routes/health.routes.js";
 
 const env = config.nodeEnv || "local";
 
@@ -34,6 +35,7 @@ export default async function initApp() {
     app.use("/api/users", userRoutes);
     app.use("/api/products", productRoutes);
     app.use("/api", emailRoutes);
+    app.use("/", healthRoutes);
 
     logger.info({
       message:`Routes Mounted`

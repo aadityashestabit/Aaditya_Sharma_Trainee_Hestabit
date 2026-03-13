@@ -405,3 +405,328 @@
     at ProductService.getProductById (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/services/product.service.js:14:13)
     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
     at async getOne (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/controllers/product.controller.js:22:23)}
+2026-03-13 09:03:34 [INFO]: Routes Mounted undefined}
+2026-03-13 09:03:34 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:03:34 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:03:34 [INFO]: Database connected undefined}
+2026-03-13 09:03:34 [INFO]: Database connected undefined}
+2026-03-13 09:03:34 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:03:34 [INFO]: Environment: production undefined}
+2026-03-13 09:03:34 [INFO]: Routes Mounted undefined}
+2026-03-13 09:03:34 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:03:34 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:03:34 [INFO]: Database connected undefined}
+2026-03-13 09:03:34 [INFO]: Routes Mounted undefined}
+2026-03-13 09:03:34 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:03:34 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:03:34 [INFO]: Database connected undefined}
+2026-03-13 09:03:34 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:03:34 [INFO]: Environment: production undefined}
+2026-03-13 09:03:34 [INFO]: Database connected undefined}
+2026-03-13 09:03:34 [INFO]: Database connected undefined}
+2026-03-13 09:03:34 [INFO]: Routes Mounted undefined}
+2026-03-13 09:03:34 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:03:34 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:03:34 [INFO]: Database connected undefined}
+2026-03-13 09:03:34 [INFO]: Database connected undefined}
+2026-03-13 09:03:34 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:03:34 [INFO]: Environment: production undefined}
+2026-03-13 09:03:34 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:03:34 [INFO]: Environment: production undefined}
+2026-03-13 09:03:34 [INFO]: Routes Mounted undefined}
+2026-03-13 09:03:34 [INFO]: Routes Mounted undefined}
+2026-03-13 09:03:34 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:03:34 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:03:34 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:03:34 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:03:34 [INFO]: Database connected undefined}
+2026-03-13 09:03:34 [INFO]: Database connected undefined}
+2026-03-13 09:03:34 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:03:34 [INFO]: Environment: production undefined}
+2026-03-13 09:03:34 [INFO]: Database connected undefined}
+2026-03-13 09:03:34 [INFO]: Database connected undefined}
+2026-03-13 09:03:35 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:03:35 [INFO]: Environment: production undefined}
+2026-03-13 09:03:35 [INFO]: Routes Mounted undefined}
+2026-03-13 09:03:35 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:03:35 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:03:35 [INFO]: Database connected undefined}
+2026-03-13 09:03:35 [INFO]: Database connected undefined}
+2026-03-13 09:03:35 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:03:35 [INFO]: Environment: production undefined}
+2026-03-13 09:03:35 [INFO]: Routes Mounted undefined}
+2026-03-13 09:03:35 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:03:35 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:03:35 [INFO]: Database connected undefined}
+2026-03-13 09:03:35 [INFO]: Routes Mounted undefined}
+2026-03-13 09:03:35 [INFO]: Database connected undefined}
+2026-03-13 09:03:35 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:03:35 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:03:35 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:03:35 [INFO]: Environment: production undefined}
+2026-03-13 09:03:35 [INFO]: Database connected undefined}
+2026-03-13 09:03:35 [INFO]: Routes Mounted undefined}
+2026-03-13 09:03:35 [INFO]: Database connected undefined}
+2026-03-13 09:03:35 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:03:35 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:03:35 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:03:35 [INFO]: Environment: production undefined}
+2026-03-13 09:03:35 [INFO]: Database connected undefined}
+2026-03-13 09:03:35 [INFO]: Routes Mounted undefined}
+2026-03-13 09:03:35 [INFO]: Database connected undefined}
+2026-03-13 09:03:35 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:03:35 [INFO]: Environment: production undefined}
+2026-03-13 09:03:35 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:03:35 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:03:35 [INFO]: Routes Mounted undefined}
+2026-03-13 09:03:35 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:03:35 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:03:35 [INFO]: Database connected undefined}
+2026-03-13 09:03:35 [INFO]: Database connected undefined}
+2026-03-13 09:03:35 [INFO]: Database connected undefined}
+2026-03-13 09:03:35 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:03:35 [INFO]: Environment: production undefined}
+2026-03-13 09:03:35 [INFO]: Database connected undefined}
+2026-03-13 09:03:35 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:03:35 [INFO]: Environment: production undefined}
+2026-03-13 09:05:12 [ERROR]: Error: Route / not found
+    at notFound (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/middlewares/error.middleware.js:67:8)
+    at Layer.handleRequest (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:342:13)
+    at /home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:297:9
+    at processParams (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:582:12)
+    at next (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:291:5)
+    at tracingMiddleware (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/utils/tracing.js:11:3)
+    at Layer.handleRequest (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:342:13)
+    at /home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:297:9}
+2026-03-13 09:05:12 [ERROR]: Error: Route / not found
+    at notFound (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/middlewares/error.middleware.js:67:8)
+    at Layer.handleRequest (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:342:13)
+    at /home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:297:9
+    at processParams (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:582:12)
+    at next (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:291:5)
+    at tracingMiddleware (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/utils/tracing.js:11:3)
+    at Layer.handleRequest (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:342:13)
+    at /home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:297:9}
+2026-03-13 09:05:13 [ERROR]: Error: Route /favicon.ico not found
+    at notFound (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/middlewares/error.middleware.js:67:8)
+    at Layer.handleRequest (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:342:13)
+    at /home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:297:9
+    at processParams (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:582:12)
+    at next (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:291:5)
+    at tracingMiddleware (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/utils/tracing.js:11:3)
+    at Layer.handleRequest (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:342:13)
+    at /home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:297:9}
+2026-03-13 09:08:03 [ERROR]: Error: Route / not found
+    at notFound (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/middlewares/error.middleware.js:67:8)
+    at Layer.handleRequest (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:342:13)
+    at /home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:297:9
+    at processParams (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:582:12)
+    at next (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:291:5)
+    at tracingMiddleware (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/utils/tracing.js:11:3)
+    at Layer.handleRequest (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:342:13)
+    at /home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:297:9}
+2026-03-13 09:08:04 [ERROR]: Error: Route / not found
+    at notFound (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/middlewares/error.middleware.js:67:8)
+    at Layer.handleRequest (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:342:13)
+    at /home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:297:9
+    at processParams (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:582:12)
+    at next (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:291:5)
+    at tracingMiddleware (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/utils/tracing.js:11:3)
+    at Layer.handleRequest (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:342:13)
+    at /home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:297:9}
+2026-03-13 09:08:04 [ERROR]: Error: Route / not found
+    at notFound (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/middlewares/error.middleware.js:67:8)
+    at Layer.handleRequest (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:342:13)
+    at /home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:297:9
+    at processParams (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:582:12)
+    at next (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:291:5)
+    at tracingMiddleware (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/utils/tracing.js:11:3)
+    at Layer.handleRequest (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:342:13)
+    at /home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:297:9}
+2026-03-13 09:12:29 [INFO]: Routes Mounted undefined}
+2026-03-13 09:12:29 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:12:29 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:12:30 [INFO]: Database connected undefined}
+2026-03-13 09:12:30 [INFO]: Database connected undefined}
+2026-03-13 09:12:30 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:12:30 [INFO]: Environment: production undefined}
+2026-03-13 09:12:30 [INFO]: Routes Mounted undefined}
+2026-03-13 09:12:30 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:12:30 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:12:30 [INFO]: Database connected undefined}
+2026-03-13 09:12:30 [INFO]: Database connected undefined}
+2026-03-13 09:12:30 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:12:30 [INFO]: Environment: production undefined}
+2026-03-13 09:12:30 [INFO]: Routes Mounted undefined}
+2026-03-13 09:12:30 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:12:30 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:12:30 [INFO]: Routes Mounted undefined}
+2026-03-13 09:12:30 [INFO]: Routes Mounted undefined}
+2026-03-13 09:12:30 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:12:30 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:12:30 [INFO]: Database connected undefined}
+2026-03-13 09:12:30 [INFO]: Database connected undefined}
+2026-03-13 09:12:30 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:12:30 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:12:30 [INFO]: Database connected undefined}
+2026-03-13 09:12:30 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:12:30 [INFO]: Environment: production undefined}
+2026-03-13 09:12:30 [INFO]: Database connected undefined}
+2026-03-13 09:12:30 [INFO]: Database connected undefined}
+2026-03-13 09:12:30 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:12:30 [INFO]: Environment: production undefined}
+2026-03-13 09:12:30 [INFO]: Database connected undefined}
+2026-03-13 09:12:30 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:12:30 [INFO]: Environment: production undefined}
+2026-03-13 09:12:30 [INFO]: Routes Mounted undefined}
+2026-03-13 09:12:30 [INFO]: Routes Mounted undefined}
+2026-03-13 09:12:30 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:12:30 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:12:30 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:12:30 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:12:30 [INFO]: Database connected undefined}
+2026-03-13 09:12:30 [INFO]: Routes Mounted undefined}
+2026-03-13 09:12:30 [INFO]: Database connected undefined}
+2026-03-13 09:12:30 [INFO]: Database connected undefined}
+2026-03-13 09:12:30 [INFO]: Routes Mounted undefined}
+2026-03-13 09:12:30 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:12:30 [INFO]: Environment: production undefined}
+2026-03-13 09:12:30 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:12:30 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:12:30 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:12:30 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:12:30 [INFO]: Database connected undefined}
+2026-03-13 09:12:30 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:12:30 [INFO]: Environment: production undefined}
+2026-03-13 09:12:30 [INFO]: Database connected undefined}
+2026-03-13 09:12:30 [INFO]: Database connected undefined}
+2026-03-13 09:12:30 [INFO]: Database connected undefined}
+2026-03-13 09:12:30 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:12:30 [INFO]: Environment: production undefined}
+2026-03-13 09:12:30 [INFO]: Routes Mounted undefined}
+2026-03-13 09:12:30 [INFO]: Database connected undefined}
+2026-03-13 09:12:30 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:12:30 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:12:30 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:12:30 [INFO]: Environment: production undefined}
+2026-03-13 09:12:30 [INFO]: Database connected undefined}
+2026-03-13 09:12:30 [INFO]: Routes Mounted undefined}
+2026-03-13 09:12:30 [INFO]: Database connected undefined}
+2026-03-13 09:12:30 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:12:30 [INFO]: Environment: production undefined}
+2026-03-13 09:12:30 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:12:30 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:12:30 [INFO]: Database connected undefined}
+2026-03-13 09:12:30 [INFO]: Database connected undefined}
+2026-03-13 09:12:30 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:12:30 [INFO]: Environment: production undefined}
+2026-03-13 09:12:30 [INFO]: Routes Mounted undefined}
+2026-03-13 09:12:30 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:12:30 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:12:30 [INFO]: Database connected undefined}
+2026-03-13 09:12:30 [INFO]: Database connected undefined}
+2026-03-13 09:12:30 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:12:30 [INFO]: Environment: production undefined}
+2026-03-13 09:40:28 [INFO]: Routes Mounted undefined}
+2026-03-13 09:40:28 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:40:28 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:40:28 [INFO]: Database connected undefined}
+2026-03-13 09:40:28 [INFO]: Database connected undefined}
+2026-03-13 09:40:28 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:40:28 [INFO]: Environment: local undefined}
+2026-03-13 09:44:07 [INFO]: Routes Mounted undefined}
+2026-03-13 09:44:07 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:44:07 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:44:07 [INFO]: Database connected undefined}
+2026-03-13 09:44:07 [INFO]: Database connected undefined}
+2026-03-13 09:44:07 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:44:07 [INFO]: Environment: production undefined}
+2026-03-13 09:44:07 [INFO]: Routes Mounted undefined}
+2026-03-13 09:44:07 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:44:07 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:44:07 [INFO]: Database connected undefined}
+2026-03-13 09:44:07 [INFO]: Database connected undefined}
+2026-03-13 09:44:07 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:44:07 [INFO]: Environment: production undefined}
+2026-03-13 09:44:07 [INFO]: Routes Mounted undefined}
+2026-03-13 09:44:07 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:44:07 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:44:07 [INFO]: Database connected undefined}
+2026-03-13 09:44:07 [INFO]: Database connected undefined}
+2026-03-13 09:44:07 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:44:07 [INFO]: Environment: production undefined}
+2026-03-13 09:44:08 [INFO]: Routes Mounted undefined}
+2026-03-13 09:44:08 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:44:08 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:44:08 [INFO]: Database connected undefined}
+2026-03-13 09:44:08 [INFO]: Database connected undefined}
+2026-03-13 09:44:08 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:44:08 [INFO]: Environment: production undefined}
+2026-03-13 09:44:08 [INFO]: Routes Mounted undefined}
+2026-03-13 09:44:08 [INFO]: Routes Mounted undefined}
+2026-03-13 09:44:08 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:44:08 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:44:08 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:44:08 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:44:08 [INFO]: Database connected undefined}
+2026-03-13 09:44:08 [INFO]: Database connected undefined}
+2026-03-13 09:44:08 [INFO]: Database connected undefined}
+2026-03-13 09:44:08 [INFO]: Routes Mounted undefined}
+2026-03-13 09:44:08 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:44:08 [INFO]: Environment: production undefined}
+2026-03-13 09:44:08 [INFO]: Routes Mounted undefined}
+2026-03-13 09:44:08 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:44:08 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:44:08 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:44:08 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:44:08 [INFO]: Database connected undefined}
+2026-03-13 09:44:08 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:44:08 [INFO]: Environment: production undefined}
+2026-03-13 09:44:08 [INFO]: Routes Mounted undefined}
+2026-03-13 09:44:08 [INFO]: Database connected undefined}
+2026-03-13 09:44:08 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:44:08 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:44:08 [INFO]: Database connected undefined}
+2026-03-13 09:44:08 [INFO]: Database connected undefined}
+2026-03-13 09:44:08 [INFO]: Database connected undefined}
+2026-03-13 09:44:08 [INFO]: Database connected undefined}
+2026-03-13 09:44:08 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:44:08 [INFO]: Environment: production undefined}
+2026-03-13 09:44:08 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:44:08 [INFO]: Environment: production undefined}
+2026-03-13 09:44:08 [INFO]: Database connected undefined}
+2026-03-13 09:44:08 [INFO]: Routes Mounted undefined}
+2026-03-13 09:44:08 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:44:08 [INFO]: Environment: production undefined}
+2026-03-13 09:44:08 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:44:08 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:44:08 [INFO]: Routes Mounted undefined}
+2026-03-13 09:44:08 [INFO]: Database connected undefined}
+2026-03-13 09:44:08 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:44:08 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:44:08 [INFO]: Database connected undefined}
+2026-03-13 09:44:08 [INFO]: Database connected undefined}
+2026-03-13 09:44:08 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:44:08 [INFO]: Environment: production undefined}
+2026-03-13 09:44:08 [INFO]: Database connected undefined}
+2026-03-13 09:44:08 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:44:08 [INFO]: Environment: production undefined}
+2026-03-13 09:44:08 [INFO]: Routes Mounted undefined}
+2026-03-13 09:44:08 [INFO]: Not found error handler loaded undefined}
+2026-03-13 09:44:08 [INFO]: Global error handler loaded undefined}
+2026-03-13 09:44:08 [INFO]: Database connected undefined}
+2026-03-13 09:44:08 [INFO]: Database connected undefined}
+2026-03-13 09:44:08 [INFO]: Server started on port 3000 undefined}
+2026-03-13 09:44:08 [INFO]: Environment: production undefined}

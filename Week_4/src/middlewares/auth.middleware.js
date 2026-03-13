@@ -29,4 +29,4 @@ export const authenticate = (req, res, next) => {
       message: "Invalid token.",
     });
   }
-};
+};  

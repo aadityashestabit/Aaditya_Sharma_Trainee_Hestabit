@@ -75,3 +75,69 @@
     at ProductService.getProductById (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/services/product.service.js:14:13)
     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
     at async getOne (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/controllers/product.controller.js:22:23)}
+2026-03-13 09:05:12 [ERROR]: Error: Route / not found
+    at notFound (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/middlewares/error.middleware.js:67:8)
+    at Layer.handleRequest (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:342:13)
+    at /home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:297:9
+    at processParams (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:582:12)
+    at next (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:291:5)
+    at tracingMiddleware (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/utils/tracing.js:11:3)
+    at Layer.handleRequest (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:342:13)
+    at /home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:297:9}
+2026-03-13 09:05:12 [ERROR]: Error: Route / not found
+    at notFound (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/middlewares/error.middleware.js:67:8)
+    at Layer.handleRequest (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:342:13)
+    at /home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:297:9
+    at processParams (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:582:12)
+    at next (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:291:5)
+    at tracingMiddleware (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/utils/tracing.js:11:3)
+    at Layer.handleRequest (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:342:13)
+    at /home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:297:9}
+2026-03-13 09:05:13 [ERROR]: Error: Route /favicon.ico not found
+    at notFound (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/middlewares/error.middleware.js:67:8)
+    at Layer.handleRequest (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:342:13)
+    at /home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:297:9
+    at processParams (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:582:12)
+    at next (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:291:5)
+    at tracingMiddleware (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/utils/tracing.js:11:3)
+    at Layer.handleRequest (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:342:13)
+    at /home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:297:9}
+2026-03-13 09:08:03 [ERROR]: Error: Route / not found
+    at notFound (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/middlewares/error.middleware.js:67:8)
+    at Layer.handleRequest (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:342:13)
+    at /home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:297:9
+    at processParams (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:582:12)
+    at next (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:291:5)
+    at tracingMiddleware (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/utils/tracing.js:11:3)
+    at Layer.handleRequest (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:342:13)
+    at /home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:297:9}
+2026-03-13 09:08:04 [ERROR]: Error: Route / not found
+    at notFound (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/middlewares/error.middleware.js:67:8)
+    at Layer.handleRequest (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:342:13)
+    at /home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:297:9
+    at processParams (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:582:12)
+    at next (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:291:5)
+    at tracingMiddleware (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/utils/tracing.js:11:3)
+    at Layer.handleRequest (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:342:13)
+    at /home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:297:9}
+2026-03-13 09:08:04 [ERROR]: Error: Route / not found
+    at notFound (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/middlewares/error.middleware.js:67:8)
+    at Layer.handleRequest (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:342:13)
+    at /home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:297:9
+    at processParams (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:582:12)
+    at next (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:291:5)
+    at tracingMiddleware (file:///home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/src/utils/tracing.js:11:3)
+    at Layer.handleRequest (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:342:13)
+    at /home/aadityasharma/Desktop/Aaditya_Sharma_Trainee_Hestabit/Week_4/node_modules/router/index.js:297:9}

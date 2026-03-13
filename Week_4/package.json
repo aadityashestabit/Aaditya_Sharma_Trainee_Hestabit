@@ -10,7 +10,10 @@
     "local": "NODE_ENV=local nodemon server.js",
     "prod": "NODE_ENV=production nodemon server.js",
     "seed:products": "node src/seeders/product.seeder.js",
-    "seed:users": "node src/seeders/user.seeder.js"
+    "seed:users": "node src/seeders/user.seeder.js",
+    "start:prod": "pm2 start src/prod/ecosystem.config.cjs --env production",
+    "stop:prod": "pm2 stop product-api",
+    "restart:prod": "pm2 restart product-api"
   },
   "keywords": [],
   "author": "",
