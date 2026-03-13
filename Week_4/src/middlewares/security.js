@@ -20,7 +20,7 @@ export const SecurityMiddleware = (app) => {
 
     // Rate limiting
     const limiter = rateLimit({
-      windowMs: 15 * 60 * 1000,
+      windowMs: 15 * 60 * 1000, // 15min
       max: 100,
       standardHeaders: true,
       legacyHeaders: false
