@@ -5,6 +5,10 @@
 !src/data/raw/test.csv
 !src/data/processed/train_clean.csv
 !src/data/processed/test_clean.csv
+!src/data/features/X_train.csv
+!src/data/features/X_test.csv
+!src/data/features/y_train.csv
+!src/data/features/y_test.csv
 __pycache__/
 .env
 *.pyc

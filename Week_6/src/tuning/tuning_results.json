@@ -1,0 +1,17 @@
+{
+    "model": "LogisticRegression",
+    "best_params": {
+        "solver": "liblinear",
+        "penalty": "l1",
+        "C": 0.6088719078801066,
+        "class_weight": "balanced"
+    },
+    "cv_roc_auc": 0.845311137087623,
+    "test_metrics": {
+        "accuracy": 0.7402597402597403,
+        "precision": 0.6153846153846154,
+        "recall": 0.7272727272727273,
+        "f1": 0.6666666666666666,
+        "roc_auc": 0.8227731864095501
+    }
+}
