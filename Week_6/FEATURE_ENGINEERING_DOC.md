@@ -14,5 +14,3 @@
 10. Age Glucose
 
 ![Feature importance summary SHAP](../images/shap_summary.png)
-
-

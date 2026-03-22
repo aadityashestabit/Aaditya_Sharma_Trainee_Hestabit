@@ -22,16 +22,24 @@ def load_data():
 def clean_data(df):
     df = df.copy()
 
-    cols_with_zero_invalid = ['Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI']
 
-    # Step 1: Replace invalid zeros
+    drop_cols = []
+
+    #  Drop Insulin completely
+    if "Insulin" in df.columns:
+        df.drop(columns=["Insulin"], inplace=True)
+    if "SkinThickness" in df.columns:
+        df.drop(columns=["SkinThickness"], inplace=True)
+
+
+    df.drop(columns=drop_cols, inplace=True)
+    cols_with_zero_invalid = ['Glucose', 'BloodPressure', 'BMI']
+    # Step 1: Replace invalid zeros with NaN
     df[cols_with_zero_invalid] = df[cols_with_zero_invalid].replace(0, np.nan)
 
-    # add missing indicator
-    for col in cols_with_zero_invalid:
-        df[f"{col}_missing"] = df[col].isna().astype(int)
+    # Removed missing indicator logic
 
-    # Step 2: Median imputation - filling missing values
+    # Step 2: Median imputation
     for col in cols_with_zero_invalid:
         df[col] = df[col].fillna(df[col].median())
 
@@ -40,9 +48,11 @@ def clean_data(df):
     df.drop_duplicates(inplace=True)
     print(f"Removed {before - df.shape[0]} duplicate rows")
 
-    # Step 4: Outlier clipping (exclude target)
-    numeric_cols = [col for col in df.select_dtypes(include=["int64", "float64"]).columns 
-                    if col != "Outcome"]
+    # Step 4: Outlier clipping
+    numeric_cols = [
+        col for col in df.select_dtypes(include=["int64", "float64"]).columns
+        if col != "Outcome"
+    ]
 
     for col in numeric_cols:
         Q1 = df[col].quantile(0.25)

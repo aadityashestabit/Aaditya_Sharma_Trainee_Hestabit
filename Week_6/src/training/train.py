@@ -1,112 +1,176 @@
 import pandas as pd
 import json
 import joblib
-import optuna
+import os
 
-from sklearn.model_selection import cross_val_score
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
+from sklearn.pipeline import Pipeline
+from src.pipelines.transformers import FeatureEngineer
+from sklearn.preprocessing import StandardScaler    
+from sklearn.model_selection import cross_val_score, train_test_split
+from sklearn.metrics import (
+    accuracy_score, precision_score, recall_score, f1_score, roc_auc_score,
+    confusion_matrix, ConfusionMatrixDisplay
+)
+
 from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.neural_network import MLPClassifier
+
+import xgboost as xgb
+import matplotlib.pyplot as plt
 
 
 # Paths
-X_TRAIN_PATH = "src/data/features/X_train.csv"
-Y_TRAIN_PATH = "src/data/features/y_train.csv"
-X_TEST_PATH = "src/data/features/X_test.csv"
-Y_TEST_PATH = "src/data/features/y_test.csv"
-
-MODEL_PATH = "src/models/tuned_model.pkl"
-RESULTS_PATH = "src/tuning/tuning_results.json"
+DATA_PATH = "src/data/processed/diabetes_clean.csv" 
+MODEL_PATH = "src/models/best_model.pkl"
+METRICS_PATH = "src/evaluation/metrics.json"
+CM_PATH = "src/evaluation/confusion_matrix.png"
 
 
 # Load data
-X_train = pd.read_csv(X_TRAIN_PATH)
-y_train = pd.read_csv(Y_TRAIN_PATH).squeeze()
+def load_data():
+    df = pd.read_csv(DATA_PATH)
+    X = df.drop(columns=["Outcome"])
+    y = df["Outcome"]
+    return X, y
 
-X_test = pd.read_csv(X_TEST_PATH)
-y_test = pd.read_csv(Y_TEST_PATH).squeeze()
+
+# Check target imbalance
+def check_class_imbalance(y):
+    distribution = pd.Series(y).value_counts(normalize=True)
+
+    print("\nClass Distribution:")
+    print(distribution)
+
+    imbalance_ratio = distribution.min() / distribution.max()
+
+    if imbalance_ratio < 0.5:
+        print("Imbalanced dataset detected")
+        return True, distribution
+    else:
+        print("Dataset is balanced")
+        return False, distribution
 
 
-# ===============================
-# OPTUNA OBJECTIVE
-# ===============================
-def objective(trial):
+# Define models
+def get_models(y_train):
 
-    params = {
-        "C": trial.suggest_float("C", 0.01, 10.0, log=True),
-        "penalty": "l2",
-        "solver": "lbfgs",
-        "max_iter": 5000,
-        "class_weight": "balanced"
+    scale_pos_weight = (y_train == 0).sum() / (y_train == 1).sum()
+
+    def make_pipeline(model):
+        return Pipeline([
+            ("feature_engineering", FeatureEngineer()),
+            ("scaler", StandardScaler()),
+            ("model", model)
+        ])
+
+    models = {
+        "Logistic Regression": make_pipeline(
+            LogisticRegression(max_iter=1000, class_weight="balanced", random_state=42)
+        ),
+        "Random Forest": make_pipeline(
+            RandomForestClassifier(class_weight="balanced", random_state=42)
+        ),
+        "XGBoost": make_pipeline(
+            xgb.XGBClassifier(
+                use_label_encoder=False,
+                eval_metric='logloss',
+                scale_pos_weight=scale_pos_weight,
+                random_state=42
+            )
+        ),
+        "Neural Network": make_pipeline(
+            MLPClassifier(max_iter=500, random_state=42)
+        )
     }
 
-    model = LogisticRegression(**params)
-
-    score = cross_val_score(
-        model,
-        X_train,
-        y_train,
-        cv=5,
-        scoring="roc_auc"
-    ).mean()
-
-    return score
+    return models
 
 
-# ===============================
-# RUN TUNING
-# ===============================
-study = optuna.create_study(direction="maximize")
-study.optimize(objective, n_trials=50)
+# Evaluate model
+def evaluate_model(model, X_test, y_test):
+    y_pred = model.predict(X_test)
+    y_prob = model.predict_proba(X_test)[:, 1]
 
-best_params = study.best_params
-best_cv_score = study.best_value
+    metrics = {
+        "accuracy": accuracy_score(y_test, y_pred),
+        "precision": precision_score(y_test, y_pred),
+        "recall": recall_score(y_test, y_pred),
+        "f1_score": f1_score(y_test, y_pred),
+        "roc_auc": roc_auc_score(y_test, y_prob)
+    }
 
-print("Best Params:", best_params)
-print("Best CV ROC-AUC:", best_cv_score)
-
-
-# ===============================
-# TRAIN FINAL MODEL
-# ===============================
-model = LogisticRegression(
-    **best_params,
-    penalty="l2",
-    solver="lbfgs",
-    max_iter=5000,
-    class_weight="balanced"
-)
-
-model.fit(X_train, y_train)
+    return metrics, y_pred
 
 
-# ===============================
-# TEST EVALUATION
-# ===============================
-test_preds = model.predict(X_test)
-test_probs = model.predict_proba(X_test)[:, 1]
+# Main pipeline
+def train_pipeline():
 
-test_metrics = {
-    "accuracy": accuracy_score(y_test, test_preds),
-    "precision": precision_score(y_test, test_preds),
-    "recall": recall_score(y_test, test_preds),
-    "f1": f1_score(y_test, test_preds),
-    "roc_auc": roc_auc_score(y_test, test_probs)
-}
+    # Load data
+    X, y = load_data()
 
-print("Test Metrics:", test_metrics)
+    # Split data (MISSING EARLIER ❌)
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.2, random_state=42
+    )
+
+    # Check imbalance
+    is_imbalanced, distribution = check_class_imbalance(y_train)
+
+    # Models
+    models = get_models(y_train)
+
+    results = {}
+    best_model = None
+    best_score = 0
+    best_name = ""
+
+    for name, model in models.items():
+        print(f"\nTraining {name}...")
+
+        # Cross-validation
+        cv_score = cross_val_score(model, X_train, y_train, cv=5, scoring='f1').mean()
+
+        # Train
+        model.fit(X_train, y_train)
+
+        # Evaluate
+        metrics, y_pred = evaluate_model(model, X_test, y_test)
+
+        metrics["cv_f1"] = cv_score
+        results[name] = metrics
+
+        print(f"{name} CV F1: {cv_score}")
+
+        # Combined score
+        score = (metrics["f1_score"] + cv_score) / 2
+
+        if score > best_score:
+            best_score = score
+            best_model = model
+            best_name = name
+
+    # Save best model
+    os.makedirs("src/models", exist_ok=True)
+    joblib.dump(best_model, MODEL_PATH)
+
+    # Save metrics
+    os.makedirs("src/evaluation", exist_ok=True)
+    with open(METRICS_PATH, "w") as f:
+        json.dump(results, f, indent=4)
+
+    # Confusion matrix
+    y_pred = best_model.predict(X_test)
+    cm = confusion_matrix(y_test, y_pred)
+    disp = ConfusionMatrixDisplay(confusion_matrix=cm)
+    disp.plot()
+
+    plt.savefig(CM_PATH)
+
+    print(f"\nBest Model: {best_name}")
+    print(f" Model saved at: {MODEL_PATH}")
+    print(f" Metrics saved at: {METRICS_PATH}")
 
 
-# ===============================
-# SAVE MODEL + RESULTS
-# ===============================
-joblib.dump(model, MODEL_PATH)
-
-with open(RESULTS_PATH, "w") as f:
-    json.dump({
-        "model": "LogisticRegression",
-        "best_params": best_params,
-        "cv_roc_auc": best_cv_score,
-        "test_metrics": test_metrics
-    }, f, indent=4)
-
-print("Tuned model and results saved")
+if __name__ == "__main__":
+    train_pipeline()

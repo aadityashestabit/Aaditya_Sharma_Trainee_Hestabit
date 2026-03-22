@@ -3,13 +3,13 @@
     "Glucose",
     "Glucose_BMI",
     "BMI_Age",
-    "Insulin_Glucose_Ratio",
-    "Age_log",
-    "SkinThickness",
-    "BMI",
     "HighGlucose",
+    "Age_log",
+    "BMI",
     "BMICategory_Obese",
-    "Insulin",
+    "AgeGroup_Adult",
     "Pregnancies",
-    "BMICategory_Normal"
+    "AgeGroup_Senior",
+    "BMICategory_Normal",
+    "DPF_log"
 ]

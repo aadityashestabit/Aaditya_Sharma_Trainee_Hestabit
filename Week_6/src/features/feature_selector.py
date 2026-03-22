@@ -16,7 +16,7 @@ def load_data():
     return X, y
 
 
-def compute_mi_scores(X, y):
+def compute_mi_scores(X, y):    
     mi        = mutual_info_classif(X, y)
     mi_scores = pd.Series(mi, index=X.columns).sort_values(ascending=False)
     return mi_scores

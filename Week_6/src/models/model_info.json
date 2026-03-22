@@ -1,4 +1,0 @@
-{
-    "model_name": "LogisticRegression",
-    "cv_roc_auc": 0.8428459368011895
-}

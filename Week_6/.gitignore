@@ -16,3 +16,4 @@ logs/
 .DS_Store
 .venv/
 run_day1.sh
+__init__.py
