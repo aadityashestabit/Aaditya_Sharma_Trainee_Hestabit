@@ -13,12 +13,15 @@ docker pull node
 ## Build Docker Image
 
 docker build .  
-docker build -t node-app .
+docker build -t \<node-app> .
 
 ## Run Container
 
 docker run \<image-id>  
 docker run -p 5173:5173 \<image-id>
+
+5173 -> Host port
+5173 -> Container port
 
 ## List Containers
 
@@ -27,7 +30,7 @@ docker ps -a
 
 ## Enter Running Container
 
-docker exec -it <container-id> /bin/sh
+docker exec -it \<container-id> /bin/sh
 
 ## Linux Commands Inside Container
 
@@ -38,4 +41,9 @@ df -h
 
 ## View Container Logs
 
-docker logs <container-id>
+docker logs \<container-id>
+
+
+## Stop Container 
+
+docker stop \<container-name>

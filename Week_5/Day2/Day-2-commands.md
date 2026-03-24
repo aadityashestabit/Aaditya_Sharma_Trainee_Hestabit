@@ -3,7 +3,7 @@
 ## Start Multi Container Application
 
 docker compose up  
-docker compose up -d
+docker compose up -d (detached)
 
 ## Build Containers
 
@@ -33,9 +33,9 @@ docker compose exec backend sh
 ## Inspect Docker Network
 
 docker network ls  
-docker network inspect <network-name>
+docker network inspect \<network-name>
 
 ## Volume Inspection
 
 docker volume ls  
-docker volume inspect <volume-name>
+docker volume inspect \<volume-name>

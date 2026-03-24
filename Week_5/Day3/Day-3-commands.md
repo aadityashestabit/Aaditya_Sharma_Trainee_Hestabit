@@ -32,4 +32,4 @@ docker inspect backend1
 
 ## Check Container Networking
 
-docker network inspect <network-name>
+docker network inspect \<network-name>
