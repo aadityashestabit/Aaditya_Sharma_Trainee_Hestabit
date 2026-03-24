@@ -5,10 +5,12 @@ const app = express();
 const PORT = 3000;
 
 app.get("/api", (req, res) => {
+  console.log(req.url)
   res.json({
     message: "Hello from backend",
     container: process.env.HOSTNAME
   });
+
 });
 
 app.listen(PORT, () => {
