@@ -30,7 +30,7 @@ y = df["Outcome"]
 
 # Train-test split
 X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=42
+    X, y, test_size=0.2, random_state=42, stratify=y # useing stratify to match same class target distribution as in original data before splitting
 )
 
 
@@ -60,7 +60,7 @@ def objective(trial):
         ("model", LogisticRegression(**params))
     ])
 
-    score = cross_val_score(pipeline, X_train, y_train, cv=5, scoring="roc_auc").mean()
+    score = cross_val_score(pipeline, X_train, y_train, cv=5, scoring="f1").mean()
     return score
 
 
@@ -74,7 +74,6 @@ best_params = study.best_params
 best_cv_score = study.best_value
 
 print("\nBest Params:", best_params)
-print("Best CV ROC-AUC:", best_cv_score)
 
 
 # TRAIN FINAL PIPELINE MODEL
@@ -103,9 +102,9 @@ test_metrics = {
     "roc_auc": roc_auc_score(y_test, test_probs),
 }
 
-print(f"\nCV ROC-AUC:   {best_cv_score:.4f}")
+print(f"\nCV F1:   {best_cv_score:.4f}")
 print(f"Test ROC-AUC: {test_metrics['roc_auc']:.4f}")
-print(f"Gap:          {best_cv_score - test_metrics['roc_auc']:.4f}")
+print(f"Gap:          {best_cv_score - test_metrics['f1']:.4f}")
 print("Test Metrics:", test_metrics)
 
 
@@ -120,7 +119,7 @@ print("Tuned model saved:", MODEL_PATH)
 output = {
     "model": "LogisticRegression",
     "best_params": best_params,
-    "cv_roc_auc": best_cv_score,
+    "cv_f1": best_cv_score,
     "test_metrics": test_metrics,
 }
 

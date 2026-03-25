@@ -89,8 +89,8 @@ def get_models(y_train):
 
 # Evaluate model
 def evaluate_model(model, X_test, y_test):
-    y_pred = model.predict(X_test)
     y_prob = model.predict_proba(X_test)[:, 1]
+    y_pred = model.predict(X_test)
 
     metrics = {
         "accuracy": accuracy_score(y_test, y_pred),

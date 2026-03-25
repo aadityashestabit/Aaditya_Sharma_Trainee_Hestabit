@@ -8,7 +8,7 @@ import os
 from pathlib import Path
 
 # Paths
-MODEL_PATH = "src/models/best_model.pkl"
+MODEL_PATH = "src/models/tuned_model.pkl"
 
 BASE_DIR = Path(__file__).resolve().parent
 LOG_PATH = (BASE_DIR / "../prediction_logs.csv").resolve()
