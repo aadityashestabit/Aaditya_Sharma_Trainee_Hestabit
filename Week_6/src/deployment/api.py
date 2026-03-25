@@ -22,7 +22,7 @@ app = FastAPI(title="Diabetes Prediction API")
 model = joblib.load(MODEL_PATH)
 
 
-# RAW INPUT ONLY
+# RAW inout that will be provided to the api to test 
 class PatientData(BaseModel):
     Pregnancies: float
     Glucose: float
@@ -32,20 +32,20 @@ class PatientData(BaseModel):
     Age: float
 
 
-# Health check
+# Health check - get route 
 @app.get("/")
 def home():
-    return {"message": "Diabetes Prediction API is running"}
+    return {"message": "Diabetes Prediction API is running"}  
 
 
-# Prediction endpoint
+# Prediction endpoint - post route 
 @app.post("/predict")
-def predict(data: PatientData):
+def predict(data: PatientData): # --> passing patient data as body to api 
 
-    request_id = str(uuid.uuid4())
+    request_id = str(uuid.uuid4()) 
 
     # Convert input to DataFrame
-    input_df = pd.DataFrame([data.dict()])
+    input_df = pd.DataFrame([data.model_dump()])
 
     # Pipeline handles everything now
     prediction = model.predict(input_df)[0]

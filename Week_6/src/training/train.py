@@ -109,7 +109,7 @@ def train_pipeline():
     # Load data
     X, y = load_data()
 
-    # Split data (MISSING EARLIER ❌)
+    # Split data
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.2, random_state=42
     )
@@ -143,8 +143,7 @@ def train_pipeline():
         print(f"{name} CV F1: {cv_score}")
 
         # Combined score
-        score = (metrics["f1_score"] + cv_score) / 2
-
+        score = cv_score
         if score > best_score:
             best_score = score
             best_model = model

@@ -32,23 +32,25 @@ def clean_data(df):
         df.drop(columns=["SkinThickness"], inplace=True)
 
 
-    df.drop(columns=drop_cols, inplace=True)
-    cols_with_zero_invalid = ['Glucose', 'BloodPressure', 'BMI']
-    # Step 1: Replace invalid zeros with NaN
-    df[cols_with_zero_invalid] = df[cols_with_zero_invalid].replace(0, np.nan)
+    df.drop(columns=drop_cols, inplace=True) #inplace true does not create a new data frame
+    cols_with_zero_invalid = ['Glucose', 'BloodPressure', 'BMI'] # all observed features with invalid zerroes
+
+    # Step 1 -- Replace invalid zeros with NaN
+
+    df[cols_with_zero_invalid] = df[cols_with_zero_invalid].replace(0, np.nan) # replace all zeroes 
 
     # Removed missing indicator logic
 
-    # Step 2: Median imputation
+    # Step 2 -- Median imputation
     for col in cols_with_zero_invalid:
-        df[col] = df[col].fillna(df[col].median())
+        df[col] = df[col].fillna(df[col].median())  # calculate median for all columns with invalid zeroes
 
-    # Step 3: Remove duplicates
+    # Step 3 -- Remove duplicates
     before = df.shape[0]
     df.drop_duplicates(inplace=True)
     print(f"Removed {before - df.shape[0]} duplicate rows")
 
-    # Step 4: Outlier clipping
+    # Step 4 -- Outlier clipping
     numeric_cols = [
         col for col in df.select_dtypes(include=["int64", "float64"]).columns
         if col != "Outcome"
@@ -65,9 +67,9 @@ def clean_data(df):
 
         df[col] = df[col].clip(lower, upper)
 
-    # Step 5: Validation
+    # Step 5 -- Validation
     print("\nPost-clean validation:")
-    print("Missing values:\n", df.isnull().sum())
+    print("Missing values:\n", df.isnull().sum())   
 
     print("\nZero values (should be 0):")
     for col in cols_with_zero_invalid:
@@ -77,14 +79,14 @@ def clean_data(df):
 
     return df
 
-# 3. SAVE PROCESSED DATA
+# Step 6 -- SAVE PROCESSED DATA
 def save_processed_data(df):
     df.to_csv(PROCESSED_DATA_PATH, index=False)
     print("\nProcessed file saved:")
     print(PROCESSED_DATA_PATH)
 
 
-# 4. PRINT DATASET SUMMARY
+# Step 7 -- PRINT DATASET SUMMARY
 def print_dataset_summary(df):
     print("\nDataset Info")
     print(df.info())
@@ -99,7 +101,7 @@ def print_dataset_summary(df):
     
 
 
-# 5. EXECUTE PIPELINE
+# Step 8 -- EXECUTE PIPELINE
 def main():
     df = load_data()
     df = clean_data(df)

@@ -17,3 +17,4 @@ logs/
 .venv/
 run_day1.sh
 __init__.py
+/venv_ml

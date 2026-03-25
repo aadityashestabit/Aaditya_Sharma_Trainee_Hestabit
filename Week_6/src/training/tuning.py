@@ -68,7 +68,7 @@ def objective(trial):
 # RUN OPTUNA
 
 study = optuna.create_study(direction="maximize")
-study.optimize(objective, n_trials=50)
+study.optimize(objective, n_trials=50)  
 
 best_params = study.best_params
 best_cv_score = study.best_value

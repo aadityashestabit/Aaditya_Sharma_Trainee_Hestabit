@@ -1,7 +1,7 @@
 import pandas as pd
 
 TRAIN_DATA = "src/data/processed/diabetes_clean.csv"
-LOG_DATA = "src/logs/prediction_logs.csv"
+LOG_DATA = "src/prediction_logs.csv"
 
 # Load data
 train = pd.read_csv(TRAIN_DATA)
