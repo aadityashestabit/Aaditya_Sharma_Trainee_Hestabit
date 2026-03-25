@@ -1,4 +1,4 @@
-# 📘 FEATURE-ENGINEERING-DOC
+#  FEATURE-ENGINEERING-DOC
 
 ##  Overview
 
@@ -190,7 +190,7 @@ After Encoding (drop_first=True):
 ###  Distribution Handling
 - Log transformations  
 
-### ⚡ Model Efficiency
+###  Model Efficiency
 - Binary flags  
 - Reduced redundancy  
 
