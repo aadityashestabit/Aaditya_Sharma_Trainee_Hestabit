@@ -12,19 +12,16 @@ OUTPUT_DIR = "src/evaluation"
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
+# 1. LOAD DATA 
 
-# ===============================
-# 1. LOAD DATA (RAW)
-# ===============================
 df = pd.read_csv(DATA_PATH)
 
 X = df.drop(columns=["Outcome"])
 y = df["Outcome"]
 
 
-# ===============================
 # 2. LOAD PIPELINE MODEL
-# ===============================
+
 pipeline = joblib.load(MODEL_PATH)
 
 # Separate parts
@@ -33,9 +30,8 @@ scaler = pipeline.named_steps["scaler"]
 model = pipeline.named_steps["model"]
 
 
-# ===============================
+
 # 3. TRANSFORM DATA (IMPORTANT)
-# ===============================
 X_transformed = feature_engineer.transform(X)
 X_transformed = scaler.transform(X_transformed)
 
@@ -43,9 +39,9 @@ X_transformed = scaler.transform(X_transformed)
 X_transformed = pd.DataFrame(X_transformed,columns=feature_engineer.transform(X).columns) # to show features with names as they were scaled earlier and shown as numbers
 
 
-# ===============================
+
 # 4. SHAP EXPLAINABILITY
-# ===============================
+
 explainer = shap.LinearExplainer(model,X_transformed)
 shap_values = explainer(X_transformed)
 
@@ -57,9 +53,9 @@ plt.close()
 print("SHAP summary plot saved")
 
 
-# ===============================
+
 # 5. FEATURE IMPORTANCE
-# ===============================
+
 importances = model.coef_[0]
 
 feat_importance = pd.Series(importances, index=X_transformed.columns)
@@ -75,9 +71,9 @@ plt.close()
 print("Feature importance plot saved")
 
 
-# ===============================
+
 # 6. ERROR ANALYSIS
-# ===============================
+
 preds = model.predict(X_transformed)
 errors = (preds != y)
 
