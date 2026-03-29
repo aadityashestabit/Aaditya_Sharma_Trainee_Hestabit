@@ -44,7 +44,7 @@ A chunk is the atomic unit of retrieval — the smallest piece of text the syste
 
 ### 3. Metadata Tagger (`pipelines/ingest.py`)
 
-Each chunk is tagged with metadata before storage. This enables filtered search later (e.g. "only search 2024 policy documents").
+Each chunk is tagged with metadata before storage. This enables filtered search later.
 
 ```python
 {
@@ -65,10 +65,9 @@ Converts text chunks into dense vector representations using `sentence-transform
 
 ### 5. Vector Store (`src/vectorstore/`)
 
-Stores all chunk vectors in a **ChromaDB** persistent database.
+Stores all chunk vectors in a **Faiss** persistent database.
 
 - Persisted to disk at `src/vectorstore/`
-- Collection name: `enterprise_docs`
 - Supports similarity search by cosine distance
 
 ### 6. Query Engine (`retriever/query_engine.py`)
@@ -132,25 +131,8 @@ src/
 │   └── ingest.py               # Full ingestion pipeline
 ├── retriever/
 │   └── query_engine.py         # Similarity search engine
-└── vectorstore/                # ChromaDB persisted database (auto-created)
+└── vectorstore/                
 ```
-
----
-
-## Configuration
-
-All tunable parameters live in `config/model.yaml`:
-
-```yaml
-provider: anthropic
-model_name: claude-haiku-4-5-20251001
-api_key_env: ANTHROPIC_API_KEY
-embedding_model: all-MiniLM-L6-v2
-chunk_size: 600
-chunk_overlap: 100
-```
-
-To switch LLM provider, change `provider` and `model_name` only. The ingestion and retrieval pipeline stays identical.
 
 ---
 
@@ -158,10 +140,10 @@ To switch LLM provider, change `provider` and `model_name` only. The ingestion a
 
 ```bash
 # Install dependencies
-pip install langchain langchain-anthropic langchain-community chromadb tiktoken pypdf python-docx sentence-transformers
+pip install langchain langchain-anthropic langchain-community faiss-cpu tiktoken pypdf python-docx sentence-transformers
 
 # Set API key
-export ANTHROPIC_API_KEY="your-key-here"
+export GROQ_AI_KEY="your-key-here"
 
 # Add documents
 cp your_documents/* src/data/raw/
@@ -175,17 +157,3 @@ python retriever/query_engine.py
 ```
 
 ---
-
-## Design Decisions
-
-**Why ChromaDB over FAISS?** ChromaDB persists to disk automatically and supports metadata filtering out of the box. FAISS requires manual save/load and has no native metadata support. For Day 1, ChromaDB is simpler to get working.
-
-**Why local embeddings over API embeddings?** Using `all-MiniLM-L6-v2` locally means zero cost per embedding call and no rate limits during development. The model is small (80MB) and fast on CPU. It can be swapped for OpenAI or Anthropic embeddings in one line if needed later.
-
-**Why 600 token chunks?** Large enough to contain a complete idea, small enough to keep retrieval precise. Chunks that are too large return noisy context; chunks that are too small lose surrounding meaning. 100-token overlap ensures sentences split across chunk boundaries are still retrievable.
-
----
-
-## What Comes Next (Day 2)
-
-Day 1 retrieval is pure semantic similarity — it only finds chunks whose *meaning* is close to the query. Day 2 adds hybrid retrieval (semantic + BM25 keyword search), a cross-encoder reranker, and deduplication to significantly improve precision and reduce hallucination.

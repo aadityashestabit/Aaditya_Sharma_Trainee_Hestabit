@@ -1,80 +1,135 @@
-# Retrieval Strategies — Day 2
+# Multimodal RAG — Day 3
 
-## The Problem with Day 1
+## What is Image RAG?
 
-Day 1 retrieval only used semantic search — it found chunks based on *meaning*. That works well most of the time, but it misses exact keywords. For example, searching "Crombie pension" might miss a chunk that literally contains those words but is phrased differently in vector space.
-
-Day 2 fixes this by combining two search methods and then running a smarter final check.
+Normal RAG only searches text. Image RAG extends this to images — diagrams, charts, screenshots, scanned forms. You can ask a question in plain text and the system finds the most relevant image from your collection. The secret is CLIP, a model that understands both text and images in the same vector space.
 
 ---
 
-## What We Built
+## The Full Pipeline
 
-### 1. BM25 Keyword Search
-BM25 is the same algorithm Google used before neural search. It counts how often your query words appear in each chunk and ranks by that frequency. It's dumb but fast, and catches exact matches that semantic search misses.
-
-### 2. Hybrid Search (BM25 + Semantic)
-We run both searches and blend their scores:
 ```
-hybrid score = (0.6 × semantic score) + (0.4 × BM25 score)
+                        ┌─────────────────────────────────────────┐
+                        │           INGESTION (run once)          │
+                        └─────────────────────────────────────────┘
+
+  Image (PNG/JPG)
+       │
+       ├─────────────────────────────────────────────┐
+       │                                             │
+       ▼                                             ▼
+  ┌─────────┐                                   ┌─────────┐
+  │Tesseract│                                   │  BLIP   │
+  │  OCR    │                                   │ Caption │
+  └────┬────┘                                   └────┬────┘
+       │ extracted text                              │ generated caption
+       └──────────────┬──────────────────────────────┘
+                      │ combined text
+                      │ "Caption: a bar chart\nOCR: Revenue 2022..."
+                      ▼
+              ┌───────────────┐
+              │ CLIP Embedder │  ← also embeds the image visually
+              │  (512-dim)    │
+              └───────┬───────┘
+                      │ 512-dim vector
+                      ▼
+              ┌───────────────┐
+              │  FAISS Index  │  image_index.faiss
+              │  + JSON store │  image_store.json
+              └───────────────┘
+
+
+                        ┌─────────────────────────────────────────┐
+                        │           SEARCH (run anytime)          │
+                        └─────────────────────────────────────────┘
+
+  Text query
+  "correlation matrix heatmap"
+       │
+       ▼
+  ┌───────────────┐
+  │ CLIP Embedder │  converts text to same 512-dim space as images
+  └───────┬───────┘
+          │ 512-dim vector
+          ▼
+  ┌───────────────┐
+  │  FAISS Search │  finds closest image vectors
+  └───────┬───────┘
+          │ top-k results with scores
+          ▼
+  ┌───────────────────────────────────┐
+  │  Results                          │
+  │  [Score: 0.61] correlation.png    │
+  │    Caption: a heatmap chart       │
+  │    OCR: Glucose BloodPressure ... │
+  └───────────────────────────────────┘
 ```
-Semantic gets more weight because meaning matters more than keywords — but BM25 still contributes enough to rescue exact matches.
-
-### 3. Reranker
-After hybrid search returns 10 candidates, the reranker reads each (query, chunk) pair together using a cross-encoder model. It's slower but much smarter — it actually understands the relationship between the question and the chunk, not just their individual vectors.
-
-The model used: `cross-encoder/ms-marco-MiniLM-L-6-v2`
-
-### 4. Deduplication
-If two chunks come from the same page, only the higher-scoring one is kept. No point sending the LLM the same page twice.
 
 ---
 
-## The Full Flow
+## The Three Tools
 
-```
-User query
-    ↓
-Semantic search → top 10 candidates
-BM25 search     → top 10 candidates
-    ↓
-Merge + blend scores (hybrid)
-    ↓
-Reranker picks best 5
-    ↓
-Deduplicate by page
-    ↓
-Clean context string → ready for LLM
-```
+### Tesseract OCR
+Extracts any text printed on an image — numbers, labels, titles, axis names. Works best on clean screenshots and charts. Noisy or handwritten images may produce garbled output, which is fine — CLIP handles those visually anyway.
+
+### BLIP Captioning
+Generates a natural language description of what the image looks like. The base model (`blip-image-captioning-base`) is not always accurate for UI screenshots but gives useful descriptions for photographs and diagrams. The caption is stored alongside OCR text to make search richer.
+
+### CLIP Embedder
+The core of Image RAG. CLIP maps both images and text into the same 512-dimensional vector space — meaning "a heatmap chart" and an actual heatmap image will end up close together in that space. This is what makes text-to-image search possible.
 
 ---
 
-## Real Results from Our Test
+## Why FAISS IndexFlatIP?
 
-Query: *"What are Crombie's pension benefits?"*
+We use `IndexFlatIP` (inner product) for images instead of `IndexFlatL2` (L2 distance) used for text chunks. CLIP vectors are normalized to unit length, so inner product equals cosine similarity directly. Higher score = more similar. No conversion needed.
 
-| Stage | Top result score | Notes |
+| Index type | Used for | Score meaning |
 |---|---|---|
-| Semantic only (Day 1) | 0.57 | Good but misses keyword hits |
-| Hybrid | 0.74 | BM25 boosted the best chunk to 1.0 |
-| After reranking | 7.36 | Promoted a chunk hybrid ranked 6th |
-
-The reranker promoted a chunk with hybrid score 0.30 all the way to position 2 — it would have been completely missed by Day 1 retrieval.
+| `IndexFlatL2` | Text chunks | Lower = better (distance) |
+| `IndexFlatIP` | Images | Higher = better (similarity) |
 
 ---
 
 ## Files
 
 ```
-retriever/
-├── hybrid_retriever.py   # BM25 + semantic fusion
-├── reranker.py           # Cross-encoder reranking
-pipelines/
-└── context_builder.py    # Full pipeline: retrieve → rerank → dedupe → format
+src/
+├── embeddings/
+│   └── clip_embedder.py       # CLIP text + image → 512-dim vectors
+├── pipelines/
+│   └── image_ingest.py        # OCR + caption + CLIP → FAISS
+├── retriever/
+│   └── image_search.py        # text query → similar images
+└── vectorstore/
+    ├── image_index.faiss       # CLIP vectors (512-dim)
+    └── image_store.json        # captions, OCR text, file paths
 ```
 
 ---
 
-## Key Takeaway
+## When to Re-ingest vs Just Search
 
-Day 1 retrieval is like a librarian who browses by topic. Day 2 is that same librarian, but now with a keyword index AND the ability to skim each book before handing it to you. The results are noticeably better — and that directly reduces hallucination in the final LLM answer.
+| Situation | Action needed |
+|---|---|
+| New images added | Re-run `image_ingest.py` |
+| Changing search query | Just run `image_search.py` |
+| Restarting machine | Just run `image_search.py` |
+| Deleting images | Re-run `image_ingest.py` |
+
+---
+
+## Real Test Result
+
+Image: `correlation_matrix.png` (diabetes dataset heatmap)
+
+| Query | Score |
+|---|---|
+| `"correlation matrix heatmap"` | 0.29 |
+| `"glucose blood pressure BMI diabetes"` | best match |
+| `"download speed"` | 0.28 (unrelated — low score expected) |
+
+OCR correctly extracted: `Glucose`, `BloodPressure`, `BMI`, `PedigreeFunction`, `Age`, `Outcome` — all column names from the heatmap.
+
+---
+
