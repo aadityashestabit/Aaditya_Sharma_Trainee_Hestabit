@@ -35,7 +35,7 @@ if __name__ == "__main__":
     print(f"Text embedding dim: {len(text_vec)}")
 
     test_images = [f for f in os.listdir("src/data/images")
-                   if f.endswith(".png") or f.endswith(".jpg")]
+                   if f.endswith(".png") or f.endswith(".jpg") or f.endswith(".jpeg")]
     if test_images:
         img_vec = embed_image(f"src/data/images/{test_images[0]}")
         print(f"Image embedding dim: {len(img_vec)}")

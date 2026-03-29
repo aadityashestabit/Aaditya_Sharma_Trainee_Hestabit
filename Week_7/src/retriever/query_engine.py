@@ -28,7 +28,7 @@ def search(query, top_k=5):
     return results
 
 if __name__ == "__main__":
-    results = search("How much minimum internet speed for work from home")
+    results = search("How much internet speed for work from home")
     for r in results:
         print(f"[Score: {r['score']}] {r['metadata']['source']} p.{r['metadata']['page']}")
         print(r["text"][:200])

@@ -71,3 +71,5 @@ Thumbs.db
 *.db
 temp/
 tmp/
+
+__init__.py

@@ -31,7 +31,7 @@ def build_context(query, top_k=5):
     }
 
 if __name__ == "__main__":
-    result = build_context("What are Crombie's pension benefits?")
+    result = build_context("Internet speed for work from home")
     print(f"Built context from {result['num_chunks']} chunks\n")
     print("Sources:")
     for s in result["sources"]:
