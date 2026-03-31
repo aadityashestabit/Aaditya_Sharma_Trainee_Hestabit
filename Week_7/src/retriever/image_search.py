@@ -4,64 +4,93 @@ import json
 import os
 from src.embeddings.clip_embedder import embed_text, embed_image
 
-VECTORSTORE_DIR = "src/vectorstore"
+BASE_DIR        = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+VECTORSTORE_DIR = os.path.join(BASE_DIR, "src", "vectorstore")
+MIN_SCORE = 0.4 # minimum threshold of similar search
 
-# load index and store once at module level
-index = faiss.read_index(f"{VECTORSTORE_DIR}/image_index.faiss")
-with open(f"{VECTORSTORE_DIR}/image_store.json") as f:
-    store = json.load(f)
-texts     = store["texts"]
-metadatas = store["metadatas"]
-print(f"ImageSearcher ready. {index.ntotal} images indexed.")
+# load image index
+try:
+    image_index = faiss.read_index(f"{VECTORSTORE_DIR}/image_index.faiss")
+except:
+    image_index = None
+
+try:
+    with open(f"{VECTORSTORE_DIR}/image_store.json") as f:
+        image_store = json.load(f)
+except:
+    image_store = {"texts": [], "metadatas": []}
+
+image_texts     = image_store["texts"]
+image_metadatas = image_store["metadatas"]
+
+try:
+    print(f"ImageSearcher ready. {image_index.ntotal} images indexed.")
+except:
+    print("ImageSearcher ready. No index loaded.")
 
 def search_by_text(query, top_k=3):
-    query_vector    = np.array([embed_text(query)], dtype=np.float32)
-    scores, indices = index.search(query_vector, top_k)
+    try:
+        query_vector = np.array([embed_text(query)], dtype=np.float32)
+    except:
+        return []
+
     results = []
-    for score, idx in zip(scores[0], indices[0]):
-        if idx == -1:
-            continue
-        results.append({
-            "filename":   metadatas[idx]["filename"],
-            "image_path": metadatas[idx]["image_path"],
-            "caption":    metadatas[idx]["caption"],
-            "ocr_text":   metadatas[idx]["ocr_text"],
-            "score":      round(float(score), 4)
-        })
+    try:
+        if image_index is not None:
+            scores, indices = image_index.search(query_vector, top_k)
+            for score, idx in zip(scores[0], indices[0]):
+                if idx == -1:
+                    continue
+                if score < MIN_SCORE:
+                    continue
+                meta = image_metadatas[idx]
+                results.append({
+                    "filename":   os.path.basename(meta["image_path"]),
+                    "image_path": meta["image_path"],
+                    "caption":    meta["caption"],
+                    "ocr_text":   meta.get("ocr_text", ""),
+                    "score":      round(float(score), 4)
+                })
+    except:
+        pass
+
     return results
 
 def search_by_image(image_path, top_k=3):
-    image_vector    = np.array([embed_image(image_path)], dtype=np.float32)
-    scores, indices = index.search(image_vector, top_k)
+    try:
+        image_vector = np.array([embed_image(image_path)], dtype=np.float32)
+    except:
+        return []
+
     results = []
-    for score, idx in zip(scores[0], indices[0]):
-        if idx == -1:
-            continue
-        results.append({
-            "filename":   metadatas[idx]["filename"],
-            "image_path": metadatas[idx]["image_path"],
-            "caption":    metadatas[idx]["caption"],
-            "score":      round(float(score), 4)
-        })
+    try:
+        if image_index is not None:
+            scores, indices = image_index.search(image_vector, top_k)
+            for score, idx in zip(scores[0], indices[0]):
+                if idx == -1:
+                    continue
+                if score < MIN_SCORE:
+                    continue
+                meta = image_metadatas[idx]
+                results.append({
+                    "filename":   os.path.basename(meta["image_path"]),
+                    "image_path": meta["image_path"],
+                    "caption":    meta["caption"],
+                    "ocr_text":   meta.get("ocr_text", ""),
+                    "score":      round(float(score), 4)
+                })
+    except:
+        pass
+
     return results
 
-
 if __name__ == "__main__":
-    print("\n--- Text to Image search ---")
-    results = search_by_text("boxer dog puppy", top_k=3)
-    for r in results:
-        print(f"[Score: {r['score']}] {r['filename']}")
-        print(f"  Caption: {r['caption']}")
-        print(f"  OCR: {r['ocr_text'][:100]}")
-        print("---")
-
-    print("\n--- Image to Image search ---")
-    query_image = "src/data/images/german_shepheard.jpeg"
-    if os.path.exists(query_image):
-        results = search_by_image(query_image, top_k=3)
+    try:
+        print("\n--- Text to Image search ---")
+        results = search_by_text("dog breeds", top_k=3)
         for r in results:
             print(f"[Score: {r['score']}] {r['filename']}")
             print(f"  Caption: {r['caption']}")
             print("---")
-    else:
-        print("Query image not found — run image_ingest.py first")
+    except:
+        pass

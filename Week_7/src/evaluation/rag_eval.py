@@ -1,52 +1,82 @@
-import os
-from groq import Groq
+import numpy as np
+from sentence_transformers import SentenceTransformer
+from sklearn.metrics.pairwise import cosine_similarity
 
-client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
-MODEL  = "llama-3.3-70b-versatile"
+try:
+    model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
+except:
+    model = None
 
-def score_faithfulness(question, context, answer):
-    prompt = f"""You are a RAG evaluation expert. Score how faithful the answer is to the given context.
-
-QUESTION: {question}
-
-CONTEXT (retrieved documents):
-{context[:1500]}
-
-ANSWER:
-{answer}
-
-Rate the faithfulness from 0.0 to 1.0 where:
-1.0 = answer is completely grounded in the context
-0.5 = answer is partially grounded, some unsupported claims
-0.0 = answer is completely hallucinated, not in context at all
-
-Reply with ONLY a number between 0.0 and 1.0. Nothing else."""
-
-    response = client.chat.completions.create(
-        model=MODEL,
-        messages=[{"role": "user", "content": prompt}],
-        temperature=0
-    )
-
-    raw = response.choices[0].message.content.strip()
+def faithfulness_score(answer, context):
     try:
-        score = float(raw)
+        context_texts = [c["text"] for c in context if c.get("text", "").strip()]
+        if not context_texts or not answer.strip():
+            return 0.5
+    except:
+        return 0.5
+
+    try:
+        context_emb = model.encode(context_texts) if model is not None else []
+        answer_emb  = model.encode(answer) if model is not None else []
+        similarities = cosine_similarity([answer_emb], context_emb)[0]
+        return float(similarities.max())
+    except:
+        return 0.5
+
+def confidence_score(score):
+    try:
         return round(min(max(score, 0.0), 1.0), 2)
     except:
-        return 0.5  # default if parsing fails
+        return 0.5
 
-def detect_hallucination(score):
-    if score >= 0.8:
-        return "low"        # answer is faithful
-    elif score >= 0.5:
-        return "medium"     # some unsupported claims
-    else:
-        return "high"       # likely hallucinated
+def hallucination_risk(score):
+    try:
+        if score >= 0.75: return "LOW"
+        if score >= 0.5:  return "MEDIUM"
+        return "HIGH"
+    except:
+        return "MEDIUM"
 
-if __name__ == "__main__":
-    question = "What are Crombie's pension benefits?"
-    context  = "Crombie has defined benefit and contribution plans for pension..."
-    answer   = "Crombie offers pension plans including defined benefit plans."
-    score    = score_faithfulness(question, context, answer)
-    print(f"Faithfulness score: {score}")
-    print(f"Hallucination risk: {detect_hallucination(score)}")
+def evaluate(answer, context):
+    try:
+        if not context or not answer.strip():
+            return {
+                "faithfulness":       0.5,
+                "confidence":         0.5,
+                "hallucination_risk": "MEDIUM"
+            }
+    except:
+        return {
+            "faithfulness":       0.5,
+            "confidence":         0.5,
+            "hallucination_risk": "MEDIUM"
+        }
+
+    try:
+        faith = faithfulness_score(answer, context)
+        return {
+            "faithfulness":       faith,
+            "confidence":         confidence_score(faith),
+            "hallucination_risk": hallucination_risk(faith)
+        }
+    except:
+        return {
+            "faithfulness":       0.5,
+            "confidence":         0.5,
+            "hallucination_risk": "MEDIUM"
+        }
+
+def refine_answer(draft_answer, context):
+    try:
+        if not context:
+            return draft_answer
+    except:
+        return draft_answer
+
+    try:
+        score = faithfulness_score(draft_answer, context)
+        if score < 0.35:
+            return "Based on the available context, there is insufficient information to answer this question reliably."
+        return draft_answer
+    except:
+        return draft_answer

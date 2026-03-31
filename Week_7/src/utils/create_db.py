@@ -6,7 +6,7 @@ import os
 os.makedirs("src/data/sql", exist_ok=True)
 
 # load your CSV
-df = pd.read_csv("src/data/raw/people-10000.csv")
+df = pd.read_csv("src/data/raw/customers-10000.csv")
 
 # clean column names — remove spaces and special chars
 df.columns = [c.strip().replace(" ", "_").replace("-", "_").lower() for c in df.columns]

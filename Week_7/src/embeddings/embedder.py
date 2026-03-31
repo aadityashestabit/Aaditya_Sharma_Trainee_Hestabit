@@ -1,11 +1,20 @@
 from sentence_transformers import SentenceTransformer
 
-model = SentenceTransformer("all-MiniLM-L6-v2")
-print("Embedder loaded: all-MiniLM-L6-v2")
+try:
+    model = SentenceTransformer("all-MiniLM-L6-v2")
+    print("Embedder loaded: all-MiniLM-L6-v2")
+except:
+    model = None
 
 def embed(texts):
-    embeddings = model.encode(texts, show_progress_bar=True)
-    return embeddings.tolist()
+    try:
+        embeddings = model.encode(texts, show_progress_bar=True) if model is not None else []
+        return embeddings.tolist()
+    except:
+        return []
 
 def embed_single(text):
-    return model.encode([text])[0].tolist()
+    try:
+        return model.encode([text])[0].tolist() if model is not None else []
+    except:
+        return []
