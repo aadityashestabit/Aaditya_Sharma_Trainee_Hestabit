@@ -6,7 +6,9 @@ from src.embeddings.clip_embedder import embed_text, embed_image
 
 BASE_DIR        = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 VECTORSTORE_DIR = os.path.join(BASE_DIR, "src", "vectorstore")
-MIN_SCORE = 0.4 # minimum threshold of similar search
+MIN_SCORE_TEXT  = 0.2  # text→image needs lower threshold
+MIN_SCORE_IMAGE = 0.5  # image→image can use higher threshold
+
 
 # load image index
 try:
@@ -41,7 +43,7 @@ def search_by_text(query, top_k=3):
             for score, idx in zip(scores[0], indices[0]):
                 if idx == -1:
                     continue
-                if score < MIN_SCORE:
+                if score < MIN_SCORE_TEXT:
                     continue
                 meta = image_metadatas[idx]
                 results.append({
@@ -69,7 +71,7 @@ def search_by_image(image_path, top_k=3):
             for score, idx in zip(scores[0], indices[0]):
                 if idx == -1:
                     continue
-                if score < MIN_SCORE:
+                if score < MIN_SCORE_IMAGE:
                     continue
                 meta = image_metadatas[idx]
                 results.append({
