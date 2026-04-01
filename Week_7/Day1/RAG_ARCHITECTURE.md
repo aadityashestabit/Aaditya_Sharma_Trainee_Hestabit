@@ -1,11 +1,5 @@
 # RAG Architecture — Day 1
 
-## Overview
-
-This document describes the ingestion and retrieval architecture built on Day 1 of the Enterprise Knowledge Intelligence System. The system enables question answering over internal documents (PDFs, DOCX, TXT) using Retrieval-Augmented Generation (RAG).
-
----
-
 ## What is RAG?
 
 RAG stands for Retrieval-Augmented Generation. Instead of asking an LLM to answer from memory (which causes hallucination), RAG first retrieves relevant passages from your own documents, then passes those passages to the LLM as context. The LLM only answers based on what was retrieved.
@@ -27,6 +21,7 @@ Loads raw files from `src/data/raw/` using LangChain loaders.
 | `.pdf` | `PyPDFLoader` |
 | `.docx` | `Docx2txtLoader` |
 | `.txt` | `TextLoader` |
+| `.csv` | `CSVLoader` |
 
 Each loader returns a list of `Document` objects containing raw text and basic metadata (source path, page number).
 
@@ -122,15 +117,15 @@ src/data/raw/
 ```
 src/
 ├── config/
-│   └── model.yaml              # Provider, model, chunk settings
+│   └── model.yaml              
 ├── data/
-│   └── raw/                    # Place your PDFs, DOCX, TXT files here
+│   └── raw/                   
 ├── embeddings/
-│   └── embedder.py             # Embedding model wrapper
+│   └── embedder.py           
 ├── pipelines/
-│   └── ingest.py               # Full ingestion pipeline
+│   └── ingest.py               
 ├── retriever/
-│   └── query_engine.py         # Similarity search engine
+│   └── query_engine.py         
 └── vectorstore/                
 ```
 
@@ -139,13 +134,13 @@ src/
 ## How to Run
 
 ```bash
-# Install dependencies
+
 pip install langchain langchain-anthropic langchain-community faiss-cpu tiktoken pypdf python-docx sentence-transformers
 
-# Set API key
+
 export GROQ_AI_KEY="your-key-here"
 
-# Add documents
+# Add documents - pdf, csv, docx, txt
 cp your_documents/* src/data/raw/
 
 # Run ingestion

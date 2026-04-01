@@ -1,13 +1,5 @@
 # Retrieval Strategies — Day 2
 
-## The Problem with Day 1
-
-Day 1 retrieval only used semantic search — it found chunks based on *meaning*. That works well most of the time, but it misses exact keywords. For example, searching "Crombie pension" might miss a chunk that literally contains those words but is phrased differently in vector space.
-
-Day 2 fixes this by combining two search methods and then running a smarter final check.
-
----
-
 ## What We Built
 
 ### 1. BM25 Keyword Search
@@ -67,14 +59,10 @@ The reranker promoted a chunk with hybrid score 0.30 all the way to position 2 �
 
 ```
 retriever/
-├── hybrid_retriever.py   # BM25 + semantic fusion
-├── reranker.py           # Cross-encoder reranking
+├── hybrid_retriever.py   
+├── reranker.py           
 pipelines/
 └── context_builder.py    # Full pipeline: retrieve → rerank → dedupe → format
 ```
 
 ---
-
-## Key Takeaway
-
-Day 1 retrieval is like a librarian who browses by topic. Day 2 is that same librarian, but now with a keyword index AND the ability to skim each book before handing it to you. The results are noticeably better — and that directly reduces hallucination in the final LLM answer.

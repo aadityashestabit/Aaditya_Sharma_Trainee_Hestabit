@@ -65,109 +65,6 @@ src/
 
 ---
 
-## How Faithfulness Score is Calculated
-
-This is one of the most important parts of Day 5. The faithfulness score tells you how grounded the LLM's answer is in the retrieved context — essentially measuring hallucination.
-
-### The method — LLM as judge
-
-We use Groq's LLM itself as the evaluator. After generating an answer, we make a second LLM call and ask it to score how well the answer matches the context.
-
-```
-First LLM call:
-  question + context → Groq → answer
-
-Second LLM call (evaluator):
-  question + context + answer → Groq → score (0.0 to 1.0)
-```
-
-### The prompt sent to the evaluator
-
-```
-You are a RAG evaluation expert. Score how faithful the answer
-is to the given context.
-
-QUESTION: {question}
-CONTEXT: {retrieved chunks}
-ANSWER: {generated answer}
-
-Rate faithfulness from 0.0 to 1.0 where:
-1.0 = answer is completely grounded in the context
-0.5 = answer is partially grounded, some unsupported claims
-0.0 = answer is completely hallucinated, not in context at all
-
-Reply with ONLY a number between 0.0 and 1.0.
-```
-
-### Score interpretation
-
-| Score | Hallucination risk | Meaning |
-|---|---|---|
-| 0.8 – 1.0 | LOW | Answer is fully supported by retrieved context |
-| 0.5 – 0.79 | MEDIUM | Some claims are not in the context |
-| 0.0 – 0.49 | HIGH | Answer is largely hallucinated |
-
-### Code that does this
-
-```python
-# evaluation/rag_eval.py
-
-def score_faithfulness(question, context, answer):
-    # sends question + context + answer to Groq
-    # gets back a single float between 0.0 and 1.0
-    response = client.chat.completions.create(...)
-    score = float(response.choices[0].message.content.strip())
-    return round(min(max(score, 0.0), 1.0), 2)
-
-def detect_hallucination(score):
-    if score >= 0.8:   return "low"
-    elif score >= 0.5: return "medium"
-    else:              return "high"
-```
-
-### Why this works
-
-The LLM has seen both the context and the answer. It can detect when the answer introduces facts that were never in the retrieved documents. For example:
-
-```
-Context:  "Crombie has defined benefit pension plans."
-Answer:   "Crombie offers pension plans worth $50 million."
-
-→ "$50 million" is not in context → score will be low (hallucination detected)
-```
-
-### Limitation
-
-The evaluator is the same LLM that generated the answer — it may be biased toward scoring its own output highly. In production, a separate smaller model or rule-based checker would be used alongside this.
-
----
-
-## How Conversational Memory Works
-
-Memory stores the last 5 messages (user + assistant alternating) in a local JSON file.
-
-```
-chat_memory.json after 3 turns:
-[
-  {"role": "user",      "content": "What are Crombie's pension benefits?"},
-  {"role": "assistant", "content": "Crombie has defined benefit plans..."},
-  {"role": "user",      "content": "What about post-employment benefits?"},
-  {"role": "assistant", "content": "Post-employment benefits include..."},
-  {"role": "user",      "content": "How much does Crombie contribute?"}
-]
-```
-
-These 5 messages are injected into every LLM call so the model knows what was discussed before. When a 6th message is added, the oldest one is dropped — always keeping only 5.
-
-```python
-# how memory is injected into LLM call
-messages = [{"role": "system", "content": system_prompt}]
-messages += get_memory()                    # ← last 5 messages added here
-messages.append({"role": "user", "content": question})
-```
-
----
-
 ## The Three Endpoints
 
 ### /ask — Document QA
@@ -338,22 +235,8 @@ python -m streamlit run src/deployment/streamlit_app.py
 
 ---
 
-## Important Rules
 
-| Rule | Detail |
-|---|---|
-| Always run from `Week_7/` root | Python needs to find `src` as a package |
-| `ingest.py` must run before Day 2 | FAISS index must exist first |
-| `clip_embedder` test before `image_ingest` | Confirm 512 dim match |
-| `create_db` only once | Unless your CSV changes |
-| `streamlit run` always last | All other modules must work first |
-| Re-ingest if new docs added | Run `ingest.py` again |
-| Re-ingest if new images added | Run `image_ingest.py` again |
-| Memory persists across sessions | Clear it with the sidebar button in UI |
-
----
-
-## Week 7 Completion Checklist
+## Week 7 Completion 
 
 | Requirement | Built | Tested |
 |---|---|---|

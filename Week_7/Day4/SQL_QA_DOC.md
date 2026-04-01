@@ -93,16 +93,16 @@ src/
 ## Setup and Run
 
 ```bash
-# Step 1 — create database from CSV
+#  create database from CSV
 python -m src.utils.create_db
 
-# Step 2 — verify schema loads correctly
+# verify schema loads correctly
 python -m src.utils.schema_loader
 
-# Step 3 — test SQL generation alone
+# test SQL generation alone
 python -m src.generator.sql_generator
 
-# Step 4 — run full pipeline
+# run full pipeline
 python -m src.pipelines.sql_pipeline
 ```
 
@@ -165,6 +165,3 @@ the United Kingdom with 832 and Canada with 654...
 
 ---
 
-## Key Takeaway
-
-The LLM never touches the database directly — it only writes SQL text. Your code runs that SQL, validates it first, and controls what gets executed. This separation keeps your data safe even if the LLM generates unexpected output.

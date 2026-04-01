@@ -108,16 +108,6 @@ src/
 
 ---
 
-## When to Re-ingest vs Just Search
-
-| Situation | Action needed |
-|---|---|
-| New images added | Re-run `image_ingest.py` |
-| Changing search query | Just run `image_search.py` |
-| Restarting machine | Just run `image_search.py` |
-| Deleting images | Re-run `image_ingest.py` |
-
----
 
 ## Real Test Result
 
