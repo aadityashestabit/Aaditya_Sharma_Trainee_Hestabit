@@ -31,5 +31,5 @@ for col in common_cols:
     print(f"Difference: {diff:.2f}")
 
     # Simple drift flag
-    if diff > 10:   # threshold (tune this)
-        print("⚠️ Drift Detected")
+    if diff > 10:   # threshold -- tunable
+        print("Drift Detected")

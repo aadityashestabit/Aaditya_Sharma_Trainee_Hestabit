@@ -18,9 +18,6 @@ st.markdown(
 
 st.markdown("---")
 
-st.sidebar.title("ℹ️ About")
-st.sidebar.write("This app predicts diabetes risk using a trained ML model.")
-
 
 # INPUT SECTION 
 
@@ -43,11 +40,7 @@ st.markdown("---")
 # PREDICTION
 
 
-# ===============================
-# PREDICTION
-# ===============================
-
-if st.button("🔍 Predict", use_container_width=True):
+if st.button("Predict", use_container_width=True):
 
     input_data = pd.DataFrame({
         "Pregnancies": [pregnancies],
@@ -82,9 +75,9 @@ if st.button("🔍 Predict", use_container_width=True):
                 st.markdown("## 📊 Prediction Result")
 
                 if prediction == 1:
-                    st.error("🚨 High Risk of Diabetes")
+                    st.error("High Risk of Diabetes")
                 else:
-                    st.success("✅ Low Risk of Diabetes")
+                    st.success(" Low Risk of Diabetes")
 
                 st.markdown("---")
                 st.write("###  Model Insight")
@@ -93,7 +86,7 @@ if st.button("🔍 Predict", use_container_width=True):
                 )
 
     except requests.exceptions.ConnectionError:
-        st.error("⚠️ FastAPI server is not running")
+        st.error(" FastAPI server is not running")
 
     except Exception as e:
         st.error("Unexpected error occurred")

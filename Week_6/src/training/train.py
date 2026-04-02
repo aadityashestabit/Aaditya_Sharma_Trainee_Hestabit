@@ -76,11 +76,17 @@ def get_models(y_train):
                 use_label_encoder=False,
                 eval_metric='logloss',
                 scale_pos_weight=scale_pos_weight,
-                random_state=42
+                random_state=42,
+                n_estimators=300,
+                max_depth=4,
+                learning_rate=0.05,
+                subsample=0.8,
+                colsample_bytree=0.8,
             )
         ),
         "Neural Network": make_pipeline(
-            MLPClassifier(max_iter=500, random_state=42)
+            MLPClassifier(max_iter=500, random_state=42,hidden_layer_sizes=(64, 32),
+            early_stopping=True)
         )
     }
 
