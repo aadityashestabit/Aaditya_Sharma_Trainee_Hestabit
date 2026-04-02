@@ -14,18 +14,10 @@ function getDiskSpace() {
     const lines = commandOutput.split("\n");
     // line 0 - headers, line 1 - actual data
     const diskInfo = lines[1].split(/\s+/);
-    const availableSpaceKB = parseInt(diskInfo[3], 10);
+    const availableSpaceKB = Number.parseInt(diskInfo[3], 10);
     const availableSpaceGB = availableSpaceKB / (1024 * 1024);
 
-    //       console.log("Lines", lines);
-    //       Lines [
-    //   'Filesystem     1K-blocks     Used Available Use% Mounted on',
-    //   '/dev/nvme0n1p2 490048472 20898180 444183688   5% /',
-    //   ''
-    // ]
-
-    // console.log("Disk Info", diskInfo);
-    // Disk Info [ '/dev/nvme0n1p2', '490048472', '20898180', '444183688', '5%', '/' ]
+   
 
     return availableSpaceGB.toFixed(2) + "GB";
   } catch (error) {
@@ -81,13 +73,3 @@ console.log("Open Ports (Top 5):", getOpenPorts());
 console.log("Default Gateway:", getDefaultGateway());
 console.log("Logged-in Users Count:", getLoggedInUserCount());
 
-//----------------Output-------------------------------->
-// Disk Info [ '/dev/nvme0n1p2', '490048472', '20898180', '444183688', '5%', '/' ]
-// Available Disk Space: 423.61GB
-// Open Ports (Top 5): 27017
-// 3306
-// 33060
-// 43574
-// 53
-// Default Gateway: 10.10.0.1
-// Logged-in Users Count: 2
