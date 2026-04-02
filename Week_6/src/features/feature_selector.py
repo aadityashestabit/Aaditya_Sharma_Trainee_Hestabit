@@ -16,11 +16,20 @@ def load_data():
     return X, y
 
 
-def compute_mi_scores(X, y):    
-    mi        = mutual_info_classif(X, y)
-    mi_scores = pd.Series(mi, index=X.columns).sort_values(ascending=False)
-    return mi_scores
+def compute_mi_scores(X, y):
+    if X is None or y is None:
+        raise ValueError("Input data cannot be None")
 
+    if not isinstance(X, pd.DataFrame):
+        raise TypeError("X must be a pandas DataFrame")
+
+    if len(X) > 100000:  # limit size
+        raise ValueError("Dataset too large")
+
+    mi = mutual_info_classif(X, y)
+    mi_scores = pd.Series(mi, index=X.columns).sort_values(ascending=False)
+
+    return mi_scores
 
 def plot_feature_importance(scores):
     plt.figure(figsize=(10, 5))
