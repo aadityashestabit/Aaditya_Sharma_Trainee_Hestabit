@@ -135,7 +135,7 @@ src/
 
 ```bash
 
-pip install langchain langchain-anthropic langchain-community faiss-cpu tiktoken pypdf python-docx sentence-transformers
+pip install -r requirements.txt
 
 
 export GROQ_AI_KEY="your-key-here"

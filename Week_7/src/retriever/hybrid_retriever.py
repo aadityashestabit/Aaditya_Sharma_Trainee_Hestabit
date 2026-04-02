@@ -8,7 +8,7 @@ from src.embeddings.embedder import embed_single
 BASE_DIR        = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 VECTORSTORE_DIR = os.path.join(BASE_DIR, "src", "vectorstore")
 
-# ── load main text index (Day 1 ingest) ──────────────────────────
+# load main text index (Day 1 ingest)
 try:
     index_main = faiss.read_index(f"{VECTORSTORE_DIR}/index.faiss")
 except:
@@ -20,7 +20,7 @@ try:
 except:
     store_main = {"texts": [], "metadatas": []}
 
-# ── load image pipeline text index (image_ingest.py) ─────────────
+#  load image pipeline text index (image_ingest.py) 
 index_img_text = None
 store_img_text = {"texts": [], "metadatas": []}
 
@@ -39,7 +39,7 @@ except:
     index_img_text = None
     store_img_text = {"texts": [], "metadatas": []}
 
-# ── combine both stores ───────────────────────────────────────────
+# combine both stores
 all_texts     = store_main["texts"]     + store_img_text["texts"]
 all_metadatas = store_main["metadatas"] + store_img_text["metadatas"]
 
@@ -49,7 +49,7 @@ try:
 except:
     all_ids = []
 
-# ── build BM25 over combined corpus ──────────────────────────────
+#  build BM25 over combined corpus 
 try:
     print(f"Building BM25 index over {len(all_texts)} chunks...")
     bm25 = BM25Okapi([t.lower().split() for t in all_texts])

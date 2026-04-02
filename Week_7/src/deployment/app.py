@@ -61,7 +61,7 @@ CONTEXT:
 
     try:
         answer = client.chat.completions.create(
-            model=MODEL, messages=messages, temperature=0.3
+            model=MODEL, messages=messages, temperature=0.2
         ).choices[0].message.content.strip()
     except:
         answer = ""

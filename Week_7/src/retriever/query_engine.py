@@ -29,6 +29,8 @@ except:
 
 def search(query, top_k=5):
     try:
+        
+        # Converting user query in embedding for vector similariy search
         query_vector = np.array([embed_single(query)], dtype=np.float32)
     except:
         return []
@@ -43,7 +45,7 @@ def search(query, top_k=5):
                 results.append({
                     "text":     texts[idx],
                     "metadata": metadatas[idx],
-                    "score":    round(float(1 / (1 + dist)), 4)
+                    "score":    round(float(1 / (1 + dist)), 4) #more distance less score
                 })
     except:
         pass
