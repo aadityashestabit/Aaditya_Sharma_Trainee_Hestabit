@@ -1,91 +1,51 @@
 import pandas as pd
 import shap
 import matplotlib.pyplot as plt
-import seaborn as sns
 import joblib
 import os
+from sklearn.model_selection import train_test_split
 
 # Paths
-DATA_PATH = "src/data/processed/diabetes_clean.csv"
-MODEL_PATH = "src/models/best_model.pkl"
+DATA_PATH  = "src/data/processed/diabetes_clean.csv"
+MODEL_PATH = "src/models/tuned_model.pkl"
 OUTPUT_DIR = "src/evaluation"
-
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-# 1. LOAD DATA 
-
+# Data Load
 df = pd.read_csv(DATA_PATH)
+X  = df.drop(columns=["Outcome"])
+y  = df["Outcome"]
 
-X = df.drop(columns=["Outcome"])
-y = df["Outcome"]
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, stratify=y
+)
 
-
-# 2. LOAD PIPELINE MODEL
-
+# Pipeline loading 
 pipeline = joblib.load(MODEL_PATH)
 
-# Separate parts
 feature_engineer = pipeline.named_steps["feature_engineering"]
-scaler = pipeline.named_steps["scaler"]
-model = pipeline.named_steps["model"]
+scaler           = pipeline.named_steps["scaler"]
+selector         = pipeline.named_steps["feature_selection"]
+model            = pipeline.named_steps["model"]
 
+# Transform
+X_eng      = feature_engineer.transform(X_test)
+X_scaled   = scaler.transform(X_eng)
+X_selected = selector.transform(X_scaled)
 
+all_feature_names      = feature_engineer.get_feature_names_out()
+selected_indices       = selector.get_support(indices=True)
+selected_feature_names = [all_feature_names[i] for i in selected_indices]
 
-# 3. TRANSFORM DATA (IMPORTANT)
-X_transformed = feature_engineer.transform(X)
-X_transformed = scaler.transform(X_transformed)
+X_shap = pd.DataFrame(X_selected, columns=selected_feature_names)
 
-# Convert back to DataFrame for SHAP
-X_transformed = pd.DataFrame(X_transformed,columns=feature_engineer.transform(X).columns) # to show features with names as they were scaled earlier and shown as numbers
+# Shap summary 
+explainer   = shap.TreeExplainer(model)
+shap_values = explainer(X_shap)
 
-
-
-# 4. SHAP EXPLAINABILITY
-
-explainer = shap.LinearExplainer(model,X_transformed)
-shap_values = explainer(X_transformed)
-
-# Summary plot
-shap.summary_plot(shap_values, X_transformed, max_display=20, show=False)
-plt.savefig(f"{OUTPUT_DIR}/shap_summary.png")
+shap.summary_plot(shap_values, X_shap, max_display=15, show=False)
+plt.tight_layout()
+plt.savefig(f"{OUTPUT_DIR}/shap_summary.png", bbox_inches="tight")
 plt.close()
 
 print("SHAP summary plot saved")
-
-
-
-# 5. FEATURE IMPORTANCE
-
-importances = model.coef_[0]
-
-feat_importance = pd.Series(importances, index=X_transformed.columns)
-feat_importance = feat_importance.sort_values(ascending=False)
-
-plt.figure(figsize=(10, 5))
-feat_importance.plot(kind="bar")
-plt.title("Feature Importance")
-plt.tight_layout()
-plt.savefig(f"{OUTPUT_DIR}/feature_importance.png")
-plt.close()
-
-print("Feature importance plot saved")
-
-
-
-# 6. ERROR ANALYSIS
-
-preds = model.predict(X_transformed)
-errors = (preds != y)
-
-error_df = X_transformed.copy()
-error_df["error"] = errors
-
-corr = error_df.corr()
-
-plt.figure(figsize=(8, 6))
-sns.heatmap(corr, cmap="coolwarm")
-plt.title("Error Analysis Heatmap")
-plt.savefig(f"{OUTPUT_DIR}/error_heatmap.png")
-plt.close()
-
-print("Error heatmap saved")

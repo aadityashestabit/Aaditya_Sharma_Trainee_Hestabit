@@ -2,22 +2,28 @@ import pandas as pd
 import json
 import joblib
 import os
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.model_selection import learning_curve
 
 from sklearn.pipeline import Pipeline
+from sklearn.feature_selection import SelectKBest, mutual_info_classif
 from src.pipelines.transformers import FeatureEngineer
 from sklearn.preprocessing import StandardScaler    
 from sklearn.model_selection import cross_val_score, train_test_split
+
+# import evaluation metrics
 from sklearn.metrics import (
     accuracy_score, precision_score, recall_score, f1_score, roc_auc_score,
     confusion_matrix, ConfusionMatrixDisplay
 )
 
+# Models import 
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neural_network import MLPClassifier
-
 import xgboost as xgb
-import matplotlib.pyplot as plt
+
 
 
 # Paths
@@ -61,6 +67,7 @@ def get_models(y_train):
         return Pipeline([
             ("feature_engineering", FeatureEngineer()),
             ("scaler", StandardScaler()),
+            ("feature_selection", SelectKBest(score_func=mutual_info_classif, k=12)),
             ("model", model)
         ])
 
@@ -69,7 +76,15 @@ def get_models(y_train):
             LogisticRegression(max_iter=1000, class_weight="balanced", random_state=42)
         ),
         "Random Forest": make_pipeline(
-            RandomForestClassifier(class_weight="balanced", random_state=42)
+            RandomForestClassifier(class_weight="balanced",
+                                   random_state=42,
+                                   max_depth=6,
+                                   min_samples_leaf=5,
+                                   min_samples_split=10,
+                                   max_features="sqrt",
+                                   n_estimators=200,
+                                   max_samples=0.8
+                                   )
         ),
         "XGBoost": make_pipeline(
             xgb.XGBClassifier(
@@ -93,6 +108,7 @@ def get_models(y_train):
     return models
 
 
+
 # Evaluate model
 def evaluate_model(model, X_test, y_test):
     y_prob = model.predict_proba(X_test)[:, 1]
@@ -108,7 +124,51 @@ def evaluate_model(model, X_test, y_test):
 
     return metrics, y_pred
 
+def plot_bias_variance(model, X_train, y_train, model_name="Model"):
+    
+    train_sizes, train_scores, val_scores = learning_curve(
+        model,
+        X_train,
+        y_train,
+        cv=5,
+        scoring="f1",
+        train_sizes=np.linspace(0.1, 1.0, 10),
+        n_jobs=-1
+    )
 
+    # Mean and std across folds
+    train_mean = train_scores.mean(axis=1)
+    train_std  = train_scores.std(axis=1)
+    val_mean   = val_scores.mean(axis=1)
+    val_std    = val_scores.std(axis=1)
+
+    plt.figure(figsize=(8, 5))
+
+    # Train line
+    plt.plot(train_sizes, train_mean, color="#185FA5", label="Training score", linewidth=2)
+    plt.fill_between(train_sizes,
+                     train_mean - train_std,
+                     train_mean + train_std,
+                     alpha=0.15, color="#185FA5")
+
+    # Validation line
+    plt.plot(train_sizes, val_mean, color="#D85A30", label="Validation score", linewidth=2)
+    plt.fill_between(train_sizes,
+                     val_mean - val_std,
+                     val_mean + val_std,
+                     alpha=0.15, color="#D85A30")
+
+    plt.xlabel("Training set size")
+    plt.ylabel("F1 Score")
+    plt.title(f"Learning curve — {model_name}")
+    plt.legend(loc="lower right")
+    plt.grid(True, alpha=0.3)
+    plt.tight_layout()
+    plt.savefig(f"src/evaluation/learning_curve_{model_name}.png")
+    plt.show()
+    plt.close()
+    
+    
 # Main pipeline
 def train_pipeline():
 
@@ -154,10 +214,32 @@ def train_pipeline():
             best_score = score
             best_model = model
             best_name = name
+            
+
 
     # Save best model
     os.makedirs("src/models", exist_ok=True)
     joblib.dump(best_model, MODEL_PATH)
+    
+    for name, model in models.items():
+        model.fit(X_train, y_train)
+        plot_bias_variance(model, X_train, y_train, model_name=name)
+    
+
+# PRINT SELECTED FEATURES
+
+
+    selector = best_model.named_steps["feature_selection"]
+    feature_engineer = best_model.named_steps["feature_engineering"]
+
+    feature_names = feature_engineer.get_feature_names_out()
+    selected_indices = selector.get_support(indices=True)
+
+    selected_features = [feature_names[i] for i in selected_indices]
+
+    print("\nSelected Features (Top 12):")
+    for f in selected_features:
+        print(f)
 
     # Save metrics
     os.makedirs("src/evaluation", exist_ok=True)

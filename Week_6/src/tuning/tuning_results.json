@@ -1,17 +1,68 @@
 {
-    "model": "LogisticRegression",
+    "best_model": "XGBoost",
+    "best_k": 17,
     "best_params": {
-        "solver": "liblinear",
-        "penalty": "l2",
-        "C": 0.07039478995487784,
-        "class_weight": "balanced"
+        "n_estimators": 100,
+        "max_depth": 2,
+        "learning_rate": 0.029450013165919824,
+        "subsample": 0.9209704096804558,
+        "colsample_bytree": 0.7461828431916953,
+        "reg_alpha": 0.001260171810516977,
+        "reg_lambda": 0.44256387208504416
     },
-    "cv_f1": 0.6914521816631791,
+    "cv_f1": 0.7054518793897364,
     "test_metrics": {
-        "accuracy": 0.7792207792207793,
-        "precision": 0.65625,
+        "accuracy": 0.7402597402597403,
+        "precision": 0.6,
         "recall": 0.7777777777777778,
-        "f1": 0.711864406779661,
-        "roc_auc": 0.8309259259259258
+        "f1": 0.6774193548387096,
+        "roc_auc": 0.809074074074074
+    },
+    "all_results": {
+        "Logistic Regression": {
+            "cv_f1": 0.6898217468805703,
+            "best_params": {
+                "solver": "saga",
+                "penalty": "l2",
+                "k": 17,
+                "C": 0.13425962111747927,
+                "class_weight": "balanced"
+            }
+        },
+        "Random Forest": {
+            "cv_f1": 0.7007378655439973,
+            "best_params": {
+                "k": 15,
+                "n_estimators": 450,
+                "max_depth": 5,
+                "min_samples_leaf": 6,
+                "min_samples_split": 28,
+                "max_features": "log2",
+                "max_samples": 0.9436592152736062
+            }
+        },
+        "XGBoost": {
+            "cv_f1": 0.7054518793897364,
+            "best_params": {
+                "n_estimators": 100,
+                "max_depth": 2,
+                "learning_rate": 0.029450013165919824,
+                "subsample": 0.9209704096804558,
+                "colsample_bytree": 0.7461828431916953,
+                "reg_alpha": 0.001260171810516977,
+                "reg_lambda": 0.44256387208504416
+            }
+        },
+        "Neural Network": {
+            "cv_f1": 0.6796314232817504,
+            "best_params": {
+                "k": 9,
+                "n_layers": 1,
+                "layer_size": 128,
+                "activation": "tanh",
+                "alpha": 0.01808853318193571,
+                "learning_rate_init": 0.0006921316511974245
+            }
+        }
     }
 }

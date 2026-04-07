@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import os
 from sklearn.feature_selection import mutual_info_classif
 
-DATA_PATH = "src/data/processed/diabetes_features.csv"
+DATA_PATH = "src/data/processed/diabetes_clean.csv"
 LOG_DIR   = "src/logs"
 
 os.makedirs(LOG_DIR, exist_ok=True)

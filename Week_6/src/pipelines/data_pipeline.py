@@ -66,7 +66,7 @@ def clean_data(df):
         upper = Q3 + 1.5 * IQR
 
         df[col] = df[col].clip(lower, upper)
-
+# 1.5 marks 0.7 % data as outliers while exempting the rest 99.3%
     # Step 5 -- Validation
     print("\nPost-clean validation:")
     print("Missing values:\n", df.isnull().sum())   

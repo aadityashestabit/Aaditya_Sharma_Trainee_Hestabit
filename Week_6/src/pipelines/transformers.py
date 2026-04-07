@@ -41,5 +41,10 @@ class FeatureEngineer(BaseEstimator, TransformerMixin):
 
         # Encoding
         X = pd.get_dummies(X, columns=["AgeGroup", "BMICategory"], drop_first=True)
+        
+        self.feature_names_ = X.columns
 
         return X
+    
+    def get_feature_names_out(self, input_features=None):
+        return self.feature_names_
