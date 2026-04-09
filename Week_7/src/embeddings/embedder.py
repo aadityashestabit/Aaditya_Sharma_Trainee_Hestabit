@@ -2,6 +2,9 @@ from sentence_transformers import SentenceTransformer
 
 try:
     model = SentenceTransformer("all-MiniLM-L6-v2")
+    vec = model.encode(["test sentence"])
+    print(f"Vector dimension: {vec.shape[1]}")
+    print(f"Max token limit: {model.max_seq_length}")
     print("Embedder loaded: all-MiniLM-L6-v2")
 except:
     model = None

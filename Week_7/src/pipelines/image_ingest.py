@@ -178,7 +178,7 @@ def ingest():
     try:
         if image_vectors:
             vectors = np.array(image_vectors, dtype=np.float32)
-            index   = faiss.IndexFlatIP(vectors.shape[1])
+            index   = faiss.IndexFlatL2(vectors.shape[1])
             index.add(vectors)
             faiss.write_index(index, f"{VECTORSTORE_DIR}/image_index.faiss")
             with open(f"{VECTORSTORE_DIR}/image_store.json", "w") as f:

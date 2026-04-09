@@ -4,7 +4,7 @@ from src.retriever.reranker import rerank
 def build_context(query, top_k=5):
     candidates = hybrid_search(query, top_k=10)
 
-    # filter out CSV chunks — CSV data is for SQL RAG only
+    # filter out CSV chunks — CSV data is for SQL RAG only[]
     candidates = [
         c for c in candidates
         if not c["metadata"].get("source", "").endswith(".csv")
