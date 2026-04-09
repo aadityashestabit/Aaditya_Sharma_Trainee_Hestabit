@@ -21,7 +21,7 @@ COPY model_loader.py .
 COPY config.py .
 
 # model.gguf is mounted at runtime via docker -v flag
-# so we don't copy it into the image
+
 
 EXPOSE 8000
 
