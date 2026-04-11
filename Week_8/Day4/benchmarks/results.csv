@@ -1,0 +1,6 @@
+model,tokens_per_sec,latency_sec,vram_gb,type
+base_no_ft,10.66,9.38,2.07,GPU FP16
+finetuned_fp16,40.16,2.49,2.07,GPU FP16
+finetuned_int4,16.16,6.19,0.75,GPU INT4
+gguf_q4_0,27.7,3.61,0,CPU GGUF
+
