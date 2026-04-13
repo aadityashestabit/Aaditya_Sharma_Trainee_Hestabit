@@ -6,11 +6,9 @@ from src.embeddings.clip_embedder import embed_text, embed_image
 
 BASE_DIR        = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 VECTORSTORE_DIR = os.path.join(BASE_DIR, "src", "vectorstore")
-MIN_SCORE_TEXT  = 0.2  # text→image needs lower threshold
-MIN_SCORE_IMAGE = 0.5  # image→image can use higher threshold
+MIN_SCORE_TEXT  = 0.26
+MIN_SCORE_IMAGE = 0.7
 
-
-# load image index
 try:
     image_index = faiss.read_index(f"{VECTORSTORE_DIR}/image_index.faiss")
 except:
@@ -33,6 +31,7 @@ except:
 def search_by_text(query, top_k=3):
     try:
         query_vector = np.array([embed_text(query)], dtype=np.float32)
+        faiss.normalize_L2(query_vector)  # normalize in-place
     except:
         return []
 
@@ -55,12 +54,12 @@ def search_by_text(query, top_k=3):
                 })
     except:
         pass
-
     return results
 
 def search_by_image(image_path, top_k=3):
     try:
         image_vector = np.array([embed_image(image_path)], dtype=np.float32)
+        faiss.normalize_L2(image_vector)  # normalize in-place
     except:
         return []
 
@@ -83,7 +82,6 @@ def search_by_image(image_path, top_k=3):
                 })
     except:
         pass
-
     return results
 
 if __name__ == "__main__":

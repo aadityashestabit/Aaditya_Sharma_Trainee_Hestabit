@@ -16,13 +16,13 @@ except:
 
 def embed_image(image_path):
     try:
-        image  = Image.open(image_path).convert("RGB")
-        inputs = processor(images=image, return_tensors="pt")
+        image  = Image.open(image_path).convert("RGB") # loads image file and forces 3 channel rgb 
+        inputs = processor(images=image, return_tensors="pt") # resizes images 224 x 224
         with torch.no_grad():
-            vision_outputs = model.vision_model(**inputs)
-            features       = model.visual_projection(vision_outputs.pooler_output)
-            features       = features / features.norm(dim=-1, keepdim=True)
-        return features[0].tolist()
+            vision_outputs = model.vision_model(**inputs) # runs image thorigh vision transformer output shape (1,768)
+            features       = model.visual_projection(vision_outputs.pooler_output) # summary of entire image in 768 numbers
+            features       = features / features.norm(dim=-1, keepdim=True) # normalize to unit lenght 
+        return features[0].tolist() # convert to 512    
     except:
         return []
 

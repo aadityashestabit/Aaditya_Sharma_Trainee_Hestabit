@@ -112,7 +112,6 @@ CONTEXT:
     }
 
 def ask_image(query=None, image_path=None, mode="text"):
-    # guard against empty query in text mode
     if mode == "text" and (not query or not query.strip()):
         return {"answer": "Please enter a search query.", "context_used": []}
 
@@ -125,8 +124,21 @@ def ask_image(query=None, image_path=None, mode="text"):
         return {"answer": "", "context_used": []}
 
     if not results:
-        return {"answer": "No relevant images found above similarity threshold.", "context_used": []}
+        return {"answer": "No relevant images found", "context_used": []}
 
+    # Image→Image — just return results, no LLM needed
+    if mode == "image" and not query:
+        return {
+            "answer":       f"Found {len(results)} similar images.",
+            "context_used": [{
+                "source":   r["image_path"],
+                "caption":  r["caption"],
+                "ocr_text": r.get("ocr_text", ""),
+                "score":    r["score"]
+            } for r in results]
+        }
+
+    # Text→Image or Image→Text — call Groq
     try:
         image_context = "\n".join([
             f"Image: {os.path.basename(r['image_path'])}\nCaption: {r['caption']}\nOCR: {r.get('ocr_text', '')}"
@@ -174,7 +186,7 @@ IMAGES:
             "score":    r["score"]
         } for r in results]
     }
-
+    
 def ask_sql_endpoint(question):
     try:
         result = ask_sql(question)

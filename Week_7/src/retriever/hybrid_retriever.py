@@ -8,7 +8,7 @@ from src.embeddings.embedder import embed_single
 BASE_DIR        = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 VECTORSTORE_DIR = os.path.join(BASE_DIR, "src", "vectorstore")
 
-# load main text index (Day 1 ingest)
+# load main text index (Day 1 ingest) 
 try:
     index_main = faiss.read_index(f"{VECTORSTORE_DIR}/index.faiss")
 except:
@@ -27,6 +27,7 @@ store_img_text = {"texts": [], "metadatas": []}
 img_text_index_path = f"{VECTORSTORE_DIR}/text_index.faiss"
 img_text_store_path = f"{VECTORSTORE_DIR}/text_store.json"
 
+# load image text and metadata 
 try:
     if os.path.exists(img_text_index_path) and os.path.exists(img_text_store_path):
         index_img_text = faiss.read_index(img_text_index_path)
@@ -39,13 +40,15 @@ except:
     index_img_text = None
     store_img_text = {"texts": [], "metadatas": []}
 
-# combine both stores
+# combine both stores - list concetanation 
 all_texts     = store_main["texts"]     + store_img_text["texts"]
 all_metadatas = store_main["metadatas"] + store_img_text["metadatas"]
 
 try:
     all_ids = [m["chunk_id"] for m in store_main["metadatas"]] + \
               [f"img_text_{i}" for i in range(len(store_img_text["texts"]))]
+              
+              # unique chunk ids created for text - chunk x -- for image text - img_text_x
 except:
     all_ids = []
 
@@ -57,6 +60,7 @@ try:
 except:
     bm25 = None
 
+# semantic search 
 def semantic_search(query, top_k=10):
     try:
         query_vector = np.array([embed_single(query)], dtype=np.float32)
@@ -114,7 +118,7 @@ def bm25_search(query, top_k=10):
                 "text":           all_texts[idx],
                 "metadata":       all_metadatas[idx],
                 "semantic_score": 0.0,
-                "bm25_score":     round(scores[idx] / max_score, 4)
+                "bm25_score":     round(scores[idx] / max_score, 4) # normalize bm25 score 0-1 
             }
         return results
     except:
@@ -122,17 +126,17 @@ def bm25_search(query, top_k=10):
 
 def hybrid_search(query, top_k=5, semantic_weight=0.6, bm25_weight=0.4):
     try:
-        sem_results  = semantic_search(query)
-        bm25_results = bm25_search(query)
+        sem_results  = semantic_search(query) # run semantic search 
+        bm25_results = bm25_search(query) # run bm 25 search
 
-        all_chunk_ids = set(sem_results.keys()) | set(bm25_results.keys())
+        all_chunk_ids = set(sem_results.keys()) | set(bm25_results.keys())  # | - union of semantic and bm25 chunks 
 
         merged = {}
         for chunk_id in all_chunk_ids:
-            sem  = sem_results.get(chunk_id, {})
-            bm   = bm25_results.get(chunk_id, {})
+            sem  = sem_results.get(chunk_id, {})  # empty dict if not in semantic results
+            bm   = bm25_results.get(chunk_id, {})  # empty dict if not in BM25 results
 
-            s = sem.get("semantic_score", 0.0)
+            s = sem.get("semantic_score", 0.0) # 0.0 if not found 
             b = bm.get("bm25_score", 0.0)
 
             merged[chunk_id] = {
@@ -140,10 +144,10 @@ def hybrid_search(query, top_k=5, semantic_weight=0.6, bm25_weight=0.4):
                 "metadata":       sem.get("metadata") or bm.get("metadata"),
                 "semantic_score": round(s, 4),
                 "bm25_score":     round(b, 4),
-                "hybrid_score":   round((semantic_weight * s) + (bm25_weight * b), 4)
+                "hybrid_score":   round((semantic_weight * s) + (bm25_weight * b), 4) # (0.6 * semantic ) + (0.4 * bm25)
             }
 
-        ranked = sorted(merged.values(), key=lambda x: x["hybrid_score"], reverse=True)
+        ranked = sorted(merged.values(), key=lambda x: x["hybrid_score"], reverse=True) # sort and return top 5 
         return ranked[:top_k]
     except:
         return []

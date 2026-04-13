@@ -3,7 +3,7 @@ from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 
 try:
-    model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
+    model = SentenceTransformer("BAAI/bge-base-en-v1.5")
 except:
     model = None
 
@@ -18,7 +18,8 @@ def faithfulness_score(answer, context):
     try:
         context_emb = model.encode(context_texts) if model is not None else []
         answer_emb  = model.encode(answer) if model is not None else []
-        similarities = cosine_similarity([answer_emb], context_emb)[0]
+        # no change needed here — cosine_similarity works for any dimension
+        similarities = cosine_similarity([answer_emb], context_emb)
         return float(similarities.max())
     except:
         return 0.5

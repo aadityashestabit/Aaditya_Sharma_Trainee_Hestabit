@@ -11,11 +11,13 @@ BASE_DIR      = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(
 RAW_DATA_DIR = os.path.join(BASE_DIR, "src", "data", "raw")
 VECTORSTORE_DIR = os.path.join(BASE_DIR, "src", "vectorstore")  
 
+# loading documents \
 def load_documents():
     docs = []
     supported = {".pdf", ".docx", ".csv", ".txt"}
 
     try:
+        # rglob finds supported files recursively 
         for filepath in Path(RAW_DATA_DIR).rglob("*"):
             ext = filepath.suffix.lower()
             if ext not in supported:
@@ -40,12 +42,14 @@ def load_documents():
 
     return docs
 
+# document chunking 
+# -- 800 character (~200 tokens)- chunk , --150 character overlap 
 def chunk_documents(docs):
     try:
         splitter = RecursiveCharacterTextSplitter(
-            chunk_size=600,
-            chunk_overlap=100,
-            separators=["\n\n", "\n", ".", " "]
+            chunk_size=800,
+            chunk_overlap=150,
+            separators=["\n\n", "\n", ".", " "] # seperate on natural boundaries
         )
         chunks = splitter.split_documents(docs)
         print(f"Created {len(chunks)} chunks")
@@ -53,14 +57,15 @@ def chunk_documents(docs):
     except Exception as e:
         print(f"Error chunking documents: {type(e).__name__}: {e}")
         return []
-
+    
+# takes metadata langchain already attached and adds more fields  
 def build_metadata(chunk, idx):
     try:
         meta = chunk.metadata.copy()
-        meta["chunk_id"] = f"chunk_{idx}"
+        meta["chunk_id"] = f"chunk_{idx}" # used by hybrid retriever to merge bm25 resukts 
         meta["source"]   = meta.get("source", "unknown")
-        meta["page"]     = meta.get("page", 0)
-        meta["tags"]     = "enterprise_doc"
+        meta["page"]     = meta.get("page", 0)  # used in deduplication
+        meta["tags"]     = "enterprise_doc"  # fixed tags for all chunks 
 
         source = meta["source"].lower()
         if source.endswith(".pdf"):    meta["file_type"] = "pdf"
@@ -76,8 +81,8 @@ def build_metadata(chunk, idx):
 
 def ingest():
     try:
-        docs   = load_documents()
-        chunks = chunk_documents(docs)
+        docs   = load_documents() # loading
+        chunks = chunk_documents(docs) # chunking 
     except Exception as e:
         print(f"Error during document loading/chunking: {type(e).__name__}: {e}")
         return
@@ -87,33 +92,30 @@ def ingest():
         return
 
     try:
-        texts     = [c.page_content for c in chunks]
-        metadatas = [build_metadata(c, i) for i, c in enumerate(chunks)]
+        texts     = [c.page_content for c in chunks] # extract just text context from chunks and passed to embedder  
+        metadatas = [build_metadata(c, i) for i, c in enumerate(chunks)] # extracts metadata
     except Exception as e:
         print(f"Error extracting texts/metadatas: {type(e).__name__}: {e}")
         texts, metadatas = [], []
 
     try:
-        embeddings = embed(texts)
+        embeddings = embed(texts) # embedding 
         vectors    = np.array(embeddings, dtype=np.float32)
     except Exception as e:
         print(f"Error generating embeddings: {type(e).__name__}: {e}")
         return
 
     try:
-        index = faiss.IndexFlatL2(vectors.shape[1])
         os.makedirs(VECTORSTORE_DIR, exist_ok=True)
+        dim   = vectors.shape[1] # 768 
+        index = faiss.IndexFlatL2(dim) #exact search — checks every single vector, no approximation
+        index.add(vectors) # loads all vector in memory 
+        print(f"FAISS index created — {index.ntotal} vectors, dim={dim}")
     except Exception as e:
-        print(f"Error initializing FAISS index or creating vectorstore dir: {type(e).__name__}: {e}")
+        print(f"Error creating FAISS index: {type(e).__name__}: {e}")
         return
-
-# No batching required for <500,000 ch
-    try:
-        index = faiss.IndexFlatL2(vectors.shape[1])
-        index.add(vectors)  # clean and simple
-    except Exception as e:
-        print(f"Error adding vectors to FAISS index: {type(e).__name__}: {e}")
-
+    
+    
     try:
         faiss.write_index(index, f"{VECTORSTORE_DIR}/index.faiss")
     except Exception as e:

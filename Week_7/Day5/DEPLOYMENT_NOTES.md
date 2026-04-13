@@ -213,7 +213,6 @@ export GROQ_API_KEY="your-groq-key-here"
 python -m src.utils.create_db
 
 python -m src.pipelines.ingest
-python -m src.retriever.query_engine
 
 python -m src.retriever.hybrid_retriever
 python -m src.retriever.reranker

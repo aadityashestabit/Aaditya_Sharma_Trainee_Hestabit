@@ -1,15 +1,16 @@
 from pathlib import Path
 from PIL import Image
-import pytesseract
-from pdf2image import convert_from_path
-import pdfplumber
+import pytesseract  # ocr - extract text from image 
+from pdf2image import convert_from_path # convert pdf page to png 
+import pdfplumber # extract text from pdf 
 import torch
-from transformers import BlipProcessor, BlipForConditionalGeneration
+from transformers import BlipProcessor, BlipForConditionalGeneration  # image caption generation 
 from sentence_transformers import SentenceTransformer
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 import faiss
 import numpy as np
 import json
-import fitz
+import fitz # pymupdf - extract embedded images from pdf 
 import os
 from src.embeddings.clip_embedder import embed_image
 
@@ -94,11 +95,13 @@ def extract_pdf_text(pdf_path):
         pass
     return text
 
-def chunk_text(text, size=500):
-    try:
-        return [text[i:i+size] for i in range(0, len(text), size)]
-    except:
-        return []
+def chunk_text(text):
+    splitter = RecursiveCharacterTextSplitter(
+        chunk_size=800,
+        chunk_overlap=150,
+        separators=["\n\n", "\n", ".", " "]
+    )
+    return splitter.split_text(text)
 
 def ingest():
     try:
@@ -178,9 +181,9 @@ def ingest():
     try:
         if image_vectors:
             vectors = np.array(image_vectors, dtype=np.float32)
-            index   = faiss.IndexFlatL2(vectors.shape[1])
-            index.add(vectors)
-            faiss.write_index(index, f"{VECTORSTORE_DIR}/image_index.faiss")
+            image_index = faiss.IndexFlatIP(vectors.shape[1])
+            image_index.add(vectors)
+            faiss.write_index(image_index, f"{VECTORSTORE_DIR}/image_index.faiss")
             with open(f"{VECTORSTORE_DIR}/image_store.json", "w") as f:
                 json.dump({"texts": image_texts, "metadatas": image_metadata}, f)
             print(f"Images indexed: {len(image_vectors)}")
