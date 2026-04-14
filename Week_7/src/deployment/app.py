@@ -24,6 +24,7 @@ except:
 
 MODEL = "llama-3.3-70b-versatile"
 
+# log chats in CHAT-LOGS.json
 def log_chat(entry):
     try:
         logs = []
@@ -36,7 +37,9 @@ def log_chat(entry):
     except:
         pass
 
+# text rag entrypoint
 def ask(question):
+    # retrieve context  hybrid search - filter CSV - rerank - deduplicate - format.
     try:
         context_data = build_context(question)
         context      = context_data["context"]
@@ -111,7 +114,11 @@ CONTEXT:
         "evaluation":         scores
     }
 
+
+# image rag 
 def ask_image(query=None, image_path=None, mode="text"):
+    
+    # prevent empty search queries 
     if mode == "text" and (not query or not query.strip()):
         return {"answer": "Please enter a search query.", "context_used": []}
 
@@ -138,7 +145,7 @@ def ask_image(query=None, image_path=None, mode="text"):
             } for r in results]
         }
 
-    # Text→Image or Image→Text — call Groq
+    # Text - Image or Image - Text — call Groq
     try:
         image_context = "\n".join([
             f"Image: {os.path.basename(r['image_path'])}\nCaption: {r['caption']}\nOCR: {r.get('ocr_text', '')}"
@@ -162,7 +169,7 @@ If the answer is not in the images, say "I don't have enough information."
 QUESTION: {prompt}
 IMAGES:
 {image_context}"""}],
-            temperature=0.3
+            temperature=0.3 # temp
         ).choices[0].message.content.strip()
     except:
         answer = ""

@@ -30,7 +30,7 @@ def rerank(query, chunks, top_k=5):
 #     "semantic_score": 0.57,
 #     "bm25_score":     1.0,
 #     "hybrid_score":   0.74,
-#     "rerank_score":   7.36   ← added here
+#     "rerank_score":   7.36   ← added here - cosine similarity 
 #   }
     except:
         return []

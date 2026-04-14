@@ -30,7 +30,7 @@ if mode == "Text RAG":
             answer = result.get("answer", "")
             st.write(answer if answer else "No answer returned.")
             e = result.get("evaluation", {})
-            st.caption(f"Faithfulness: {e.get('faithfulness', 0)} | Confidence: {e.get('confidence', 0)} | Hallucination: {e.get('hallucination_risk', 'N/A')}")
+            # st.caption(f"Faithfulness: {e.get('faithfulness', 0)} | Confidence: {e.get('confidence', 0)} | Hallucination: {e.get('hallucination_risk', 'N/A')}")
         except:
             st.write("Error occurred while processing request.")
 

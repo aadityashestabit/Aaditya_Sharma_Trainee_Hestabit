@@ -43,7 +43,7 @@ def load_documents():
     return docs
 
 # document chunking 
-# -- 800 character (~200 tokens)- chunk , --150 character overlap 
+# -- 800 character chunk , --150 character overlap 
 def chunk_documents(docs):
     try:
         splitter = RecursiveCharacterTextSplitter(
