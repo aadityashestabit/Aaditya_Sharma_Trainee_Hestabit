@@ -1,0 +1,38 @@
+# Stash Proof 
+
+## Current branch before stashing
+ git branch
+  release/v0.1
+
+ git status
+On branch master
+Untracked files:
+nothing added to commit but untracked files present
+
+## Stash the changes
+$ git stash push -m Debug notes WIP before switching to release branch
+Saved working directory and index state WIP on master: commit 2
+
+## Verify stash list
+$ git stash list
+stash@{0}: On master: Debug notes WIP before switching to release branch
+
+##  Switch to release branch
+$ git switch release/v0.1
+Switched to branch 'release/v0.1'
+
+## 5Pop stash in release branch
+$ git stash pop stash@{0}
+Applying stash@{0}
+Dropped stash@{0}
+
+$ git status
+On branch release/v0.1
+Untracked files:
+
+## Commit restored changes
+$ git add debug.txt
+$ git commit -m Restored debug notes from stash in release branch
+[release/v0.1 b93f87869fc6db4676e19db2a30b181cdc2361e2] Restored debug notes from stash in release branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 
