@@ -44,7 +44,6 @@ hf_cache/
 
 data/
 datasets/
-*.csv
 *.tsv
 *.parquet
 *.faiss

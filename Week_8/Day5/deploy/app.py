@@ -6,7 +6,7 @@
 #   POST /chat      - multi-turn conversation with history
 #
 # Run with:
-#   uvicorn app:app --host 0.0.0.0 --port 8000
+#   uvicorn app:app 
 
 import uuid
 import logging
@@ -28,7 +28,7 @@ logger = logging.getLogger(__name__)
 # FastAPI app
 app = FastAPI(
     title="Medical LLM API",
-    description="Fine-tuned TinyLlama medical assistant — Week 8 Day 5",
+    description="Fine-tuned TinyLlama medical assistant",
     version="1.0.0"
 )
 
