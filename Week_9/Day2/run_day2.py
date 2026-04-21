@@ -147,18 +147,29 @@ async def run_pipeline(user_query: str):
         ref_output  = last_output
         print(f"│   [Reflection error: {e}]")
 
+
     # step 4 — validator checks against original query
     print(f"├── [Validator] Checking against original query...")
     validator = get_validator(client)
     try:
-        val_input   = f"Original query: {user_query}\n\nOutput to validate:\n{ref_output}"
-        val_resp    = await validator.on_messages(
+        val_input = f"Original query: {user_query}\n\nOutput to validate:\n{ref_output}"
+        val_resp  = await validator.on_messages(
             [TextMessage(content=val_input, source="user")],
             cancellation_token=None,
         )
-        final       = strip_markdown(val_resp.chat_message.content)
+        val_text = strip_markdown(val_resp.chat_message.content)
+
+        # if validator just says PASS — show the reflection output, not the verdict
+        if val_text.lower().startswith("the output fully") or \
+           val_text.lower().startswith("pass") or \
+           "unchanged" in val_text.lower():
+            final = ref_output
+        else:
+            # validator made actual improvements — use its output
+            final = val_text
+
     except Exception as e:
-        final       = ref_output
+        final = ref_output
         print(f"│   [Validator error: {e}]")
 
     print(f"└── [Complete]")

@@ -10,6 +10,9 @@ def get_validator(model_client):
             "If it is complete and accurate — return it unchanged.\n"
             "If something critical is missing — add it and return the improved version.\n"
             "Do not nitpick minor style issues. Plain text only. No markdown."
+            "If the output is complete and accurate — reply with only the word PASS.\n"
+            "If something is missing — fix it and return the complete corrected version.\n"
+            "Never write a review of the output. Either PASS or return the improved version.\n"
         ),
         model_client=model_client,
         model_context=BufferedChatCompletionContext(buffer_size=10),

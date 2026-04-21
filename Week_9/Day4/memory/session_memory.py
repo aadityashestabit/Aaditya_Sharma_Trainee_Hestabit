@@ -6,8 +6,8 @@ from collections import deque
 class SessionMemory:
     def __init__(self, db_path: str = "memory/long_term.db", max_turns: int = 10):
         self.db_path = db_path
-        self.recent_turns = deque(maxlen=max_turns)  # short-term sliding window
-        self._init_db()
+        self.recent_turns = deque(maxlen=max_turns)  # short-term sliding window 10 
+        self._init_db() # creating sql tables
 
     def _init_db(self):
         # create the facts table if it doesn't exist yet
