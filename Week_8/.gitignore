@@ -4,7 +4,6 @@
 *$py.class
 
 *.safetensors
-quantized/
 venv/
 .env/
 .venv/
@@ -17,7 +16,6 @@ ENV/
 *.env
 *.key
 *.pem
-*.json
 
 /__pycache__
 

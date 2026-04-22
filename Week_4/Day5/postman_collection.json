@@ -1,0 +1,2016 @@
+{
+	"info": {
+		"_postman_id": "abdd1ec0-aec2-4c64-b90c-c4650e31db8b",
+		"name": "NodeJs-Backend",
+		"description": "Node js project testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "52130239",
+		"_collection_link": "https://aadityas-hestabit-2433186.postman.co/workspace/Aaditya-Sharma's-Workspace~d82a2298-80ef-4407-8eb3-8b393e98e4ce/collection/52130239-abdd1ec0-aec2-4c64-b90c-c4650e31db8b?action=share&source=collection_link&creator=52130239"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@gmail.com\",\n  \"password\": \"john@1234\",\n  \"about\": \"This is about john\",\n  \"role\": \"user\",\n  \"isActive\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users/create",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"create"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@gmail.com\",\n  \"password\": \"john@1234\",\n  \"about\": \"This is about john\",\n  \"role\": \"user\",\n  \"isActive\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/users/create",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"create"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "100;w=900"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "900"
+								},
+								{
+									"key": "X-Request-ID",
+									"value": "8a559258-d645-4e43-b0d5-42e536c8aa39"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "291"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"123-LCyqf1VfKjROiiftRw8N0R6EMA0\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 Mar 2026 07:42:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"name\": \"John Doe\",\n        \"email\": \"john@gmail.com\",\n        \"password\": \"$2b$12$4UiNYqjetP9lIER9Rbj8EOqN1.coqosOcoNbqOUdsoJHXF6B/Lxbm\",\n        \"role\": \"user\",\n        \"isActive\": true,\n        \"_id\": \"69ae79e08d4e318e60bff55a\",\n        \"createdAt\": \"2026-03-09T07:42:24.982Z\",\n        \"updatedAt\": \"2026-03-09T07:42:24.982Z\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "User Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"if (response.data && response.data.token) {",
+									"    pm.environment.set(\"token\", response.data.token);",
+									"    console.log(\"✅ Token saved from response.data.token\");",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"john@gmail.com\",\n  \"password\": \"john@1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "User Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"john@gmail.com\",\n  \"password\": \"john@1234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/users/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "100;w=900"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "98"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "877"
+								},
+								{
+									"key": "X-Request-ID",
+									"value": "5804798c-8762-420d-b00c-568444f57588"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "470"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1d6-rVZtrWbOiDAvQOPtyFErgIVCB7s\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 Mar 2026 07:42:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Login successful\",\n    \"data\": {\n        \"user\": {\n            \"_id\": \"69ae79e08d4e318e60bff55a\",\n            \"name\": \"John Doe\",\n            \"email\": \"john@gmail.com\",\n            \"role\": \"user\",\n            \"isActive\": true,\n            \"createdAt\": \"2026-03-09T07:42:24.982Z\",\n            \"updatedAt\": \"2026-03-09T07:42:24.982Z\",\n            \"__v\": 0\n        },\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YWU3OWUwOGQ0ZTMxOGU2MGJmZjU1YSIsImVtYWlsIjoiam9obkBnbWFpbC5jb20iLCJpYXQiOjE3NzMwNDIxNjgsImV4cCI6MTc3MzY0Njk2OH0.wIx-lpSnJSNPYRSUnnGK_G4YWj92iO4cUv1YNAaYD24\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "100;w=900"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "97"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "864"
+								},
+								{
+									"key": "X-Request-ID",
+									"value": "86011d60-e77b-41d6-8a01-521ba2cee42a"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "280"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"118-+rRpwxhZ2ipVCH/mtdhdKFWrgQk\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 Mar 2026 07:43:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"users\": [\n        {\n            \"_id\": \"69ae79e08d4e318e60bff55a\",\n            \"name\": \"John Doe\",\n            \"email\": \"john@gmail.com\",\n            \"role\": \"user\",\n            \"isActive\": true,\n            \"createdAt\": \"2026-03-09T07:42:24.982Z\",\n            \"updatedAt\": \"2026-03-09T07:42:24.982Z\",\n            \"__v\": 0\n        }\n    ],\n    \"pagination\": {\n        \"total\": 1,\n        \"page\": 1,\n        \"limit\": 10,\n        \"totalPages\": 1\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Single User by Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/users/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Single User by Id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/users/69ae79e08d4e318e60bff55a",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"69ae79e08d4e318e60bff55a"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "100;w=900"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "96"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "838"
+								},
+								{
+									"key": "X-Request-ID",
+									"value": "147e7474-c586-46ce-bd03-f278e0ddd209"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "217"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d9-98c7ONk0MJpmtvkoafFkf82CfxE\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 Mar 2026 07:43:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"_id\": \"69ae79e08d4e318e60bff55a\",\n        \"name\": \"John Doe\",\n        \"email\": \"john@gmail.com\",\n        \"role\": \"user\",\n        \"isActive\": true,\n        \"createdAt\": \"2026-03-09T07:42:24.982Z\",\n        \"updatedAt\": \"2026-03-09T07:42:24.982Z\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"John UNC\",\n    \"email\":\"user5@update.com\",\n    \"password\":\"password@123\",\n    \"about\":\"user 5 about\",\n    \"role\":\"user\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update User",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"User John\",\n    \"email\":\"user5@update.com\",\n    \"password\":\"password@123\",\n    \"about\":\"user 5 about\",\n    \"role\":\"user\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/users/69ae79e08d4e318e60bff55a",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"69ae79e08d4e318e60bff55a"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "100;w=900"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "90"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "772"
+								},
+								{
+									"key": "X-Request-ID",
+									"value": "3eeaffa2-4db1-42f3-978b-621f4eee675c"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "220"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"dc-llyqnSAK5MA5IAYPzBWzi62U86E\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 Mar 2026 07:44:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"_id\": \"69ae79e08d4e318e60bff55a\",\n        \"name\": \"User John\",\n        \"email\": \"user5@update.com\",\n        \"role\": \"user\",\n        \"isActive\": true,\n        \"createdAt\": \"2026-03-09T07:42:24.982Z\",\n        \"updatedAt\": \"2026-03-09T07:44:33.538Z\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/users/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete User",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/users/69ae79e08d4e318e60bff55a",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"69ae79e08d4e318e60bff55a"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "100;w=900"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "88"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "746"
+								},
+								{
+									"key": "X-Request-ID",
+									"value": "53af30ba-1ce9-4461-b740-516f5154dd13"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"36-U3bFObQjPKn4UTk58ToYjyCEL80\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 Mar 2026 07:44:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Motorola edge 100 fusion\",\n    \"description\": \"Mobile device\",\n    \"category\": \"technology\",\n    \"price\": 21000,\n    \"brand\": \"Motorola\",\n    \"stock\": 1000,\n    \"minPrice\": 19000,\n    \"maxPrice\": 22000\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/products/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"products",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Product",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Motorola edge 90 fusion\",\n    \"description\": \"Mobile device\",\n    \"category\": \"technology\",\n    \"price\": 21000,\n    \"brand\": \"Motorola\",\n    \"stock\": 1000,\n    \"minPrice\": 19000,\n    \"maxPrice\": 22000\n  }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/products/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"products",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "100;w=900"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "87"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "705"
+								},
+								{
+									"key": "X-Request-ID",
+									"value": "67c5c0cd-d9de-4d9c-8151-1057ddaabf73"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "466"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1d2-vAmtlSbu30YDitYC2pVGsNGL5L8\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 Mar 2026 07:45:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"title\": \"Motorola edge 90 fusion\",\n        \"description\": \"Mobile device\",\n        \"category\": \"technology\",\n        \"price\": 21000,\n        \"brand\": \"Motorola\",\n        \"stock\": 1000,\n        \"ratingsAverage\": 4,\n        \"ratingsQuantity\": 0,\n        \"isActive\": true,\n        \"createdBy\": \"69ae79e08d4e318e60bff55a\",\n        \"_id\": \"69ae7aa48d4e318e60bff568\",\n        \"slug\": \"motorola-edge-90-fusion-8jUzVS\",\n        \"createdAt\": \"2026-03-09T07:45:40.735Z\",\n        \"updatedAt\": \"2026-03-09T07:45:40.735Z\",\n        \"__v\": 0,\n        \"ratingPercentage\": 80,\n        \"id\": \"69ae7aa48d4e318e60bff568\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All Products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/products/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"products",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/products/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"products",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "100;w=900"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "86"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "687"
+								},
+								{
+									"key": "X-Request-ID",
+									"value": "3ff21f91-74a4-4bb9-936b-c8a53f5a78f8"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4391"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1127-OdYiIhHv3m7414ddQRBTOTmwFx8\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 Mar 2026 07:45:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"products\": [\n        {\n            \"_id\": \"69ae7aa48d4e318e60bff568\",\n            \"title\": \"Motorola edge 90 fusion\",\n            \"description\": \"Mobile device\",\n            \"category\": \"technology\",\n            \"price\": 21000,\n            \"brand\": \"Motorola\",\n            \"stock\": 1000,\n            \"ratingsAverage\": 4,\n            \"ratingsQuantity\": 0,\n            \"isActive\": true,\n            \"createdBy\": \"69ae79e08d4e318e60bff55a\",\n            \"slug\": \"motorola-edge-90-fusion-8jUzVS\",\n            \"createdAt\": \"2026-03-09T07:45:40.735Z\",\n            \"updatedAt\": \"2026-03-09T07:45:40.735Z\",\n            \"__v\": 0,\n            \"ratingPercentage\": 80,\n            \"id\": \"69ae7aa48d4e318e60bff568\"\n        },\n        {\n            \"_id\": \"69a010207b30f26f50c4bfe3\",\n            \"title\": \"Product 100\",\n            \"description\": \"This is a product\",\n            \"category\": \"example\",\n            \"price\": 10000,\n            \"brand\": \"Brand100\",\n            \"stock\": 100,\n            \"ratingsAverage\": 4,\n            \"ratingsQuantity\": 0,\n            \"isActive\": true,\n            \"minPrice\": 1000,\n            \"maxPrice\": 1000000,\n            \"slug\": \"product-100-uSQJgO\",\n            \"createdAt\": \"2026-02-26T09:19:28.150Z\",\n            \"updatedAt\": \"2026-02-26T09:19:28.150Z\",\n            \"__v\": 0,\n            \"ratingPercentage\": 80,\n            \"id\": \"69a010207b30f26f50c4bfe3\"\n        },\n        {\n            \"_id\": \"69a010207b30f26f50c4bfe2\",\n            \"title\": \"Product 99\",\n            \"description\": \"This is a product\",\n            \"category\": \"example\",\n            \"price\": 10000,\n            \"brand\": \"Brand99\",\n            \"stock\": 99,\n            \"ratingsAverage\": 4,\n            \"ratingsQuantity\": 0,\n            \"isActive\": true,\n            \"minPrice\": 1000,\n            \"maxPrice\": 1000000,\n            \"slug\": \"product-99-0p-FCB\",\n            \"createdAt\": \"2026-02-26T09:19:28.150Z\",\n            \"updatedAt\": \"2026-02-26T09:19:28.150Z\",\n            \"__v\": 0,\n            \"ratingPercentage\": 80,\n            \"id\": \"69a010207b30f26f50c4bfe2\"\n        },\n        {\n            \"_id\": \"69a010207b30f26f50c4bfe1\",\n            \"title\": \"Product 98\",\n            \"description\": \"This is a product\",\n            \"category\": \"example\",\n            \"price\": 10000,\n            \"brand\": \"Brand98\",\n            \"stock\": 98,\n            \"ratingsAverage\": 4,\n            \"ratingsQuantity\": 0,\n            \"isActive\": true,\n            \"minPrice\": 1000,\n            \"maxPrice\": 1000000,\n            \"slug\": \"product-98-R8j2aj\",\n            \"createdAt\": \"2026-02-26T09:19:28.150Z\",\n            \"updatedAt\": \"2026-02-26T09:19:28.150Z\",\n            \"__v\": 0,\n            \"ratingPercentage\": 80,\n            \"id\": \"69a010207b30f26f50c4bfe1\"\n        },\n        {\n            \"_id\": \"69a010207b30f26f50c4bfe0\",\n            \"title\": \"Product 97\",\n            \"description\": \"This is a product\",\n            \"category\": \"example\",\n            \"price\": 10000,\n            \"brand\": \"Brand97\",\n            \"stock\": 97,\n            \"ratingsAverage\": 4,\n            \"ratingsQuantity\": 0,\n            \"isActive\": true,\n            \"minPrice\": 1000,\n            \"maxPrice\": 1000000,\n            \"slug\": \"product-97-gU18Xr\",\n            \"createdAt\": \"2026-02-26T09:19:28.150Z\",\n            \"updatedAt\": \"2026-02-26T09:19:28.150Z\",\n            \"__v\": 0,\n            \"ratingPercentage\": 80,\n            \"id\": \"69a010207b30f26f50c4bfe0\"\n        },\n        {\n            \"_id\": \"69a010207b30f26f50c4bfdf\",\n            \"title\": \"Product 96\",\n            \"description\": \"This is a product\",\n            \"category\": \"example\",\n            \"price\": 10000,\n            \"brand\": \"Brand96\",\n            \"stock\": 96,\n            \"ratingsAverage\": 4,\n            \"ratingsQuantity\": 0,\n            \"isActive\": true,\n            \"minPrice\": 1000,\n            \"maxPrice\": 1000000,\n            \"slug\": \"product-96-nsLnpS\",\n            \"createdAt\": \"2026-02-26T09:19:28.150Z\",\n            \"updatedAt\": \"2026-02-26T09:19:28.150Z\",\n            \"__v\": 0,\n            \"ratingPercentage\": 80,\n            \"id\": \"69a010207b30f26f50c4bfdf\"\n        },\n        {\n            \"_id\": \"69a010207b30f26f50c4bfde\",\n            \"title\": \"Product 95\",\n            \"description\": \"This is a product\",\n            \"category\": \"example\",\n            \"price\": 10000,\n            \"brand\": \"Brand95\",\n            \"stock\": 95,\n            \"ratingsAverage\": 4,\n            \"ratingsQuantity\": 0,\n            \"isActive\": true,\n            \"minPrice\": 1000,\n            \"maxPrice\": 1000000,\n            \"slug\": \"product-95-YEgRPK\",\n            \"createdAt\": \"2026-02-26T09:19:28.150Z\",\n            \"updatedAt\": \"2026-02-26T09:19:28.150Z\",\n            \"__v\": 0,\n            \"ratingPercentage\": 80,\n            \"id\": \"69a010207b30f26f50c4bfde\"\n        },\n        {\n            \"_id\": \"69a010207b30f26f50c4bfdd\",\n            \"title\": \"Product 94\",\n            \"description\": \"This is a product\",\n            \"category\": \"example\",\n            \"price\": 10000,\n            \"brand\": \"Brand94\",\n            \"stock\": 94,\n            \"ratingsAverage\": 4,\n            \"ratingsQuantity\": 0,\n            \"isActive\": true,\n            \"minPrice\": 1000,\n            \"maxPrice\": 1000000,\n            \"slug\": \"product-94-jSTXFl\",\n            \"createdAt\": \"2026-02-26T09:19:28.150Z\",\n            \"updatedAt\": \"2026-02-26T09:19:28.150Z\",\n            \"__v\": 0,\n            \"ratingPercentage\": 80,\n            \"id\": \"69a010207b30f26f50c4bfdd\"\n        },\n        {\n            \"_id\": \"69a010207b30f26f50c4bfdc\",\n            \"title\": \"Product 93\",\n            \"description\": \"This is a product\",\n            \"category\": \"example\",\n            \"price\": 10000,\n            \"brand\": \"Brand93\",\n            \"stock\": 93,\n            \"ratingsAverage\": 4,\n            \"ratingsQuantity\": 0,\n            \"isActive\": true,\n            \"minPrice\": 1000,\n            \"maxPrice\": 1000000,\n            \"slug\": \"product-93-ZgmNYP\",\n            \"createdAt\": \"2026-02-26T09:19:28.150Z\",\n            \"updatedAt\": \"2026-02-26T09:19:28.150Z\",\n            \"__v\": 0,\n            \"ratingPercentage\": 80,\n            \"id\": \"69a010207b30f26f50c4bfdc\"\n        },\n        {\n            \"_id\": \"69a010207b30f26f50c4bfdb\",\n            \"title\": \"Product 92\",\n            \"description\": \"This is a product\",\n            \"category\": \"example\",\n            \"price\": 10000,\n            \"brand\": \"Brand92\",\n            \"stock\": 92,\n            \"ratingsAverage\": 4,\n            \"ratingsQuantity\": 0,\n            \"isActive\": true,\n            \"minPrice\": 1000,\n            \"maxPrice\": 1000000,\n            \"slug\": \"product-92-dYabUR\",\n            \"createdAt\": \"2026-02-26T09:19:28.150Z\",\n            \"updatedAt\": \"2026-02-26T09:19:28.150Z\",\n            \"__v\": 0,\n            \"ratingPercentage\": 80,\n            \"id\": \"69a010207b30f26f50c4bfdb\"\n        }\n    ],\n    \"nextCursor\": \"eyJ2YWx1ZSI6IjY5YTAxMDIwN2IzMGYyNmY1MGM0YmZkYiIsImlkIjoiNjlhMDEwMjA3YjMwZjI2ZjUwYzRiZmRiIn0=\",\n    \"prevCursor\": \"eyJ2YWx1ZSI6IjY5YWU3YWE0OGQ0ZTMxOGU2MGJmZjU2OCIsImlkIjoiNjlhZTdhYTQ4ZDRlMzE4ZTYwYmZmNTY4In0=\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Product by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/products/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"products",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Product by ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/products/69a010207b30f26f50c4bf80",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"products",
+										"69a010207b30f26f50c4bf80"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "100;w=900"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "84"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "659"
+								},
+								{
+									"key": "X-Request-ID",
+									"value": "1b6533e2-ea22-4212-8051-5a36ea0f73d8"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "430"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1ae-xQ2lDauFFWoSseEFK3s97Jh18kA\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 Mar 2026 07:46:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"_id\": \"69a010207b30f26f50c4bf80\",\n        \"title\": \"Product 1\",\n        \"description\": \"This is a product\",\n        \"category\": \"example\",\n        \"price\": 10000,\n        \"brand\": \"Brand1\",\n        \"stock\": 1,\n        \"ratingsAverage\": 4,\n        \"ratingsQuantity\": 0,\n        \"isActive\": true,\n        \"minPrice\": 1000,\n        \"maxPrice\": 1000000,\n        \"slug\": \"product-1-x3Wtqk\",\n        \"createdAt\": \"2026-02-26T09:19:28.149Z\",\n        \"updatedAt\": \"2026-02-26T09:19:28.149Z\",\n        \"__v\": 0,\n        \"ratingPercentage\": 80,\n        \"id\": \"69a010207b30f26f50c4bf80\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Product by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\" moto edge 1000 mobile\",\n    \"price\":\"2000000\",\n    \"description\":\"This is a mobile phone\",\n    \"category\":\"technology\",\n    \"brand\":\"moto\",\n    \"stock\":\"2000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/products/69b3f07303d17e07cd68e948",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"69b3f07303d17e07cd68e948"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Product by ID",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\":\" moto edge 80 mobile\",\n    \"price\":\"23000\",\n    \"description\":\"This is a mobile phone\",\n    \"category\":\"Electronics\",\n    \"brand\":\"moto\",\n    \"stock\":\"2000\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/products/69a010207b30f26f50c4bf80",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"products",
+										"69a010207b30f26f50c4bf80"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "100;w=900"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "82"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "560"
+								},
+								{
+									"key": "X-Request-ID",
+									"value": "4133c924-089c-49a9-81d8-81308221b826"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "460"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1cc-+Y1T9Ft4gQmgiNJ2ap4CUTzfdqQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 Mar 2026 07:48:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"_id\": \"69a010207b30f26f50c4bf80\",\n        \"title\": \"moto edge 80 mobile\",\n        \"description\": \"This is a mobile phone\",\n        \"category\": \"Electronics\",\n        \"price\": 23000,\n        \"brand\": \"moto\",\n        \"stock\": 2000,\n        \"ratingsAverage\": 4,\n        \"ratingsQuantity\": 0,\n        \"isActive\": true,\n        \"minPrice\": 1000,\n        \"maxPrice\": 1000000,\n        \"slug\": \"moto-edge-80-mobile-QbuKkh\",\n        \"createdAt\": \"2026-02-26T09:19:28.149Z\",\n        \"updatedAt\": \"2026-03-09T07:48:05.597Z\",\n        \"__v\": 0,\n        \"ratingPercentage\": 80,\n        \"id\": \"69a010207b30f26f50c4bf80\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/products/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"products",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Product",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/products/69a010207b30f26f50c4bf80",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"products",
+										"69a010207b30f26f50c4bf80"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "100;w=900"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "81"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "546"
+								},
+								{
+									"key": "X-Request-ID",
+									"value": "96a62411-32fc-4797-8fc5-345c172f9e29"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "460"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1cc-+Y1T9Ft4gQmgiNJ2ap4CUTzfdqQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 Mar 2026 07:48:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"_id\": \"69a010207b30f26f50c4bf80\",\n        \"title\": \"moto edge 80 mobile\",\n        \"description\": \"This is a mobile phone\",\n        \"category\": \"Electronics\",\n        \"price\": 23000,\n        \"brand\": \"moto\",\n        \"stock\": 2000,\n        \"ratingsAverage\": 4,\n        \"ratingsQuantity\": 0,\n        \"isActive\": true,\n        \"minPrice\": 1000,\n        \"maxPrice\": 1000000,\n        \"slug\": \"moto-edge-80-mobile-QbuKkh\",\n        \"createdAt\": \"2026-02-26T09:19:28.149Z\",\n        \"updatedAt\": \"2026-03-09T07:48:05.597Z\",\n        \"__v\": 0,\n        \"ratingPercentage\": 80,\n        \"id\": \"69a010207b30f26f50c4bf80\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Request with complex params",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/products?category=technology",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"products"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "technology"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Email",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"to\": \"aadityasharma00445@gmail.com\",\n  \"subject\": \"Test Email\",\n  \"body\": \"Hello from BullMQ\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/send-email",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"send-email"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"to\": \"aadityasharma00445@gmail.com\",\n  \"subject\": \"Test Email\",\n  \"body\": \"Hello from BullMQ\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/send-email",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"send-email"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "RateLimit-Policy",
+									"value": "100;w=900"
+								},
+								{
+									"key": "RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "RateLimit-Reset",
+									"value": "900"
+								},
+								{
+									"key": "X-Request-ID",
+									"value": "0577ae3b-75c6-4015-b1d8-9c77c1b8a252"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "38"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"26-yracRDSX4MEojxmXvwsSc2t0gc4\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 Mar 2026 06:55:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Email job added to queue\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -20,7 +20,7 @@ AGENT_ROSTER = {
 MAX_PLAN_STEPS = 10
 
 #"ollama" and "groq"
-ACTIVE_PROVIDER = "ollama"
+ACTIVE_PROVIDER = "groq"
 
 
 def get_model_client():

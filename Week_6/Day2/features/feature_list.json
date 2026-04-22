@@ -1,0 +1,21 @@
+[
+  "Pregnancies",
+  "Glucose",
+  "BloodPressure",
+  "BMI",
+  "Outcome",
+  "HighGlucose",
+  "HighBP",
+  "MultiplePregnancies",
+  "BMI_Age",
+  "Glucose_BMI",
+  "Age_Glucose",
+  "DPF_log",
+  "Age_log",
+  "AgeGroup_Adult",
+  "AgeGroup_MiddleAge",
+  "AgeGroup_Senior",
+  "BMICategory_Normal",
+  "BMICategory_Overweight",
+  "BMICategory_Obese"
+]

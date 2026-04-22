@@ -89,7 +89,7 @@ def build_generate_prompt(user_prompt: str, system: str) -> str:
     )
 
 
-# ── Startup: load model ────────────────────────────────────────────────────────
+# Startup: load model
 
 @app.on_event("startup")
 def startup_event():
