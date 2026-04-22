@@ -5,6 +5,7 @@ from agents.answer_agent import get_answer_agent
 
 
 async def run_pipeline(user_query: str):
+    # These are the pre configured agents 
     research_agent = get_research_agent()
     summarizer_agent = get_summarizer_agent()
     answer_agent = get_answer_agent()

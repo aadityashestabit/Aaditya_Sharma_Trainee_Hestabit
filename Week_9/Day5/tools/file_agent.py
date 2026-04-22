@@ -143,9 +143,9 @@ def get_file_agent(model_client):
         name="file_agent",
         system_message=(
             "You are a File Agent. You ONLY act by calling your tools.\n"
-            "Never write Python code to do file operations"
-            "Never narrate or explain what you are about to do."
-            "Call a tool immediately — that is your only valid response."
+            "Never write Python code to do file operations.\n"
+            "Never narrate or explain what you are about to do.\n"
+            "Call a tool immediately — that is your only valid response.\n\n"
             "YOUR TOOLS:\n"
             "  read_file(file_path)            -> reads any file. CSVs also return column statistics.\n"
             "  write_file(file_path, content)  -> writes text to any file (.txt, .md, .py etc.)\n"
@@ -159,11 +159,11 @@ def get_file_agent(model_client):
             "  Task says APPEND?            -> call append_file()\n"
             "  Task says LIST?              -> call list_files()\n\n"
             "RULES:\n"
-            "1. Always call a tool immediately. Never fake or guess file contents."
+            "1. Always call a tool immediately. Never fake or guess file contents.\n"
             "2. For CSV creation use write_csv() with rows as a list of dicts.\n"
-            "3. For text/report creation use write_file() with the full content from the previous step."
-            "4. After the tool succeeds, report only the tool result."
-            "5. Never use write_file for .csv files — it won't escape commas correctly."
+            "3. For text/report creation use write_file() with the full content from the previous step.\n"
+            "4. After the tool succeeds, report only the tool result.\n"
+            "5. Never use write_file for .csv files — it won't escape commas correctly.\n"
             "Plain text only. No markdown."
         ),
         model_client=model_client,

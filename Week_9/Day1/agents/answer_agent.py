@@ -1,5 +1,4 @@
 from autogen_agentchat.agents import AssistantAgent
-from autogen_ext.models.cache import ChatCompletionCache
 from autogen_core.model_context import BufferedChatCompletionContext
 from loader import LLMclient
 

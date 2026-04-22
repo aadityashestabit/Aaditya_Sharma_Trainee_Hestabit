@@ -6,9 +6,10 @@ from nexus_ai.agents.critic     import get_critic
 from nexus_ai.agents.optimizer  import get_optimizer
 from nexus_ai.agents.validator  import get_validator
 from nexus_ai.agents.reporter   import get_reporter
+from nexus_ai.agents.file_agent import get_file_agent
+from nexus_ai.agents.db_agent   import get_db_agent
 
 
-# maps agent name string to its factory function
 AGENT_REGISTRY = {
     "PLANNER":    get_planner,
     "RESEARCHER": get_researcher,
@@ -18,6 +19,8 @@ AGENT_REGISTRY = {
     "OPTIMIZER":  get_optimizer,
     "VALIDATOR":  get_validator,
     "REPORTER":   get_reporter,
+    "FILE":       get_file_agent,
+    "DB":         get_db_agent,
 }
 
 

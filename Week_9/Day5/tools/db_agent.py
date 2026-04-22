@@ -10,10 +10,10 @@ def inspect_schema(db_path: str) -> str:
     # gives the agent a full picture of what's in the database before doing anything
     try:
         with sqlite3.connect(db_path) as conn:
-            conn.row_factory = sqlite3.Row # - return as dictionary objects instead of tuples
+            conn.row_factory = sqlite3.Row
             cur = conn.cursor()
 
-            cur.execute("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'") # filter only tables 
+            cur.execute("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'")
             tables = [row["name"] for row in cur.fetchall()]
 
             if not tables:
@@ -22,7 +22,7 @@ def inspect_schema(db_path: str) -> str:
             lines = [f"Schema for: {db_path}", "=" * 40]
 
             for table in tables:
-                cur.execute(f'PRAGMA table_info("{table}")') # return metadata about a tables columns
+                cur.execute(f'PRAGMA table_info("{table}")')
                 columns = cur.fetchall()
 
                 cur.execute(f'SELECT COUNT(*) as total FROM "{table}"')
@@ -101,13 +101,13 @@ def get_db_agent(model_client):
     return AssistantAgent(
         name="db_agent",
         system_message=(
-            "You are a Database Agent. You work with SQLite databases."
-            "You MUST call execute_sql() or inspect_schema() immediately. "
-            "Do NOT write SQL as text. Do NOT explain. Just call the tool."
-            "If no database path is specified, use 'data.db' as the default."
+            "You are a Database Agent. You work with SQLite databases.\n\n"
+            "You MUST call execute_sql() or inspect_schema() immediately.\n "
+            "Do NOT write SQL as text. Do NOT explain. Just call the tool.\n"
+            "If no database path is specified, use 'data.db' as the default.\n"
             "YOUR TOOLS:\n"
-            "  inspect_schema(db_path)        -> shows all tables, columns, row counts, and sample rows"
-            "  execute_sql(db_path, query)    -> runs SQL and returns the result"
+            "  inspect_schema(db_path)        -> shows all tables, columns, row counts, and sample rows\n"
+            "  execute_sql(db_path, query)    -> runs SQL and returns the result\n\n"
             "RULES:\n"
             "1. Always call inspect_schema() first to see what already exists.\n"
             "   If it says 'has no tables' — that is normal for a new database. Proceed to CREATE.\n"

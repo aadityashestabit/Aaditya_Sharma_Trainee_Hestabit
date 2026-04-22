@@ -1,32 +1,29 @@
-from typing import List
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 from autogen_agentchat.agents import AssistantAgent
 from autogen_agentchat.messages import TextMessage
 from autogen_core.model_context import BufferedChatCompletionContext
 
 
-#  Pydantic schema
-
+# schema — defines what one task looks like
 class Task(BaseModel):
-    worker_name: str       = Field(..., description="Unique worker name e.g. worker_research")
-    description: str       = Field(..., description="What this worker must do")
-    depends_on: List[str]  = Field(default=[], description="worker_names this task depends on")
+    worker_name: str
+    description: str
+    depends_on:  list = []      # empty list by default — means no dependencies
 
 
+# schema — the full plan is just a list of tasks
 class Plan(BaseModel):
-    tasks: List[Task] = Field(..., description="List of tasks for worker agents")
+    tasks: list[Task]
 
 
-# Planner agent 
-
+# planner agent — reads the query and returns a validated Plan
 class Planner:
-    def __init__(self, model_client, worker_limit: int = 5):
-        self.worker_limit = worker_limit
+    def __init__(self, model_client, worker_limit=5):
         self.agent = AssistantAgent(
             name="planner",
             system_message=(
                 "You are a Planner Agent. Break the user request into tasks for worker agents.\n\n"
-                f"RULES:\n"
+                "RULES:\n"
                 f"- Maximum {worker_limit} worker tasks total.\n"
                 "- Tasks with no depends_on run in parallel.\n"
                 "- Tasks that need another task output must list it in depends_on.\n"
@@ -40,10 +37,11 @@ class Planner:
             model_context=BufferedChatCompletionContext(buffer_size=10),
         )
 
-    async def run(self, user_task: str) -> Plan:
+    async def run(self, user_task):
+        # sending query to groq and waiting for response 
         response = await self.agent.run(
             task=TextMessage(content=user_task, source="user")
         )
-        raw = response.messages[-1].content
-        plan = Plan.model_validate_json(raw)
+        raw  = response.messages[-1].content
+        plan = Plan.model_validate_json(raw)  # JSON string - Python object and validates every field against schema 
         return plan

@@ -13,24 +13,25 @@ from tools.file_agent import get_file_agent
 from tools.db_agent import get_db_agent
 from tools.code_executor import get_code_agent
 
-
 PLANNER_PROMPT = """\
 You are a task planner for a multi-agent tool pipeline. Given a user request, break it into an ordered list of steps.
+"- When the user says 'append', 'add to', or 'update': only create steps for the NEW work."
+"  Do NOT repeat steps from previous queries. Only add what is missing."
 
-AVAILABLE AGENTS:
+AVAILABLE AGENTS\n:
   FILE  -> read files, write files, list directories (.txt, .csv, .md)
   DB    -> run SQL queries, create tables, insert small amounts of data (<50 rows)
   CODE  -> generate large datasets (50+ rows) programmatically and insert via Python
   CODE  -> write AND execute Python code in one step. Never split writing and running into separate steps
 
-RULES:
+RULES\n:
   - Each step must be handled by exactly one agent: FILE, DB, or CODE.
   - Each step's task must be self-contained and reference outputs from previous steps where needed.
   - Only add a FILE save step if the user explicitly says "save", "store", "export", or "write to file".
   - For DB insert steps, always say "CREATE TABLE IF NOT EXISTS ... then INSERT".
   - Output ONLY a valid JSON array. No explanation, no markdown fences.
 
-OUTPUT FORMAT:
+OUTPUT FORMAT\n:
 [
   {"step": 1, "agent": "FILE", "task": "Read the file sales.csv and return its full content."},
   {"step": 2, "agent": "CODE", "task": "Using the CSV data provided, find the top 5 products by revenue."},
@@ -58,7 +59,7 @@ def parse_plan(raw: str) -> list:
         except Exception:
             pass
 
-    # last resort — treat the whole thing as a single code task
+    #  treat the whole thing as a single code task
     print("[Planner] Could not parse JSON plan. Running as single CODE step.")
     return [{"step": 1, "agent": "CODE", "task": raw}]
 
@@ -82,9 +83,8 @@ async def run_pipeline():
         "CODE": get_code_agent(tool_client),
     }
 
-    print("\n=== Day 3: Tool-Calling Agent Pipeline ===")
+    print("\n----- Day 3: Tool-Calling Agent Pipeline -----")
     print("  Agents  : FILE | DB | CODE")
-    print("  Mode    : Sequential chaining")
     print("  Type 'exit' to quit.\n")
 
     while True:
@@ -100,7 +100,7 @@ async def run_pipeline():
             print("[Shutting down]")
             break
 
-        # step 1 - planner figures out what needs to happen
+        #  1 - planner figures out what needs to happen
         print("\n[Planner] Thinking...")
         planner_resp = await planner.on_messages(
             [TextMessage(content=user_input, source="user")],
@@ -114,7 +114,7 @@ async def run_pipeline():
         for step in plan:
             print(f"  Step {step['step']} -> [{step['agent']}] {step['task'][:80]}...")
 
-        # step 2 - run each agent in order, passing previous outputs forward
+        # 2 - run each agent in order, passing previous outputs forward
         all_outputs = []
 
         for step in plan:

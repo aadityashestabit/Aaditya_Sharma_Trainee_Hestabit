@@ -9,7 +9,7 @@ from datetime import datetime
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from autogen_agentchat.messages import TextMessage
-from nexus_ai.config import get_model_client, get_planner_client, MAX_PLAN_STEPS, AGENT_ROSTER
+from nexus_ai.config import get_model_client, get_planner_client, MAX_PLAN_STEPS, AGENT_ROSTER, get_tool_client
 from nexus_ai.agents.orchestrator import get_orchestrator
 from nexus_ai.agents.agents import get_agent
 from memory.session_memory import SessionMemory
@@ -112,8 +112,10 @@ async def run_nexus(user_query: str, session: SessionMemory, vector_store: Faiss
     else:
         enriched_query = user_query
 
+    TOOL_AGENTS = {"CODER", "FILE", "DB"}
     planner_client = get_planner_client()
     worker_client  = get_model_client()
+    tool_client = get_tool_client()
 
     # step 2 — orchestrator creates the dynamic plan
     orchestrator = get_orchestrator(planner_client)
@@ -157,7 +159,8 @@ async def run_nexus(user_query: str, session: SessionMemory, vector_store: Faiss
         logger.info(f"Step {step['step']} — {agent_name} starting")
         print(f"\n├── [Step {step['step']}] {agent_name} working...")
 
-        agent = get_agent(agent_name, worker_client)
+        client = tool_client if agent_name in TOOL_AGENTS else worker_client
+        agent  = get_agent(agent_name, client)
         if not agent:
             logger.warning(f"Could not create agent '{agent_name}' — skipping")
             continue

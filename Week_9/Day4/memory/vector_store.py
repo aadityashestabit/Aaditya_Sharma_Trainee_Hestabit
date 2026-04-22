@@ -7,14 +7,14 @@ try:
     FAISS_AVAILABLE = True
 except ImportError:
     FAISS_AVAILABLE = False
-    print("[Warning] faiss-cpu not installed. Run: pip install faiss-cpu")
+    print("[Warning] faiss-cpu not installed.")
 
 try:
     from sentence_transformers import SentenceTransformer
     ST_AVAILABLE = True
 except ImportError:
     ST_AVAILABLE = False
-    print("[Warning] sentence-transformers not installed. Run: pip install sentence-transformers")
+    print("[Warning] sentence-transformers not installed.")
 
 
 class FaissVectorStore:

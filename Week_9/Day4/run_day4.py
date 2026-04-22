@@ -50,7 +50,7 @@ async def main():
         if user_query.lower() in ("exit", "quit"):
             break
 
-        # step 1 — retrieve from all 3 memory stores before generating
+        #  1 — retrieve from all 3 memory stores before generating
         fact_hits   = session.search_facts(user_query, limit=5)
         vector_hits = vector_store.search(user_query, k=3)
 
@@ -73,7 +73,7 @@ async def main():
             f"Current query:\n{user_query}"
         )
 
-        # step 3 — generate response
+        #  3 — generate response
         try:
             result = await model_client.create([
                 SystemMessage(content=system_prompt),
@@ -84,14 +84,14 @@ async def main():
             print(f"[Error] Model call failed: {e}")
             continue
 
-        # step 4 — show memory retrieval + answer
+        #  4 — show memory retrieval + answer
         print("\n---- MEMORY RETRIEVAL ----")
         print(memory_context)
         print("---- ASSISTANT ANSWER ----")
         print(answer)
         print()
 
-        # step 5 — store this turn back into all memory stores
+        #  5 — store this turn back into all memory stores
         session.add_turn("user", user_query)
         session.add_turn("assistant", answer)
 
