@@ -170,7 +170,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"name\": \"John Doe\",\n        \"email\": \"john@gmail.com\",\n        \"password\": \"$2b$12$4UiNYqjetP9lIER9Rbj8EOqN1.coqosOcoNbqOUdsoJHXF6B/Lxbm\",\n        \"role\": \"user\",\n        \"isActive\": true,\n        \"_id\": \"69ae79e08d4e318e60bff55a\",\n        \"createdAt\": \"2026-03-09T07:42:24.982Z\",\n        \"updatedAt\": \"2026-03-09T07:42:24.982Z\",\n        \"__v\": 0\n    }\n}"
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"name\": \"John Doe\",\n        \"email\": \"john@gmail.com\",\n            \"role\": \"user\",\n        \"isActive\": true,\n        \"_id\": \"69ae79e08d4e318e60bff55a\",\n        \"createdAt\": \"2026-03-09T07:42:24.982Z\",\n        \"updatedAt\": \"2026-03-09T07:42:24.982Z\",\n        \"__v\": 0\n    }\n}"
 						}
 					]
 				},
