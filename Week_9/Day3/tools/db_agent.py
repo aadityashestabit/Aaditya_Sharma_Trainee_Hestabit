@@ -7,10 +7,9 @@ from autogen_core.tools import FunctionTool
 
 
 def inspect_schema(db_path: str) -> str:
-    # gives the agent a full picture of what's in the database before doing anything
     try:
         with sqlite3.connect(db_path) as conn:
-            conn.row_factory = sqlite3.Row # - return as dictionary objects instead of tuples
+            conn.row_factory = sqlite3.Row # - return dict object
             cur = conn.cursor()
 
             cur.execute("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'") # filter only tables 
@@ -22,9 +21,8 @@ def inspect_schema(db_path: str) -> str:
             lines = [f"Schema for: {db_path}", "=" * 40]
 
             for table in tables:
-                cur.execute(f'PRAGMA table_info("{table}")') # return metadata about a tables columns
+                cur.execute(f'PRAGMA table_info("{table}")') # return metadata 
                 columns = cur.fetchall()
-
                 cur.execute(f'SELECT COUNT(*) as total FROM "{table}"')
                 total = cur.fetchone()["total"]
 
@@ -34,7 +32,7 @@ def inspect_schema(db_path: str) -> str:
                     pk_label = " PRIMARY KEY" if col["pk"] else ""
                     lines.append(f"  {col['name']}  {col['type']}{pk_label}")
 
-                # show a few sample rows so the agent knows what data looks like
+                # showing sample rows
                 cur.execute(f'SELECT * FROM "{table}" LIMIT 3')
                 samples = [dict(r) for r in cur.fetchall()]
                 if samples:
@@ -45,23 +43,23 @@ def inspect_schema(db_path: str) -> str:
             lines.append("\n" + "=" * 40)
             return "\n".join(lines)
 
-    except Exception as e:
+    except Exception as e:  
         return f"[Error] inspect_schema failed: {e}"
 
 
 def execute_sql(db_path: str, query: str) -> str:
+    
     try:
         with sqlite3.connect(db_path) as conn:
             conn.row_factory = sqlite3.Row
             cur = conn.cursor()
 
-            # multi-statement scripts (CREATE + INSERT together) need executescript
+            # multi-statement scripts 
             is_script = ";" in query and not query.strip().upper().startswith(("SELECT", "WITH", "PRAGMA"))
             if is_script:
                 cur.executescript(query)
-                conn.commit()
+                conn.commit() #save
 
-                # report row counts for any tables we inserted into
                 inserted_tables = re.findall(r"INSERT\s+INTO\s+(\w+)", query, re.IGNORECASE)
                 if inserted_tables:
                     counts = []
@@ -83,7 +81,7 @@ def execute_sql(db_path: str, query: str) -> str:
                 conn.commit()
                 return f"[OK] Executed. Rows affected: {cur.rowcount}"
 
-            # SELECT — return a formatted table
+            # SELECT 
             rows = [dict(r) for r in cur.fetchall()]
             if not rows:
                 return "[Info] Query returned no rows."
@@ -101,27 +99,31 @@ def get_db_agent(model_client):
     return AssistantAgent(
         name="db_agent",
         system_message=(
-            "You are a Database Agent. You work with SQLite databases."
-            "You MUST call execute_sql() or inspect_schema() immediately. "
-            "Do NOT write SQL as text. Do NOT explain. Just call the tool."
-            "If no database path is specified, use 'data.db' as the default."
-            "YOUR TOOLS:\n"
-            "  inspect_schema(db_path)        -> shows all tables, columns, row counts, and sample rows"
-            "  execute_sql(db_path, query)    -> runs SQL and returns the result"
-            "RULES:\n"
-            "1. Always call inspect_schema() first to see what already exists.\n"
-            "   If it says 'has no tables' — that is normal for a new database. Proceed to CREATE.\n"
-            "   Never stop just because the database is empty.\n"
-            "2. When inserting data, always do CREATE TABLE IF NOT EXISTS then INSERT in one script.\n"
-            "   Combine both into a single execute_sql() call.\n"
-            "3. After inserting, always verify the row count with SELECT COUNT(*).\n"
-            "   If count is 0, the insert failed — fix and retry.\n"
-            "4. For append tasks (add more rows), never use fixed ID values.\n"
-            "   Omit the primary key column so SQLite auto-increments correctly.\n"
-            "5. Always pass db_path explicitly in every tool call.\n"
-            "6. SQLite does not support CREATE DATABASE — create a table instead.\n"
-            "7. If a query fails, read the error, fix the SQL, and retry.\n"
-            "Plain text only. No markdown."
+            """
+            You are a Database Agent. You work with SQLite databases.
+            You MUST call execute_sql() or inspect_schema() immediately.
+            Do NOT write SQL as text. Do NOT explain. Just call the tool.
+            If no database path is specified, use 'data.db' as the default.
+
+            YOUR TOOLS:
+              inspect_schema(db_path)     - shows all tables, columns, row counts, and sample rows
+              execute_sql(db_path, query) - runs SQL and returns the result
+
+            RULES:
+            1. Always call inspect_schema() first to see what already exists.
+               If it says 'has no tables' — that is normal. Proceed to CREATE.
+               Never stop just because the database is empty.
+            2. When inserting data, always do CREATE TABLE IF NOT EXISTS then INSERT in one script.
+               Combine both into a single execute_sql() call.
+            3. After inserting, always verify the row count with SELECT COUNT(*).
+               If count is 0, the insert failed — fix and retry.
+            4. For append tasks, never use fixed ID values.
+               Omit the primary key column so SQLite auto-increments correctly.
+            5. Always pass db_path explicitly in every tool call.
+            6. SQLite does not support CREATE DATABASE — create a table instead.
+            7. If a query fails, read the error, fix the SQL, and retry.
+            Plain text only. No markdown.
+            """
         ),
         model_client=model_client,
         tools=[

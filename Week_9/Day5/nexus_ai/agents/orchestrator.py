@@ -54,6 +54,13 @@ FILE vs CODER RULE:
   Use CODER when the task involves running Python logic or calculations.
   For "read a file AND analyze it" — use FILE first, then CODER or ANALYST.
   For "generate data AND save to CSV" — use CODER first, then FILE.
+  
+"CODER RULE — CRITICAL:"
+"Only use CODER when the task explicitly requires running Python code, calculations,"
+"data processing, chart generation, or file manipulation with code."
+"Do NOT use CODER for: writing documents, creating plans, designing curricula,"
+"organizing content, summarizing, or any task that is purely text-based."
+"If in doubt — do NOT use CODER."
 
 DB RULE:
   Use DB for any task involving SQLite databases.

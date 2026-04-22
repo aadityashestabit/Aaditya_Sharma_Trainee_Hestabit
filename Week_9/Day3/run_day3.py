@@ -18,20 +18,20 @@ You are a task planner for a multi-agent tool pipeline. Given a user request, br
 "- When the user says 'append', 'add to', or 'update': only create steps for the NEW work."
 "  Do NOT repeat steps from previous queries. Only add what is missing."
 
-AVAILABLE AGENTS\n:
-  FILE  -> read files, write files, list directories (.txt, .csv, .md)
-  DB    -> run SQL queries, create tables, insert small amounts of data (<50 rows)
-  CODE  -> generate large datasets (50+ rows) programmatically and insert via Python
-  CODE  -> write AND execute Python code in one step. Never split writing and running into separate steps
+AVAILABLE AGENTS:
+  FILE  - read files, write files, list directories (.txt, .csv, .md)
+  DB    - run SQL queries, create tables, insert small amounts of data (<50 rows)
+  CODE  - generate large datasets (50+ rows) programmatically and insert via Python
+  CODE  - write AND execute Python code in one step. Never split writing and running into separate steps
 
-RULES\n:
+RULES:
   - Each step must be handled by exactly one agent: FILE, DB, or CODE.
   - Each step's task must be self-contained and reference outputs from previous steps where needed.
   - Only add a FILE save step if the user explicitly says "save", "store", "export", or "write to file".
   - For DB insert steps, always say "CREATE TABLE IF NOT EXISTS ... then INSERT".
   - Output ONLY a valid JSON array. No explanation, no markdown fences.
 
-OUTPUT FORMAT\n:
+OUTPUT FORMAT:
 [
   {"step": 1, "agent": "FILE", "task": "Read the file sales.csv and return its full content."},
   {"step": 2, "agent": "CODE", "task": "Using the CSV data provided, find the top 5 products by revenue."},
@@ -41,7 +41,7 @@ OUTPUT FORMAT\n:
 
 
 def parse_plan(raw: str) -> list:
-    # strip markdown fences if model wrapped in ```json
+    # strip markdown 
     raw = re.sub(r"```(?:json)?", "", raw).strip().rstrip("`").strip()
 
     try:
@@ -68,7 +68,7 @@ async def run_pipeline():
     planner_client = LLMclient().llmclient  
     tool_client    = ToolLLMclient().llmclient
 
-    # planner decides which agents to call and in what order
+    # planner deciding
     planner = AssistantAgent(
         name="planner",
         system_message=PLANNER_PROMPT,
@@ -76,7 +76,7 @@ async def run_pipeline():
         model_context=BufferedChatCompletionContext(buffer_size=10),
     )
 
-    # tool agents — each has real tools registered
+    # tool agents 
     agents = {
         "FILE": get_file_agent(tool_client),
         "DB":   get_db_agent(tool_client),
@@ -100,7 +100,7 @@ async def run_pipeline():
             print("[Shutting down]")
             break
 
-        #  1 - planner figures out what needs to happen
+        #  planner figure what needs to happen 
         print("\n[Planner] Thinking...")
         planner_resp = await planner.on_messages(
             [TextMessage(content=user_input, source="user")],

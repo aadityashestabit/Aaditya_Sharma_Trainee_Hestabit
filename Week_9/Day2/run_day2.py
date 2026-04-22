@@ -16,7 +16,6 @@ from agents.validator_agent import get_validator
 MAX_PARALLEL_WORKERS = 3
 
 
-# removes markdown format 
 def strip_markdown(text):
     text = re.sub(r'\*{1,3}(.*?)\*{1,3}', r'\1', text)
     text = re.sub(r'^#{1,6}\s+', '', text, flags=re.MULTILINE)
@@ -25,7 +24,6 @@ def strip_markdown(text):
     return text.strip()
 
 
-# calls any agent and retries if rate limit is hit
 async def call_agent(agent, message):
     for attempt in range(3):
         try:
@@ -49,7 +47,7 @@ async def run_pipeline(user_query):
     client  = LLMclient().llmclient
     planner = Planner(client, worker_limit=MAX_PARALLEL_WORKERS * 2)
 
-    # step 1 — planner builds the execution plan
+    # 1 — planner builds the execution plan
     print("\n[Planner] Building execution plan...")
     try:
         plan = await planner.run(user_query)
@@ -71,7 +69,7 @@ async def run_pipeline(user_query):
         print(f"│       depends on: {deps}")
     print(f"└── [Execution Started]")
 
-    # step 2 — execute the DAG
+    # 2 — execute the DAG
     completed = {}                                          # stores finished task outputs
     remaining = {t.worker_name: t for t in plan.tasks}     # stores tasks not yet done
     semaphore = asyncio.Semaphore(MAX_PARALLEL_WORKERS)     # limits how many run at once
@@ -119,17 +117,17 @@ async def run_pipeline(user_query):
             del remaining[name]
             print(f"│   └── [{name}] complete ({len(output)} chars)")
 
-    # step 3 — reflection reviews the final task output only
+    #  3 — reflection reviews the final task output only
     print(f"\n├── [Reflection] Reviewing final output...")
     last_output = completed.get(plan.tasks[-1].worker_name, "[No output]")
     ref_output  = await call_agent(get_reflection_agent(client), last_output)
 
-    # step 4 — validator checks output against the original query
+    # 4 — validator checks output against the original query
     print(f"├── [Validator] Checking against original query...")
     val_input = f"Original query: {user_query}\n\nOutput to validate:\n{ref_output}"
     val_text  = await call_agent(get_validator(client), val_input)
 
-    # if validator says PASS — show reflection output, not the verdict
+    # if validator says PASS — show reflection output
     pass_phrases = ["pass", "the output fully", "unchanged", "correct and complete"]
     final = ref_output if any(p in val_text.lower() for p in pass_phrases) else val_text
 

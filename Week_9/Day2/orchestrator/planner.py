@@ -8,7 +8,7 @@ from autogen_core.model_context import BufferedChatCompletionContext
 class Task(BaseModel):
     worker_name: str
     description: str
-    depends_on:  list = []      # empty list by default — means no dependencies
+    depends_on:  list = []      # no dependency by default 
 
 
 # schema — the full plan is just a list of tasks
@@ -21,18 +21,21 @@ class Planner:
     def __init__(self, model_client, worker_limit=5):
         self.agent = AssistantAgent(
             name="planner",
-            system_message=(
-                "You are a Planner Agent. Break the user request into tasks for worker agents.\n\n"
-                "RULES:\n"
-                f"- Maximum {worker_limit} worker tasks total.\n"
-                "- Tasks with no depends_on run in parallel.\n"
-                "- Tasks that need another task output must list it in depends_on.\n"
-                "- Each task must be specific and self-contained.\n"
-                "- worker_name must be unique, lowercase, with underscores.\n\n"
-                "Return ONLY valid JSON matching this exact schema:\n"
-                '{"tasks": [{"worker_name": "...", "description": "...", "depends_on": []}]}\n'
-                "No explanation, no extra text, no markdown."
-            ),
+            system_message=(f"""
+            You are a Planner Agent. Break the user request into tasks for worker agents.
+
+            RULES:
+            - Maximum {worker_limit} worker tasks total.
+            - Tasks with no depends_on run in parallel.
+            - Tasks that need another task output must list it in depends_on.
+            - Each task must be specific and self-contained.
+            - worker_name must be unique, lowercase, with underscores.
+
+            Return ONLY valid JSON matching this exact schema:
+            {{"tasks": [{{"worker_name": "...", "description": "...", "depends_on": []}}]}}
+
+            No explanation, no extra text, no markdown.
+            """),
             model_client=model_client,
             model_context=BufferedChatCompletionContext(buffer_size=10),
         )

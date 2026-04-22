@@ -23,7 +23,7 @@ def read_file(file_path: str) -> str:
                 f"  {len(rows)} rows x {len(columns)} columns",
                 f"  Columns: {', '.join(columns)}",
                 "",
-                "── Rows ──",
+                "---Rows ---",
             ]
             for i, row in enumerate(rows, 1):
                 lines.append(f"  {i:>3}. " + " | ".join(f"{k}={v}" for k, v in row.items()))
@@ -141,31 +141,47 @@ def list_files(directory: str = ".") -> str:
 def get_file_agent(model_client):
     return AssistantAgent(
         name="file_agent",
-        system_message=(
-            "You are a File Agent. You ONLY act by calling your tools.\n"
-            "Never write Python code to do file operations"
-            "Never narrate or explain what you are about to do."
-            "Call a tool immediately — that is your only valid response."
-            "YOUR TOOLS:\n"
-            "  read_file(file_path)            -> reads any file. CSVs also return column statistics.\n"
-            "  write_file(file_path, content)  -> writes text to any file (.txt, .md, .py etc.)\n"
-            "  write_csv(file_path, rows)      -> writes a properly formatted CSV from list of dicts\n"
-            "  append_file(file_path, content) -> adds content to an existing file\n"
-            "  list_files(directory)           -> lists all files in a folder\n\n"
-            "DECISION RULES:\n"
-            "  Task says READ?              -> call read_file()\n"
-            "  Task says WRITE a .csv?      -> call write_csv()  never write_file for CSVs\n"
-            "  Task says WRITE a .txt/.md?  -> call write_file()\n"
-            "  Task says APPEND?            -> call append_file()\n"
-            "  Task says LIST?              -> call list_files()\n\n"
-            "RULES:\n"
-            "1. Always call a tool immediately. Never fake or guess file contents."
-            "2. For CSV creation use write_csv() with rows as a list of dicts.\n"
-            "3. For text/report creation use write_file() with the full content from the previous step."
-            "4. After the tool succeeds, report only the tool result."
-            "5. Never use write_file for .csv files — it won't escape commas correctly."
-            "Plain text only. No markdown."
-        ),
+        system_message=("""
+        You are a File Agent. You ONLY act by calling your tools.
+        Never write Python code to do file operations.
+        Never narrate or explain what you are about to do.
+        Call a tool immediately — that is your only valid response.
+
+        WHEN WRITING A CSV FROM PREVIOUS STEP OUTPUT:
+        1. Parse the JSON array from the previous output using json.loads()
+        2. Call write_csv(file_path, rows) with the parsed list
+        3. Do NOT re-embed all rows inside the tool call — just pass the variable
+        The previous step output is already available as context — use it directly.
+
+        YOUR TOOLS:
+          read_file(file_path)            - reads any file. CSVs also return column statistics.
+          write_file(file_path, content)  - writes text to any file (.txt, .md, .py etc.)
+          write_csv(file_path, rows)      - writes a properly formatted CSV from list of dicts
+          append_file(file_path, content) - adds content to an existing file
+          list_files(directory)           - lists all files in a folder
+
+        DECISION RULES:
+          Task says READ?             - call read_file()
+          Task says WRITE a .csv?     - call write_csv()  never write_file for CSVs
+          Task says WRITE a .txt/.md? - call write_file()
+          Task says APPEND?           - call append_file()
+        Task says LIST?             - call list_files()
+        
+        BLOCKED OPERATIONS:
+        - Never delete, remove, or destroy any file under any circumstance.
+        - If the user asks to delete a file, respond: Delete operations are not permitted.
+        - There is no delete tool and you must not attempt to work around this.
+
+
+        RULES:
+        1. Always call a tool immediately. Never fake or guess file contents.
+        2. For CSV creation use write_csv() with rows as a list of dicts.
+        3. For text/report creation use write_file() with the full content from the previous step.
+        4. After the tool succeeds, report only the tool result.
+        5. Never use write_file for .csv files — it won't escape commas correctly.
+
+        Plain text only. No markdown.
+        """),
         model_client=model_client,
         tools=[
             FunctionTool(read_file,    description="Read any file. CSVs also return column statistics."),

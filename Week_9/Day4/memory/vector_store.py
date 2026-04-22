@@ -26,7 +26,7 @@ class FaissVectorStore:
     ):
         self.index_path = index_path
         self.metadata_path = metadata_path
-        self.metadata = []   # stores text + extra info alongside each vector
+        self.metadata = []   
         self.index = None
         self.encoder = None
 

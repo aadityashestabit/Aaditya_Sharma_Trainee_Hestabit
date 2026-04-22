@@ -51,7 +51,7 @@ class SessionMemory:
             conn.commit()
 
     def search_facts(self, query: str, limit: int = 5) -> list:
-        # simple keyword search — splits query into words and looks for any match
+        # simple keyword search
         words = [w.lower() for w in query.split() if len(w) > 3]
         if not words:
             return []
@@ -71,8 +71,6 @@ class SessionMemory:
         return "\n".join(f"- {f}" for f in facts)
 
     def extract_important_facts(self, text: str) -> list:
-        # pull out sentences that look like they contain useful persistent info
-        # looks for patterns like "my name is", "I am", "I work at" etc.
         important_patterns = [
             r"my name is .+",
             r"i am .+",
@@ -90,7 +88,6 @@ class SessionMemory:
         for pattern in important_patterns:
             matches = re.findall(pattern, text_lower)
             for match in matches:
-                # capitalise and clean up
                 fact = match.strip().capitalize()
                 if len(fact) > 10:  # skip very short matches
                     facts.append(fact)

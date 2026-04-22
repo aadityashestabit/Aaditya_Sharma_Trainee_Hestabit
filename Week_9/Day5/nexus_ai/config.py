@@ -19,7 +19,7 @@ AGENT_ROSTER = {
 
 MAX_PLAN_STEPS = 10
 
-# switch between "ollama" and "groq"
+#"ollama" and "groq"
 ACTIVE_PROVIDER = "ollama"
 
 

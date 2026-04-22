@@ -16,7 +16,7 @@ from memory.session_memory import SessionMemory
 from memory.vector_store import FaissVectorStore
 
 
-#  logging setup 
+#  logging
 
 os.makedirs("logs", exist_ok=True)
 os.makedirs("memory", exist_ok=True)
@@ -30,7 +30,8 @@ logging.basicConfig(
         logging.FileHandler(log_file),
     ]
 )
-# suppress noisy autogen and httpx logs from terminal
+
+# suppress extra logs
 logging.getLogger("httpx").setLevel(logging.WARNING)
 logging.getLogger("autogen_core").setLevel(logging.WARNING)
 
@@ -96,7 +97,7 @@ def build_memory_context(recent: str, facts: str, vectors: str) -> str:
 async def run_nexus(user_query: str, session: SessionMemory, vector_store: FaissVectorStore):
     logger.info(f"New query: {user_query}")
 
-    # step 1 — retrieve from all 3 memory stores before doing anything
+    # 1 — retrieve from all 3 memory stores before doing anything
     fact_hits    = session.search_facts(user_query, limit=5)
     vector_hits  = vector_store.search(user_query, k=3)
     recent       = session.format_recent_context()
@@ -117,7 +118,7 @@ async def run_nexus(user_query: str, session: SessionMemory, vector_store: Faiss
     worker_client  = get_model_client()
     tool_client = get_tool_client()
 
-    # step 2 — orchestrator creates the dynamic plan
+    # 2 — orchestrator creates the dynamic plan
     orchestrator = get_orchestrator(planner_client)
 
     logger.info("Orchestrator planning...")
@@ -134,7 +135,7 @@ async def run_nexus(user_query: str, session: SessionMemory, vector_store: Faiss
 
     print_execution_tree(user_query, plan)
 
-    # step 3 — run each agent in order, passing all previous outputs forward
+    # 3 — run each agent in order, passing all previous outputs forward
     all_outputs = []
 
     for step in plan:

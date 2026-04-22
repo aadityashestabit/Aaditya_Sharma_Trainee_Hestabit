@@ -19,9 +19,24 @@ IMPORT_TO_PIP = {
     "dateutil": "python-dateutil",
 }
 
+BLOCKED_PATTERNS = [
+    r'os\.remove\s*\(',
+    r'os\.unlink\s*\(',
+    r'shutil\.rmtree\s*\(',
+    r'shutil\.move\s*\(',
+    r'os\.rmdir\s*\(',
+    r'subprocess.*rm\s',
+    r'subprocess.*del\s',
+]
+
+def _is_dangerous(code: str) -> bool:
+    for pattern in BLOCKED_PATTERNS:
+        if re.search(pattern, code, re.IGNORECASE):
+            return True
+    return False
+
 
 def _extract_imports(code: str) -> list:
-    # pull out the top-level package name from every import/from line
     pattern = re.compile(
         r'^\s*(?:import|from)\s+([a-zA-Z_][a-zA-Z0-9_]*)', re.MULTILINE
     )
@@ -34,7 +49,6 @@ def _extract_imports(code: str) -> list:
 
 
 def _auto_install(code: str) -> None:
-    # try importing each package — install it if missing
     for name in _extract_imports(code):
         try:
             __import__(name)
@@ -55,11 +69,13 @@ def _auto_install(code: str) -> None:
 
 
 def run_python(code: str) -> str:
-    # auto-install any missing packages before running
+    
+    if _is_dangerous(code):
+        return "[Error] Code contains a blocked operation (delete/remove). Execution refused."
     _auto_install(code)
     
     import textwrap
-    code = textwrap.dedent(code).strip()
+    code = textwrap.dedent(code).strip() #indent
     
     tmp_path = None
     try:
@@ -100,38 +116,46 @@ def run_python(code: str) -> str:
 def get_code_agent(model_client):
     return AssistantAgent(
         name="code_agent",
-        system_message=(
-            "You are a Code Agent. You write and execute Python code to solve tasks.\n"
-            "You MUST call run_python() to execute the code.\n"
-            "Do NOT write code as text. Do NOT explain the code.\n"
-            "ONLY call the run_python tool with the complete code.\n"
-            "Always write code on MULTIPLE LINES with proper indentation.\n"
-            "Never put multiple statements on one line using semicolons.\n"
-            "Functions, loops, and if statements must always be on separate indented lines.\n"
-            "YOUR TOOL: run_python(code) — runs Python in a subprocess. Auto-installs missing packages.\n\n"
-            "RULES:\n"
-            "- Always call run_python() — never skip execution.\n"
-            "- Write COMPLETE runnable code with all imports included.\n"
-            "- Use print() for every result — that is the only thing captured in output.\n"
-            "- You can use any library: pandas, numpy, csv, statistics etc. Missing ones are installed automatically.\n"
-            "- If execution fails, read the error, fix the code, and retry.\n"
-            "- Never use placeholders or '...' in the code.\n\n"
-            "CSV OUTPUT RULE:\n"
-            "- Use print() for every result — that is the only thing captured.\n"
-            "- If execution fails, read the error, fix the code, and call run_python() again.\n"
-            "- Never use placeholders or '...' in the code.\n\n"
-            "If the task produces data that a later step will save as CSV, always print the full dataset as a JSON array:\n"
-            "  import json\n"
-            "  rows = [{'col1': val1, 'col2': val2}, ...]\n"
-            "  print(json.dumps(rows))\n"
-            "Never truncate with head() when the data will be saved.\n\n"
-            "RESPONSE RULES:\n"
-            "- User asked to show/write/display code → include [CODE] and [OUTPUT] in reply.\n"
-            "- User asked to run/calculate/analyse → include only [OUTPUT] in reply.\n"
-            "- A later step needs to save the code to a file → always include [CODE] so FILE agent can write it.\n"
-            "- When in doubt, include both.\n"
-            "Plain text only. No markdown."
-        ),
+        system_message=("""
+        You are a Code Agent. Your ONLY job is to call run_python() immediately.
+        Do NOT write markdown. Do NOT write ## steps. Do NOT use code blocks.
+        Do NOT explain anything. Do NOT narrate. Just call the tool.
+
+        YOUR TOOL: run_python(code) — executes Python in a real subprocess.
+        Missing packages are auto-installed before running.
+
+        RULES:
+        1. Always call run_python() — never skip execution.
+        2. Write COMPLETE runnable code — all imports must be at the top.
+        3. Always write code on MULTIPLE LINES with proper indentation.
+           Never put multiple statements on one line using semicolons.
+           Functions, loops, and if statements must always be on separate indented lines.
+        4. Use print() for every result — that is the only thing captured in output.
+        5. Never use placeholders like '...' or 'pass' in the code.
+        6. If execution fails — read the error, fix the code, call run_python() again.
+        7. For charts always use plt.savefig('filename.png') — never plt.show().
+           plt.show() hangs in terminal. Always call plt.close() after saving.
+
+        IF THE TASK SAYS save code / write code to a file / create a script:
+           Do NOT execute the code.
+           Print the code as a plain string so FILE agent can save it.
+           Example: print(code_string)
+
+        IF A LATER STEP WILL SAVE THE OUTPUT AS CSV:
+           Always print the full dataset as a JSON array — never truncate.
+           Example:
+             import json
+             rows = [{'col1': val1, 'col2': val2}, ...]
+             print(json.dumps(rows))
+
+        RESPONSE FORMAT:
+        - Task says show/write/display code    - include [CODE] and [OUTPUT]
+        - Task says run/calculate/analyse      - include only [OUTPUT]
+        - A later step needs to save the code  - always include [CODE]
+        - When in doubt                        - include both
+
+        Plain text only. No markdown. No asterisks. No headers. Just call the tool.
+        """),
         model_client=model_client,
         tools=[
             FunctionTool(run_python, description="Execute Python code and return the code and its output"),

@@ -6,13 +6,22 @@ def get_validator(model_client):
     return AssistantAgent(
         name="validator",
         system_message=(
-            "You are a Validator Agent. Check if the output fully answers the original query."
-            "If it is complete and accurate — return it unchanged."
-            "If something critical is missing — add it and return the improved version."
-            "Do not nitpick minor style issues. Plain text only. No markdown."
-            "If the output is complete and accurate — reply with only the word PASS."
-            "If something is missing — fix it and return the complete corrected version."
-            "Never write a review of the output. Either PASS or return the improved version."
+            """
+            You are a Validator Agent. Check if the output fully answers the original query.
+            
+            If it is complete and accurate — return it unchanged.
+            
+            If something critical is missing — add it and return the improved version.
+            
+            Do not nitpick minor style issues. Plain text only. No markdown.
+            
+            If the output is complete and accurate — reply with only the word PASS.
+            
+            If something is missing — fix it and return the complete corrected version.
+            
+            Never write a review of the output. Either PASS or return the improved version
+            """
+            
         ),
         model_client=model_client,
         model_context=BufferedChatCompletionContext(buffer_size=10),
