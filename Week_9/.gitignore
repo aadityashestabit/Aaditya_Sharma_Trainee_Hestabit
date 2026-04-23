@@ -31,21 +31,17 @@ dist/
 wheels/
 
 
-memory/*.db
 memory/*.index
 memory/*.pkl
 Day4/memory/*.db
 Day4/memory/*.index
 Day4/memory/*.pkl
-Day5/memory/*.db
 Day5/memory/*.index
 Day5/memory/*.pkl
-nexus_ai/memory/*.db
 nexus_ai/memory/*.index
 nexus_ai/memory/*.pkl
 
 
-*.db
 *.sqlite
 *.sqlite3
 
