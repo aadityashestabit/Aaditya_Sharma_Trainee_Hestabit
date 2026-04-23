@@ -1,0 +1,43 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+
+
+venv/
+venv_agent/
+.venv/
+env/
+
+
+*.bin
+*.safetensors
+*.gguf
+*.ggml
+
+
+memory/
+*.index
+*.pkl
+*.db
+
+# Datasets
+*.csv
+*.jsonl
+
+# Git
+.git/
+.gitignore
+
+
+.env
+.env.*
+
+
+.DS_Store
+Thumbs.db
+
+
+.vscode/
+.idea/
