@@ -1,33 +1,13 @@
-# Week 3 - NEXTJS and TAILWINDCSS
+# UI-COMPONENT-DOCS
 
-## Create Next App
+## This file contains the implementation and usage of UI components made during Day 3 of the Week 3 
 
-### Tasks Performed
-
-1. Installed Next.js in my local system using `npm create-next-app@latest`.
-2. Initialized Next.js in JavaScript with Tailwind CSS and ESLint.
-3. Understood the folder structure of Next.js.
-
----
-
-### New Learnings
-
-- Next.js routing is done through folders — folder name becomes route name.  
-  Example: `/Dashboard/page.js` becomes `https://xyz.com/dashboard`.
-
-- For nested routing, nested directories are used.  
-  Example: `/Product/Reviews` becomes `https://xyz.com/products/reviews`.
-
-- Got introduced to:
-  - Client Components
-  - Server Components
-
-- Learned about:
-  - Image and Text Optimization using `Image` and `Link` components.
-  - Server Side Rendering (SSR)
-  - Static Site Generation (SSG)
-
----
+### It contains the following components 
+1. Badge.jsx
+2. Input.jsx
+3. Card.jsx
+4. Button.jsx
+5. Modal.jsx
 
 ## UI Implementation
 
@@ -249,17 +229,4 @@ These are the final pages made during Week3 with nextjs and tailwindcss
 |**SignUp Page**|
 |-----------------|
 |![SignUp Page](https://github.com/aadityashestabit/Aaditya_Sharma_Trainee_Hestabit/blob/main/images/Sign_up_page.png)|
----
-
-
-# Summary
-
-During Week 3:
-
-- Learned core concepts of Next.js routing and rendering.
-- Understood SSR and SSG.
-- Built modular and reusable components using Tailwind CSS.
-- Followed structured UI design implementation.
-- Improved component reusability and layout architecture.
-
 ---
