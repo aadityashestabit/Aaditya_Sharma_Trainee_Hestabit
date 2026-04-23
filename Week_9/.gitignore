@@ -32,8 +32,7 @@ wheels/
 
 
 memory/*.index
-memory/*.pkl
-Day4/memory/*.db
+memory/*.pklga
 Day4/memory/*.index
 Day4/memory/*.pkl
 Day5/memory/*.index
