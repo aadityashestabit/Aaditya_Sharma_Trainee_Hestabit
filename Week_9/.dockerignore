@@ -1,4 +1,4 @@
-# Python cache
+
 __pycache__/
 *.py[cod]
 *.pyo
@@ -22,11 +22,11 @@ memory/
 *.pkl
 *.db
 
-# Datasets
+
 *.csv
 *.jsonl
 
-# Git
+
 .git/
 .gitignore
 

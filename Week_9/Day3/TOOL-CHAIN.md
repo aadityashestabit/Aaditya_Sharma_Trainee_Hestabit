@@ -125,12 +125,12 @@ report.txt exists on disk with the analysis inside
 ```
 Day3/
 ├── tools/
-│   ├── file_agent.py       ← FILE agent with 5 tools
-│   ├── db_agent.py         ← DB agent with inspect_schema + execute_sql
-│   └── code_executor.py    ← CODE agent with run_python + auto-install
-├── loader.py               ← two clients: planner and tool agents
-├── run_day3.py             ← sequential pipeline with context injection
-└── TOOL-CHAIN.md           ← this file
+│   ├── file_agent.py       
+│   ├── db_agent.py         
+│   └── code_executor.py  
+├── loader.py               
+├── run_day3.py             
+└── TOOL-CHAIN.md          
 ```
 
 ---
