@@ -2,8 +2,9 @@
 **pycache**/
 *.py[cod]
 *$py.class
-
+# Allow LoRA adapter files
 *.safetensors
+!Day2/adapters/adapter_model.safetensors
 venv/
 .env/
 .venv/
