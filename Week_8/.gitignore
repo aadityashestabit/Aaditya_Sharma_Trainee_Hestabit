@@ -24,7 +24,7 @@ model.yaml
 secrets.yaml
 
 
-/data
+
 *.pt
 *.pth
 *.ckpt
@@ -40,7 +40,6 @@ hf_cache/
 
 # Large datasets
 
-data/
 datasets/
 *.tsv
 *.parquet
